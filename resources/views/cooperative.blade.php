@@ -20,6 +20,7 @@
             font-family:'Segoe UI',sans-serif;
         }
 
+        /* SIDEBAR */
         .sidebar{
             min-height:100vh;
             background:linear-gradient(180deg,var(--navy),var(--navy2));
@@ -51,6 +52,7 @@
             transform:translateX(5px);
         }
 
+        /* CARDS */
         .card{
             border:none;
             border-radius:20px;
@@ -77,6 +79,7 @@
             color:white;
         }
 
+        /* TABLE */
         .table-box{
             background:white;
             border-radius:20px;
@@ -101,10 +104,10 @@
         <div class="logo">CBED</div>
 
         <div class="menu">
-            <a href="{{ route('dashboard') }}"><i class="fa fa-home"></i> Dashboard</a>
-            <a href="{{ route('farmer') }}"><i class="fa fa-users"></i> Farmer</a>
-            <a href="{{ route('cooperative') }}"><i class="fa fa-building"></i> Cooperative</a>
-            <a href="{{ route('carabao') }}"><i class="fa fa-cow"></i> Carabao</a>
+            <a href="#"><i class="fa fa-home"></i> Dashboard</a>
+            <a href="#"><i class="fa fa-users"></i> Farmer</a>
+            <a href="#"><i class="fa fa-building"></i> Cooperative</a>
+            <a href="#"><i class="fa fa-cow"></i> Carabao</a>
             <a href="#"><i class="fa fa-chart-line"></i> Reports</a>
         </div>
     </div>
@@ -112,12 +115,9 @@
     <!-- CONTENT -->
     <div class="col-lg-10 p-4">
 
-        <!-- HEADER -->
-        <div class="d-flex justify-content-between align-items-center mb-4">
-            <h3 class="page-title">Cooperative Dashboard</h3>
-        </div>
+        <h3 class="page-title mb-4">Cooperative Dashboard</h3>
 
-        <!-- 3 MAIN CARDS -->
+        <!-- 3 CARDS -->
         <div class="row g-4 mb-4">
 
             <div class="col-md-4">
@@ -143,97 +143,53 @@
 
         </div>
 
-        <!-- 🌍 REGION 3 -->
+        <!-- REGION 3 -->
         <h5 class="mb-3">Region 3 - Cooperatives per Province</h5>
 
-        <div class="card p-4 mb-4" style="border-radius:20px;">
-
+        <div class="card p-4 mb-4">
             <div class="row g-4">
 
-                <div class="col-md-3">
-                    <div class="province-card p-3 text-center">
-                        <h6>Pampanga</h6>
-                        <h4 class="text-primary">12</h4>
-                        <small>Cooperatives</small>
-                    </div>
-                </div>
-
-                <div class="col-md-3">
-                    <div class="province-card p-3 text-center">
-                        <h6>Bataan</h6>
-                        <h4 class="text-primary">8</h4>
-                        <small>Cooperatives</small>
-                    </div>
-                </div>
-
-                <div class="col-md-3">
-                    <div class="province-card p-3 text-center">
-                        <h6>Bulacan</h6>
-                        <h4 class="text-primary">18</h4>
-                        <small>Cooperatives</small>
-                    </div>
-                </div>
-
-                <div class="col-md-3">
-                    <div class="province-card p-3 text-center">
-                        <h6>Nueva Ecija</h6>
-                        <h4 class="text-primary">22</h4>
-                        <small>Cooperatives</small>
-                    </div>
-                </div>
-
-                <div class="col-md-3">
-                    <div class="province-card p-3 text-center">
-                        <h6>Tarlac</h6>
-                        <h4 class="text-primary">10</h4>
-                        <small>Cooperatives</small>
-                    </div>
-                </div>
-
-                <div class="col-md-3">
-                    <div class="province-card p-3 text-center">
-                        <h6>Zambales</h6>
-                        <h4 class="text-primary">6</h4>
-                        <small>Cooperatives</small>
-                    </div>
-                </div>
-
-                <div class="col-md-3">
-                    <div class="province-card p-3 text-center">
-                        <h6>Angeles City</h6>
-                        <h4 class="text-primary">4</h4>
-                        <small>Cooperatives</small>
-                    </div>
-                </div>
-
-                <div class="col-md-3">
-                    <div class="province-card p-3 text-center">
-                        <h6>Nueva Vizcaya</h6>
-                        <h4 class="text-primary">7</h4>
-                        <small>Cooperatives</small>
-                    </div>
-                </div>
+                <div class="col-md-3"><div class="province-card p-3 text-center"><h6>Pampanga</h6><h4>12</h4></div></div>
+                <div class="col-md-3"><div class="province-card p-3 text-center"><h6>Bataan</h6><h4>8</h4></div></div>
+                <div class="col-md-3"><div class="province-card p-3 text-center"><h6>Bulacan</h6><h4>18</h4></div></div>
+                <div class="col-md-3"><div class="province-card p-3 text-center"><h6>Nueva Ecija</h6><h4>22</h4></div></div>
+                <div class="col-md-3"><div class="province-card p-3 text-center"><h6>Tarlac</h6><h4>10</h4></div></div>
+                <div class="col-md-3"><div class="province-card p-3 text-center"><h6>Zambales</h6><h4>6</h4></div></div>
+                <div class="col-md-3"><div class="province-card p-3 text-center"><h6>Angeles City</h6><h4>4</h4></div></div>
+                <div class="col-md-3"><div class="province-card p-3 text-center"><h6>Nueva Vizcaya</h6><h4>7</h4></div></div>
 
             </div>
-
         </div>
 
         <!-- TABLE -->
         <div class="table-box">
 
-            <h4 class="mb-3">Cooperative List</h4>
+            <!-- HEADER ROW -->
+            <div class="d-flex justify-content-between align-items-center mb-3">
+
+                <h4 class="mb-0">Cooperative List</h4>
+
+                <!-- ADD BUTTON (OFFCANVAS) -->
+                <button class="btn btn-primary"
+                        data-bs-toggle="offcanvas"
+                        data-bs-target="#addCoopOffcanvas">
+                    <i class="fa fa-plus me-1"></i> Add Cooperative
+                </button>
+
+            </div>
 
             <table class="table table-hover">
                 <thead>
                     <tr>
                         <th>ID</th>
-                        <th>Cooperative Name</th>
+                        <th>Name</th>
                         <th>Herd Code</th>
                         <th>Province</th>
                         <th>Municipality</th>
                         <th>Barangay</th>
                         <th>Year</th>
                         <th>Status</th>
+                        <th>Action</th>
                     </tr>
                 </thead>
 
@@ -241,23 +197,19 @@
                     <tr>
                         <td>1</td>
                         <td>Agri Coop 1</td>
-                        <td>Agri Coop 1</td>
-                        <td>Agri Coop 1</td>
-                        <td>Agri Coop 1</td>
+                        <td>AC-001</td>
                         <td>Pampanga</td>
+                        <td>San Fernando</td>
+                        <td>Brgy 1</td>
                         <td>2026</td>
                         <td><span class="badge bg-success">Active</span></td>
-                    </tr>
-
-                    <tr>
-                        <td>2</td>
-                        <td>Dairy Coop 2</td>
-                        <td>Dairy Coop 2</td>
-                        <td>Dairy Coop 2</td>
-                        <td>Dairy Coop 2</td>
-                        <td>Bulacan</td>
-                        <td>2025</td>
-                        <td><span class="badge bg-warning text-dark">Pending</span></td>
+                        <td>
+                            <button class="btn btn-sm btn-primary"
+                                data-bs-toggle="offcanvas"
+                                data-bs-target="#coopOffcanvas">
+                                View
+                            </button>
+                        </td>
                     </tr>
                 </tbody>
             </table>
@@ -267,6 +219,107 @@
     </div>
 </div>
 </div>
+
+<!-- VIEW OFFCANVAS -->
+<div class="offcanvas offcanvas-end" tabindex="-1" id="coopOffcanvas">
+
+    <div class="offcanvas-header">
+        <h5 class="offcanvas-title">Cooperative Details</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+    </div>
+
+    <div class="offcanvas-body">
+
+        <div class="card p-3 mb-3">
+            <h6>Name</h6>
+            <p>Agri Coop 1</p>
+        </div>
+
+        <div class="card p-3 mb-3">
+            <h6>Herd Code</h6>
+            <p>AC-001</p>
+        </div>
+
+        <div class="card p-3 mb-3">
+            <h6>Location</h6>
+            <p>Pampanga - San Fernando</p>
+        </div>
+
+        <div class="card p-3 mb-3">
+            <h6>Status</h6>
+            <span class="badge bg-success">Active</span>
+        </div>
+
+    </div>
+</div>
+
+<!-- ADD OFFCANVAS -->
+<div class="offcanvas offcanvas-end" tabindex="-1" id="addCoopOffcanvas">
+
+    <div class="offcanvas-header">
+        <h5 class="offcanvas-title">Add Cooperative</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+    </div>
+
+    <div class="offcanvas-body">
+
+        <form>
+
+            <div class="mb-3">
+                <label class="form-label">Cooperative Name</label>
+                <input type="text" class="form-control">
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Herd Code</label>
+                <input type="text" class="form-control">
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Province</label>
+                <select class="form-select">
+                    <option>Pampanga</option>
+                    <option>Bataan</option>
+                    <option>Bulacan</option>
+                    <option>Nueva Ecija</option>
+                    <option>Tarlac</option>
+                    <option>Zambales</option>
+                    <option>Angeles City</option>
+                    <option>Nueva Vizcaya</option>
+                </select>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Municipality</label>
+                <input type="text" class="form-control">
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Barangay</label>
+                <input type="text" class="form-control">
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Year</label>
+                <input type="number" class="form-control" value="2026">
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Status</label>
+                <select class="form-select">
+                    <option>Active</option>
+                    <option>Pending</option>
+                </select>
+            </div>
+
+            <button class="btn btn-success w-100">Save Cooperative</button>
+
+        </form>
+
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
 
 </body>
 </html>

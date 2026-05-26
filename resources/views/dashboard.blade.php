@@ -102,11 +102,11 @@ body{
         <div class="col-lg-2 sidebar">
             <div class="logo">CBED</div>
             <div class="menu">
-                <a href="#"><i class="fa fa-home me-2"></i> Dashboard</a>
-                <a href="#"><i class="fa fa-users me-2"></i> Farmers</a>
-                <a href="#"><i class="fa fa-warehouse me-2"></i> Cooperatives</a>
-                <a href="#"><i class="fa fa-cow me-2"></i> Carabao</a>
-                <a href="#"><i class="fa fa-chart-line me-2"></i> Reports</a>
+                <a href="{{ route('dashboard') }}"><i class="fa fa-home"></i> Dashboard</a>
+                <a href="{{ route('farmer') }}"><i class="fa fa-users"></i> Farmer</a>
+                <a href="{{ route('cooperative') }}"><i class="fa fa-building"></i> Cooperative</a>
+                <a href="{{ route('carabao') }}"><i class="fa fa-cow"></i> Carabao</a>
+                <a href="#"><i class="fa fa-chart-line"></i> Reports</a>
             </div>
         </div>
 
