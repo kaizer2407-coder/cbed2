@@ -26,6 +26,10 @@ Route::get('/farmer', function () {
     return view('farmer');
 })->name('farmer');
 
+Route::get('/fprofile', function () {
+    return view('fprofile');
+})->name('fprofile');
+
 Route::get('/cooperative', function () {
     return view('cooperative');
 })->name('cooperative');

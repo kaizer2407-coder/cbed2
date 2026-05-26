@@ -207,7 +207,11 @@ body{
             <tbody>
                 <tr>
                     <td>1</td>
-                    <td>Agri Coop 1</td>
+                    <td>
+                        <a href="{{ url('/coop-profile') }}" class="text-primary text-decoration-none fw-semibold">
+                         Cooperative 1
+                        </a>
+                    </td>
                     <td>AC-001</td>
                     <td>Pampanga</td>
                     <td>San Fernando</td>

@@ -239,7 +239,11 @@ body{
 
                     <tr>
                         <td>1</td>
-                        <td>Juan Dela Cruz</td>
+                        <td>
+                            <a href="{{ route('fprofile') }}" class="text-primary text-decoration-none fw-semibold">
+                                Juan Dela Cruz
+                            </a>
+                        </td>
                         <td>FRM-001</td>
                         <td>Pampanga</td>
                         <td>San Fernando</td>
