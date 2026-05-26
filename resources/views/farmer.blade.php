@@ -13,7 +13,6 @@
             --navy:#083d6f;
             --navy2:#0d4f8b;
             --bg:#f4f7fb;
-            --white:#fff;
         }
 
         body{
@@ -21,7 +20,6 @@
             font-family:'Segoe UI',sans-serif;
         }
 
-        /* SIDEBAR */
         .sidebar{
             min-height:100vh;
             background:linear-gradient(180deg,var(--navy),var(--navy2));
@@ -44,23 +42,39 @@
             border-radius:12px;
             margin-bottom:10px;
             transition:.3s;
-            font-weight:500;
         }
 
-        .menu a i{
-            margin-right:10px;
-        }
+        .menu a i{ margin-right:10px; }
 
         .menu a:hover{
             background:rgba(255,255,255,.15);
             transform:translateX(5px);
         }
 
-        /* CONTENT */
         .card{
             border:none;
             border-radius:20px;
             box-shadow:0 8px 25px rgba(0,0,0,.08);
+        }
+
+        .stat-card{
+            border:none;
+            border-radius:18px;
+            box-shadow:0 6px 20px rgba(0,0,0,.08);
+        }
+
+        .province-card{
+            border:none;
+            border-radius:18px;
+            background:#fff;
+            box-shadow:0 6px 18px rgba(0,0,0,.08);
+            transition:.3s;
+        }
+
+        .province-card:hover{
+            transform:translateY(-5px);
+            background:var(--navy);
+            color:white;
         }
 
         .table-box{
@@ -80,119 +94,178 @@
 <body>
 
 <div class="container-fluid">
-    <div class="row">
+<div class="row">
 
-        <!-- SIDEBAR -->
-        <div class="col-lg-2 sidebar">
-            <div class="logo">CBED</div>
+    <!-- SIDEBAR -->
+    <div class="col-lg-2 sidebar">
+        <div class="logo">CBED</div>
 
-            <div class="menu">
-                <a href="{{ route('dashboard') }}"><i class="fa fa-home"></i> Dashboard</a>
-                <a href="{{ route('farmer') }}"><i class="fa fa-users"></i> Farmer</a>
-                <a href="{{ route('cooperative') }}"><i class="fa fa-building"></i> Cooperative</a>
-                <a href="{{ route('carabao') }}"><i class="fa fa-cow"></i> Carabao</a>
-                <a href="#"><i class="fa fa-chart-line"></i> Reports</a>
-            </div>
-        </div>
-
-        <!-- CONTENT -->
-        <div class="col-lg-10 p-4">
-
-            <!-- HEADER -->
-            <div class="d-flex justify-content-between align-items-center mb-4 flex-wrap gap-3">
-                <h3 class="page-title mb-0">Farmer Dashboard</h3>
-
-                <!-- YEAR FILTER -->
-                <form method="GET">
-                    <select name="year" class="form-select" onchange="this.form.submit()">
-                        <option value="">Select Year</option>
-                        @for ($year = date('Y'); $year >= 2000; $year--)
-                            <option value="{{ $year }}" {{ request('year') == $year ? 'selected' : '' }}>
-                                {{ $year }}
-                            </option>
-                        @endfor
-                    </select>
-                </form>
-            </div>
-
-            <!-- STATS -->
-            <div class="row g-4 mb-4">
-                <div class="col-md-4">
-                    <div class="card p-4 text-center">
-                        <h3>120</h3>
-                        <p>Male Farmers</p>
-                    </div>
-                </div>
-
-                <div class="col-md-4">
-                    <div class="card p-4 text-center">
-                        <h3>250</h3>
-                        <p>Female Farmers</p>
-                    </div>
-                </div>
-
-                <div class="col-md-4">
-                    <div class="card p-4 text-center">
-                        <h3>
-                            {{ request('year') ? 85 : 320 }}
-                        </h3>
-                        <p>Farmers Added {{ request('year') ? 'in ' . request('year') : 'Total' }}</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- TABLE -->
-            <div class="table-box">
-
-                <h4 class="mb-3">
-                    Farmers List
-                    @if(request('year'))
-                        - {{ request('year') }}
-                    @endif
-                </h4>
-
-                <table class="table table-hover">
-                    <thead>
-                        <tr>
-                            <th>ID</th>
-                            <th>Name</th>
-                            <th>Gender</th>
-                            <th>Year Added</th>
-                            <th>Status</th>
-                        </tr>
-                    </thead>
-
-                    <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>Juan Dela Cruz</td>
-                            <td>Male</td>
-                            <td>2026</td>
-                            <td><span class="badge bg-success">Active</span></td>
-                        </tr>
-
-                        <tr>
-                            <td>2</td>
-                            <td>Maria Santos</td>
-                            <td>Female</td>
-                            <td>2025</td>
-                            <td><span class="badge bg-warning text-dark">Pending</span></td>
-                        </tr>
-
-                        <tr>
-                            <td>3</td>
-                            <td>Pedro Reyes</td>
-                            <td>Male</td>
-                            <td>2024</td>
-                            <td><span class="badge bg-primary">Updated</span></td>
-                        </tr>
-                    </tbody>
-                </table>
-
-            </div>
-
+        <div class="menu">
+            <a href="{{ route('dashboard') }}"><i class="fa fa-home"></i> Dashboard</a>
+            <a href="{{ route('farmer') }}"><i class="fa fa-users"></i> Farmer</a>
+            <a href="{{ route('cooperative') }}"><i class="fa fa-building"></i> Cooperative</a>
+            <a href="{{ route('carabao') }}"><i class="fa fa-cow"></i> Carabao</a>
+            <a href="#"><i class="fa fa-chart-line"></i> Reports</a>
         </div>
     </div>
+
+    <!-- CONTENT -->
+    <div class="col-lg-10 p-4">
+
+        <!-- HEADER -->
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <h3 class="page-title">Farmer Dashboard</h3>
+        </div>
+
+        <!-- 3 MAIN CARDS -->
+        <div class="row g-4 mb-4">
+
+            <div class="col-md-4">
+                <div class="card stat-card p-4 text-center">
+                    <h3>1,250</h3>
+                    <p>Total Farmers</p>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card stat-card p-4 text-center">
+                    <h3>820</h3>
+                    <p>Active Farmers</p>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card stat-card p-4 text-center">
+                    <h3>430</h3>
+                    <p>Pending Farmers</p>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- 🌍 REGION 3 -->
+        <h5 class="mb-3">Region 3 - Farmers per Province</h5>
+
+        <div class="card p-4 mb-4">
+
+            <div class="row g-4">
+
+                <div class="col-md-3">
+                    <div class="province-card p-3 text-center">
+                        <h6>Pampanga</h6>
+                        <h4 class="text-primary">220</h4>
+                        <small>Farmers</small>
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="province-card p-3 text-center">
+                        <h6>Bataan</h6>
+                        <h4 class="text-primary">140</h4>
+                        <small>Farmers</small>
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="province-card p-3 text-center">
+                        <h6>Bulacan</h6>
+                        <h4 class="text-primary">310</h4>
+                        <small>Farmers</small>
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="province-card p-3 text-center">
+                        <h6>Nueva Ecija</h6>
+                        <h4 class="text-primary">400</h4>
+                        <small>Farmers</small>
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="province-card p-3 text-center">
+                        <h6>Tarlac</h6>
+                        <h4 class="text-primary">180</h4>
+                        <small>Farmers</small>
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="province-card p-3 text-center">
+                        <h6>Zambales</h6>
+                        <h4 class="text-primary">120</h4>
+                        <small>Farmers</small>
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="province-card p-3 text-center">
+                        <h6>Angeles City</h6>
+                        <h4 class="text-primary">90</h4>
+                        <small>Farmers</small>
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="province-card p-3 text-center">
+                        <h6>Nueva Vizcaya</h6>
+                        <h4 class="text-primary">150</h4>
+                        <small>Farmers</small>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- TABLE -->
+        <div class="table-box">
+
+            <h4 class="mb-3">Farmer List</h4>
+
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Farmer Name</th>
+                        <th>Herd Code</th>
+                        <th>Province</th>
+                        <th>Municipality</th>
+                        <th>Barangay</th>
+                        <th>Year</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>Juan Dela Cruz</td>
+                        <td>FRM-001</td>
+                        <td>Pampanga</td>
+                        <td>San Fernando</td>
+                        <td>Dolores</td>
+                        <td>2026</td>
+                        <td><span class="badge bg-success">Active</span></td>
+                    </tr>
+
+                    <tr>
+                        <td>2</td>
+                        <td>Maria Santos</td>
+                        <td>FRM-002</td>
+                        <td>Bulacan</td>
+                        <td>Malolos</td>
+                        <td>San Vicente</td>
+                        <td>2025</td>
+                        <td><span class="badge bg-warning text-dark">Pending</span></td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+
+    </div>
+</div>
 </div>
 
 </body>
