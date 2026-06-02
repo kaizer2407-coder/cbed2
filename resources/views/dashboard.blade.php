@@ -333,11 +333,6 @@ body{
                     Recent Activity
                 </h4>
 
-                <button class="btn btn-primary">
-                    <i class="fa fa-plus me-1"></i>
-                    Add Activity
-                </button>
-
             </div>
 
             <table class="table table-hover align-middle">
