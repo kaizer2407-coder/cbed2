@@ -138,9 +138,6 @@ body{
     <div class="d-flex justify-content-between align-items-center mb-4">
         <h3 class="text-primary fw-bold">Farmer Account</h3>
 
-        <a href="{{ route('farmer') }}" class="btn btn-secondary">
-            <i class="fa fa-arrow-left me-1"></i> Back
-        </a>
     </div>
 
     <!-- PROFILE -->

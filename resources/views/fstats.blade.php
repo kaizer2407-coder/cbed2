@@ -135,9 +135,6 @@ body{
     <!-- HEADER -->
     <div class="d-flex justify-content-between align-items-center mb-4">
         <h3 class="page-title">Farmer Statistics</h3>
-        <a href="{{ route('fprofile') }}" class="btn btn-secondary">
-            <i class="fa fa-arrow-left me-1"></i> Back
-        </a>
     </div>
 
     <!-- STATS -->
