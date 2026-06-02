@@ -81,3 +81,7 @@ Route::get('/fstats', function () {
 Route::get('/faccount', function () {
     return view('faccount');
 })->name('faccount');
+
+Route::get('/coop-profile', function () {
+    return view('coop-profile');
+})->name('coop-profile');

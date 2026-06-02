@@ -212,7 +212,6 @@ body{
             <h3 class="page-title">Animal Inventory</h3>
         </div>
 
-
         <!-- STATS (CLICKABLE TABS) -->
         <div class="row g-3 mb-4">
 
@@ -245,6 +244,24 @@ body{
                     <i class="fa-solid fa-hand-holding-water fa-2x text-success mb-2"></i>
                     <h5>10</h5>
                     <p class="mb-0 small">Lactating</p>
+                </div>
+            </div>
+
+            <!-- ARTIFICIAL INSEMINATION -->
+            <div class="col">
+                <div class="card stat-card p-3 text-center tab-btn" data-tab="ai">
+                    <i class="fa-solid fa-syringe fa-2x text-danger mb-2"></i>
+                    <h5>12</h5>
+                    <p class="mb-0 small">AI</p>
+                </div>
+            </div>
+
+            <!-- CALF DROP -->
+            <div class="col">
+                <div class="card stat-card p-3 text-center tab-btn" data-tab="calfdrop">
+                    <i class="fa-solid fa-baby-carriage fa-2x text-primary mb-2"></i>
+                    <h5>6</h5>
+                    <p class="mb-0 small">Calf Drop</p>
                 </div>
             </div>
 
@@ -764,6 +781,118 @@ body{
                             </tr>
                         </tbody>
 
+                    </table>
+                </div>
+
+            </div>
+
+            <div id="ai" class="tab-content-item d-none">
+
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <h5>Artificial Insemination Records</h5>
+
+                    <!-- OFFCANVAS BUTTON -->
+                    <button class="btn btn-navy btn-sm"
+                            data-bs-toggle="offcanvas"
+                            data-bs-target="#addAIOffcanvas">
+                        <i class="fa fa-plus me-1"></i> Add AI Record
+                    </button>
+                </div>
+
+                <div class="table-responsive">
+                    <table class="table table-hover align-middle">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Carabao ID</th>
+                                <th>Breed</th>
+                                <th>Insemination Date</th>
+                                <th>Semen Type</th>
+                                <th>Technician</th>
+                                <th>Result</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>5PAN23110</td>
+                                <td>Murrah</td>
+                                <td>01-Jun-26</td>
+                                <td>Frozen</td>
+                                <td>Dr. Santos</td>
+                                <td>Successful</td>
+                                <td><span class="badge bg-success">Pregnant</span></td>
+                            </tr>
+
+                            <tr>
+                                <td>2</td>
+                                <td>5PAN23111</td>
+                                <td>Native</td>
+                                <td>15-May-26</td>
+                                <td>Fresh</td>
+                                <td>Dr. Reyes</td>
+                                <td>Failed</td>
+                                <td><span class="badge bg-danger">Retry</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
+
+            <div id="calfdrop" class="tab-content-item d-none">
+
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <h5>Calf Drop Records</h5>
+
+                    <!-- OFFCANVAS BUTTON -->
+                    <button class="btn btn-navy btn-sm"
+                            data-bs-toggle="offcanvas"
+                            data-bs-target="#addCalfDropOffcanvas">
+                        <i class="fa fa-plus me-1"></i> Add Calf Drop
+                    </button>
+                </div>
+
+                <div class="table-responsive">
+                    <table class="table table-hover align-middle">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Mother ID</th>
+                                <th>Calf ID</th>
+                                <th>Birth Date</th>
+                                <th>Breed</th>
+                                <th>Sex</th>
+                                <th>Weight</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>5PAN23110</td>
+                                <td>CALF-001</td>
+                                <td>10-Jun-26</td>
+                                <td>Murrah</td>
+                                <td>Female</td>
+                                <td>28 kg</td>
+                                <td><span class="badge bg-success">Healthy</span></td>
+                            </tr>
+
+                            <tr>
+                                <td>2</td>
+                                <td>5PAN23111</td>
+                                <td>CALF-002</td>
+                                <td>22-May-26</td>
+                                <td>Native</td>
+                                <td>Male</td>
+                                <td>30 kg</td>
+                                <td><span class="badge bg-warning text-dark">Monitoring</span></td>
+                            </tr>
+                        </tbody>
                     </table>
                 </div>
 
