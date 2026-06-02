@@ -199,10 +199,8 @@ body{
 
         <div class="menu">
             <a href="{{ route('dashboard') }}"><i class="fa fa-home"></i> Dashboard</a>
-            <a href="{{ route('farmer') }}"><i class="fa fa-users"></i> Farmer</a>
-            <a href="{{ route('cooperative') }}"><i class="fa fa-building"></i> Cooperative</a>
-            <a href="{{ route('carabao') }}"><i class="fa fa-cow"></i> Carabao</a>
-            <a href="#"><i class="fa fa-chart-line"></i> Reports</a>
+            <a href="{{ route('farmer') }}"><i class="fa fa-users"></i> Animal Inventory</a>
+            <a href="{{ route('cooperative') }}"><i class="fa fa-building"></i> Account</a>
         </div>
 
     </div>
@@ -237,67 +235,79 @@ body{
         </div>
 
         <!-- STATS (CLICKABLE TABS) -->
-        <div class="row g-4 mb-4">
+        <div class="row g-3 mb-4">
 
-            <div class="col-md-4 col-lg-2">
+            <div class="col">
                 <div class="card stat-card p-3 text-center active tab-btn" data-tab="carabao">
                     <i class="fa-solid fa-cow fa-2x text-primary mb-2"></i>
-                    <h4>25</h4>
-                    <p class="mb-0">Carabao</p>
+                    <h5>25</h5>
+                    <p class="mb-0 small">Carabao</p>
                 </div>
             </div>
 
-            <div class="col-md-4 col-lg-2">
+            <div class="col">
                 <div class="card stat-card p-3 text-center tab-btn" data-tab="milk">
                     <i class="fa-solid fa-glass-water fa-2x text-info mb-2"></i>
-                    <h4>120L</h4>
-                    <p class="mb-0">Milk</p>
+                    <h5>120L</h5>
+                    <p class="mb-0 small">Milk</p>
                 </div>
             </div>
 
-            <div class="col-md-4 col-lg-2">
+            <div class="col">
                 <div class="card stat-card p-3 text-center tab-btn" data-tab="pregnant">
                     <i class="fa-solid fa-baby fa-2x text-warning mb-2"></i>
-                    <h4>8</h4>
-                    <p class="mb-0">Pregnant</p>
+                    <h5>8</h5>
+                    <p class="mb-0 small">Pregnant</p>
                 </div>
             </div>
 
-            <div class="col-md-4 col-lg-2">
+            <div class="col">
                 <div class="card stat-card p-3 text-center tab-btn" data-tab="lactating">
                     <i class="fa-solid fa-hand-holding-water fa-2x text-success mb-2"></i>
-                    <h4>10</h4>
-                    <p class="mb-0">Lactating</p>
+                    <h5>10</h5>
+                    <p class="mb-0 small">Lactating</p>
                 </div>
             </div>
 
-            <div class="col-md-4 col-lg-2">
+            <div class="col">
                 <div class="card stat-card p-3 text-center tab-btn" data-tab="dead">
                     <i class="fa-solid fa-skull fa-2x text-danger mb-2"></i>
-                    <h4>2</h4>
-                    <p class="mb-0">Dead</p>
+                    <h5>2</h5>
+                    <p class="mb-0 small">Dead</p>
                 </div>
             </div>
 
-            <div class="col-md-4 col-lg-2">
+            <div class="col">
                 <div class="card stat-card p-3 text-center tab-btn" data-tab="sold">
                     <i class="fa-solid fa-money-bill-wave fa-2x text-secondary mb-2"></i>
-                    <h4>6</h4>
-                    <p class="mb-0">Sold</p>
+                    <h5>6</h5>
+                    <p class="mb-0 small">Sold</p>
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="card stat-card p-3 text-center tab-btn" data-tab="expenses">
+                    <i class="fa-solid fa-wallet fa-2x text-dark mb-2"></i>
+                    <h5>₱15K</h5>
+                    <p class="mb-0 small">Expenses</p>
                 </div>
             </div>
 
         </div>
+        <!--end -->
+
 
         <!-- TAB CONTENT -->
         <div class="tab-content-box">
 
+            <!-- CARABAO -->
             <div id="carabao" class="tab-content-item">
 
-            <div class="d-flex justify-content-between align-items-center mb-3">
-                <h5>Carabao List</h5>
+                <!-- HEADER -->
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <h5 class="mb-0">Carabao List</h5>
 
-                    <!-- OFFCANVAS BUTTON -->
+                    <!-- ADD BUTTON -->
                     <button class="btn btn-navy btn-sm"
                             data-bs-toggle="offcanvas"
                             data-bs-target="#addCarabaoOffcanvas">
@@ -305,53 +315,483 @@ body{
                     </button>
                 </div>
 
-                <table class="table table-hover">
-                    <tr>
-                        <th>ID</th>
-                        <th>Eartag/ID</th>
-                        <th>Bolus</th>
-                        <th>Sex</th>
-                        <th>Birthdate</th>
-                        <th>Classification</th>
-                        <th>Year</th>
-                        <th>Status</th>
-                    </tr>
-                    <tr>
-                        <td>1</td>
-                        <td>5PAN23110</td>
-                        <td>123445678</td>
-                        <td>Female</td>
-                        <td>01-Jan-26</td>
-                        <td>Heifer</td>
-                        <td>2026</td>
-                        <td>Active</td>
-                    </tr>
-                </table>
+                <!-- TABLE -->
+                <div class="table-responsive">
+                    <table class="table table-hover align-middle">
+
+                        <thead class="table-light">
+                            <tr>
+                                <th>ID</th>
+                                <th>Eartag/ID</th>
+                                <th>Bolus</th>
+                                <th>Sex</th>
+                                <th>Birthdate</th>
+                                <th>Classification</th>
+                                <th>Year</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>5PAN23110</td>
+                                <td>123445678</td>
+                                <td>Female</td>
+                                <td>01-Jan-26</td>
+                                <td>Heifer</td>
+                                <td>2026</td>
+                                <td>
+                                    <span class="badge bg-success">
+                                        Active
+                                    </span>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>2</td>
+                                <td>5PAN23111</td>
+                                <td>987654321</td>
+                                <td>Male</td>
+                                <td>15-Feb-26</td>
+                                <td>Junior Bull</td>
+                                <td>2026</td>
+                                <td>
+                                    <span class="badge bg-primary">
+                                        Healthy
+                                    </span>
+                                </td>
+                            </tr>
+                        </tbody>
+
+                    </table>
+                </div>
+
             </div>
 
+            <!-- MILK -->
             <div id="milk" class="tab-content-item d-none">
-                <h5>Milk Records</h5>
-                <p>120 Liters Total</p>
+
+                <!-- HEADER -->
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <h5 class="mb-0">Milk Records</h5>
+
+                    <!-- ADD BUTTON -->
+                    <button class="btn btn-navy btn-sm"
+                            data-bs-toggle="offcanvas"
+                            data-bs-target="#addMilkOffcanvas">
+                        <i class="fa fa-plus me-1"></i> Add Record
+                    </button>
+                </div>
+
+                <!-- TABLE -->
+                <div class="table-responsive">
+                    <table class="table table-hover align-middle">
+
+                        <thead class="table-light">
+                            <tr>
+                                <th>ID</th>
+                                <th>Date</th>
+                                <th>Carabao ID</th>
+                                <th>Breed</th>
+                                <th>Milk Produced</th>
+                                <th>Session</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>02-Jun-26</td>
+                                <td>5PAN23110</td>
+                                <td>Murrah</td>
+                                <td>15 Liters</td>
+                                <td>Morning</td>
+                                <td>
+                                    <span class="badge bg-success">
+                                        Completed
+                                    </span>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>2</td>
+                                <td>01-Jun-26</td>
+                                <td>5PAN23111</td>
+                                <td>Native</td>
+                                <td>10 Liters</td>
+                                <td>Afternoon</td>
+                                <td>
+                                    <span class="badge bg-warning text-dark">
+                                        Pending
+                                    </span>
+                                </td>
+                            </tr>
+                        </tbody>
+
+                    </table>
+                </div>
+
             </div>
 
+            <!-- PREGNANT -->
             <div id="pregnant" class="tab-content-item d-none">
-                <h5>Pregnant Carabaos</h5>
+
+                <!-- HEADER -->
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <h5 class="mb-0">Pregnant Carabaos</h5>
+
+                    <!-- ADD BUTTON -->
+                    <button class="btn btn-navy btn-sm"
+                            data-bs-toggle="offcanvas"
+                            data-bs-target="#addPregnantOffcanvas">
+                        <i class="fa fa-plus me-1"></i> Add Record
+                    </button>
+                </div>
+
+                <!-- TABLE -->
+                <div class="table-responsive">
+                    <table class="table table-hover align-middle">
+
+                        <thead class="table-light">
+                            <tr>
+                                <th>ID</th>
+                                <th>Eartag/ID</th>
+                                <th>Breed</th>
+                                <th>Sex</th>
+                                <th>Breeding Date</th>
+                                <th>Expected Delivery</th>
+                                <th>Months Pregnant</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>5PAN23110</td>
+                                <td>Murrah</td>
+                                <td>Female</td>
+                                <td>15-Jan-26</td>
+                                <td>15-Oct-26</td>
+                                <td>5 Months</td>
+                                <td>
+                                    <span class="badge bg-success">
+                                        Healthy
+                                    </span>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>2</td>
+                                <td>5PAN23111</td>
+                                <td>Native</td>
+                                <td>Female</td>
+                                <td>01-Feb-26</td>
+                                <td>01-Nov-26</td>
+                                <td>4 Months</td>
+                                <td>
+                                    <span class="badge bg-warning text-dark">
+                                        Under Observation
+                                    </span>
+                                </td>
+                            </tr>
+                        </tbody>
+
+                    </table>
+                </div>
+
             </div>
 
             <div id="lactating" class="tab-content-item d-none">
-                <h5>Lactating Carabaos</h5>
+
+                <!-- HEADER -->
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <h5 class="mb-0">Lactating Carabaos</h5>
+
+                    <!-- ADD BUTTON -->
+                    <button class="btn btn-navy btn-sm"
+                            data-bs-toggle="offcanvas"
+                            data-bs-target="#addLactatingOffcanvas">
+                        <i class="fa fa-plus me-1"></i> Add Record
+                    </button>
+                </div>
+
+                <!-- TABLE -->
+                <div class="table-responsive">
+                    <table class="table table-hover align-middle">
+
+                        <thead class="table-light">
+                            <tr>
+                                <th>ID</th>
+                                <th>Eartag/ID</th>
+                                <th>Breed</th>
+                                <th>Birth Date</th>
+                                <th>Lactation Start</th>
+                                <th>Milk Yield</th>
+                                <th>Lactation Stage</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>5PAN23110</td>
+                                <td>Murrah</td>
+                                <td>10-Dec-25</td>
+                                <td>15-Dec-25</td>
+                                <td>15 Liters/day</td>
+                                <td>Early</td>
+                                <td>
+                                    <span class="badge bg-success">
+                                        Active
+                                    </span>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>2</td>
+                                <td>5PAN23111</td>
+                                <td>Native</td>
+                                <td>01-Nov-25</td>
+                                <td>05-Nov-25</td>
+                                <td>10 Liters/day</td>
+                                <td>Mid</td>
+                                <td>
+                                    <span class="badge bg-primary">
+                                        Monitoring
+                                    </span>
+                                </td>
+                            </tr>
+                        </tbody>
+
+                    </table>
+                </div>
+
             </div>
 
+            <!-- DEAD -->
             <div id="dead" class="tab-content-item d-none">
-                <h5>Dead Records</h5>
+
+                <!-- HEADER -->
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <h5 class="mb-0">Dead Records</h5>
+
+                    <!-- ADD BUTTON -->
+                    <button class="btn btn-danger btn-sm"
+                            data-bs-toggle="offcanvas"
+                            data-bs-target="#addDeadOffcanvas">
+                        <i class="fa fa-plus me-1"></i> Add Record
+                    </button>
+                </div>
+
+                <!-- TABLE -->
+                <div class="table-responsive">
+                    <table class="table table-hover align-middle">
+
+                        <thead class="table-light">
+                            <tr>
+                                <th>ID</th>
+                                <th>Eartag/ID</th>
+                                <th>Breed</th>
+                                <th>Sex</th>
+                                <th>Date of Death</th>
+                                <th>Cause</th>
+                                <th>Age</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>5PAN23110</td>
+                                <td>Murrah</td>
+                                <td>Female</td>
+                                <td>20-May-26</td>
+                                <td>Illness</td>
+                                <td>5 Years</td>
+                                <td>
+                                    <span class="badge bg-danger">
+                                        Deceased
+                                    </span>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>2</td>
+                                <td>5PAN23111</td>
+                                <td>Native</td>
+                                <td>Male</td>
+                                <td>10-Apr-26</td>
+                                <td>Accident</td>
+                                <td>3 Years</td>
+                                <td>
+                                    <span class="badge bg-danger">
+                                        Deceased
+                                    </span>
+                                </td>
+                            </tr>
+                        </tbody>
+
+                    </table>
+                </div>
+
             </div>
 
+            <!-- SOLD -->
             <div id="sold" class="tab-content-item d-none">
-                <h5>Sold Records</h5>
+
+                <!-- HEADER -->
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <h5 class="mb-0">Sold Records</h5>
+
+                    <!-- ADD BUTTON -->
+                    <button class="btn btn-warning btn-sm"
+                            data-bs-toggle="offcanvas"
+                            data-bs-target="#addSoldOffcanvas">
+                        <i class="fa fa-plus me-1"></i> Add Record
+                    </button>
+                </div>
+
+                <!-- TABLE -->
+                <div class="table-responsive">
+                    <table class="table table-hover align-middle">
+
+                        <thead class="table-light">
+                            <tr>
+                                <th>ID</th>
+                                <th>Eartag/ID</th>
+                                <th>Breed</th>
+                                <th>Sex</th>
+                                <th>Date Sold</th>
+                                <th>Buyer</th>
+                                <th>Amount</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>5PAN23110</td>
+                                <td>Murrah</td>
+                                <td>Female</td>
+                                <td>15-May-26</td>
+                                <td>Juan Dela Cruz</td>
+                                <td>₱85,000</td>
+                                <td>
+                                    <span class="badge bg-success">
+                                        Sold
+                                    </span>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>2</td>
+                                <td>5PAN23111</td>
+                                <td>Native</td>
+                                <td>Male</td>
+                                <td>20-Apr-26</td>
+                                <td>Pedro Santos</td>
+                                <td>₱70,000</td>
+                                <td>
+                                    <span class="badge bg-success">
+                                        Sold
+                                    </span>
+                                </td>
+                            </tr>
+                        </tbody>
+
+                    </table>
+                </div>
+
+            </div>
+
+            <!-- EXPENSES -->
+            <div id="expenses" class="tab-content-item d-none">
+
+                <!-- HEADER -->
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <h5 class="mb-0">Expense Records</h5>
+
+                    <!-- ADD BUTTON -->
+                    <button class="btn btn-dark btn-sm"
+                            data-bs-toggle="offcanvas"
+                            data-bs-target="#addExpenseOffcanvas">
+                        <i class="fa fa-plus me-1"></i> Add Expense
+                    </button>
+                </div>
+
+                <!-- TABLE -->
+                <div class="table-responsive">
+                    <table class="table table-hover align-middle">
+
+                        <thead class="table-light">
+                            <tr>
+                                <th>ID</th>
+                                <th>Date</th>
+                                <th>Category</th>
+                                <th>Description</th>
+                                <th>Amount</th>
+                                <th>Recorded By</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>02-Jun-26</td>
+                                <td>Feeds</td>
+                                <td>Purchased animal feeds</td>
+                                <td>₱5,000</td>
+                                <td>Admin</td>
+                                <td>
+                                    <span class="badge bg-success">
+                                        Paid
+                                    </span>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>2</td>
+                                <td>01-Jun-26</td>
+                                <td>Medicine</td>
+                                <td>Vaccination supplies</td>
+                                <td>₱2,500</td>
+                                <td>Admin</td>
+                                <td>
+                                    <span class="badge bg-warning text-dark">
+                                        Pending
+                                    </span>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>3</td>
+                                <td>30-May-26</td>
+                                <td>Maintenance</td>
+                                <td>Farm fence repair</td>
+                                <td>₱8,000</td>
+                                <td>Manager</td>
+                                <td>
+                                    <span class="badge bg-primary">
+                                        Processing
+                                    </span>
+                                </td>
+                            </tr>
+                        </tbody>
+
+                    </table>
+                </div>
+
             </div>
 
         </div>
-
+        <!-- END -->
     </div>
 </div>
 </div>

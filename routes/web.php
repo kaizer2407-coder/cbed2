@@ -73,3 +73,7 @@ Route::get('/sold', function () {
 Route::get('/fproifle', function () {
     return view('fproifle');
 })->name('fproifle');
+
+Route::get('/fstats', function () {
+    return view('fstats');
+})->name('fstats');
