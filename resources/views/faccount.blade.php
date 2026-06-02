@@ -80,6 +80,7 @@ body{
 
 .menu a:hover{
     background:rgba(255,255,255,.15);
+    transform:translateX(5px);
 }
 
 /* PROFILE */
