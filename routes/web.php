@@ -77,3 +77,7 @@ Route::get('/fproifle', function () {
 Route::get('/fstats', function () {
     return view('fstats');
 })->name('fstats');
+
+Route::get('/faccount', function () {
+    return view('faccount');
+})->name('faccount');

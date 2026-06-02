@@ -122,9 +122,9 @@ body{
     </div>
 
     <div class="menu">
-        <a href="{{ route('dashboard') }}"><i class="fa fa-home"></i> Dashboard</a>
-        <a href="{{ route('farmer') }}"><i class="fa fa-users"></i> Animal Inventory</a>
-        <a href="{{ route('cooperative') }}"><i class="fa fa-building"></i> Account</a>
+        <a href="{{ route('fstats') }}"><i class="fa fa-home"></i> Dashboard</a>
+        <a href="{{ route('fprofile') }}"><i class="fa fa-users"></i> Animal Inventory</a>
+        <a href="{{ route('faccount') }}"><i class="fa fa-building"></i> Account</a>
     </div>
 
 </div>

@@ -198,9 +198,9 @@ body{
         </div>
 
         <div class="menu">
-            <a href="{{ route('dashboard') }}"><i class="fa fa-home"></i> Dashboard</a>
-            <a href="{{ route('farmer') }}"><i class="fa fa-users"></i> Animal Inventory</a>
-            <a href="{{ route('cooperative') }}"><i class="fa fa-building"></i> Account</a>
+            <a href="{{ route('fstats') }}"><i class="fa fa-home"></i> Dashboard</a>
+            <a href="{{ route('fprofile') }}"><i class="fa fa-users"></i> Animal Inventory</a>
+            <a href="{{ route('faccount') }}"><i class="fa fa-building"></i> Account</a>
         </div>
 
     </div>
@@ -209,30 +209,12 @@ body{
     <div class="col-lg-10 p-4">
 
         <div class="d-flex justify-content-between align-items-center mb-4">
-            <h3 class="page-title">Farmer Profile</h3>
+            <h3 class="page-title">Animal Inventory</h3>
             <a href="{{ route('farmer') }}" class="btn btn-secondary">
                 <i class="fa fa-arrow-left me-1"></i> Back
             </a>
         </div>
 
-        <!-- PROFILE -->
-        <div class="profile-box mb-4">
-
-            <div class="profile-header">
-                <h4>Juan Dela Cruz</h4>
-                <small>Farmer ID: FRM-001</small>
-            </div>
-
-            <div class="row">
-                <div class="col-md-6 mb-3"><div class="label">Herd Code</div><div class="value">FRM-001</div></div>
-                <div class="col-md-6 mb-3"><div class="label">Province</div><div class="value">Pampanga</div></div>
-                <div class="col-md-6 mb-3"><div class="label">Municipality</div><div class="value">San Fernando</div></div>
-                <div class="col-md-6 mb-3"><div class="label">Barangay</div><div class="value">Dolores</div></div>
-                <div class="col-md-6 mb-3"> <div class="label">Status</div> <div class="value"> <span class="badge bg-success"> Active </span> </div> </div>
-                <div class="col-md-6 mb-3"> <div class="label">Year Added</div> <div class="value">2026</div> </div>
-            </div>
-
-        </div>
 
         <!-- STATS (CLICKABLE TABS) -->
         <div class="row g-3 mb-4">
