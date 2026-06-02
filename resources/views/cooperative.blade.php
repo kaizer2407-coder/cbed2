@@ -308,15 +308,134 @@ body{
 </div>
 </div>
 
-<!-- OFFCANVAS (UNCHANGED) -->
-<!-- ADD -->
 <div class="offcanvas offcanvas-end" tabindex="-1" id="addCoop">
-...
-</div>
 
-<!-- EDIT -->
-<div class="offcanvas offcanvas-end" tabindex="-1" id="editCoop">
-...
+    <div class="offcanvas-header">
+        <h5 class="offcanvas-title">Add Cooperative</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+    </div>
+
+    <div class="offcanvas-body">
+
+        <!-- ROW: 2 INPUTS -->
+        <div class="row">
+            <div class="col-md-6">
+                <label class="form-label">CDA Registration No.</label>
+                <input type="text" class="form-control">
+            </div>
+
+            <div class="col-md-6">
+                <label class="form-label">Cooperative Code</label>
+                <input type="text" class="form-control">
+            </div>
+        </div>
+
+        <!-- SINGLE INPUT -->
+        <div class="mt-1">
+            <label class="form-label">Cooperative Name</label>
+            <input type="text" class="form-control">
+        </div>
+
+        <div class="row">
+            <!-- SELECT -->
+            <div class="col-md-6">
+                <label class="form-label">Accreditation Status</label>
+                <select class="form-select">
+                    <option selected disabled>Select Status</option>
+                    <option>Active</option>
+                    <option>Inactive</option>
+                </select>
+            </div>
+
+            <div class="col-md-6">
+                <label class="form-label">Coop Type:</label>
+                <select class="form-select">
+                    <option selected disabled>Select Status</option>
+                    <option>Active</option>
+                    <option>Inactive</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="row">
+            <!-- SELECT -->
+            <div class="col-md-6">
+                <label class="form-label">Category</label>
+                <select class="form-select">
+                    <option selected disabled>Select Status</option>
+                    <option>Active</option>
+                    <option>Inactive</option>
+                </select>
+            </div>
+
+            <div class="col-md-6">
+                <label class="form-label">Date Established</label>
+                <select class="form-select">
+                    <option selected disabled>Select Status</option>
+                    <option>Active</option>
+                    <option>Inactive</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="row">
+            <!-- SELECT -->
+            <div class="col-md-6">
+                <label class="form-label">Region</label>
+                <select class="form-select">
+                    <option selected disabled>Select Status</option>
+                    <option>Active</option>
+                    <option>Inactive</option>
+                </select>
+            </div>
+
+            <div class="col-md-6">
+                <label class="form-label">Province</label>
+                <select class="form-select">
+                    <option selected disabled>Select Status</option>
+                    <option>Active</option>
+                    <option>Inactive</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="row">
+            <!-- SELECT -->
+            <div class="col-md-6">
+                <label class="form-label">City/Town/Municipality</label>
+                <input type="text" class="form-control">
+            </div>
+
+            <div class="col-md-6">
+                <label class="form-label">Barangay</label>
+                <input type="text" class="form-control">
+            </div>
+        </div>
+
+        <!-- SINGLE INPUT -->
+        <div class="mt-1">
+            <label class="form-label">Address Specifics</label>
+            <input type="text" class="form-control">
+        </div>
+
+        <div class="row">
+            <!-- SELECT -->
+            <div class="col-md-6">
+                <label class="form-label">Network</label>
+                <input type="text" class="form-control">
+            </div>
+
+            <div class="col-md-6">
+                <label class="form-label">Year</label>
+                <input type="text" class="form-control">
+            </div>
+        </div>
+
+        <button class="btn btn-primary w-100 mt-4">
+            Save Cooperative
+        </button>
+
+    </div>
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
