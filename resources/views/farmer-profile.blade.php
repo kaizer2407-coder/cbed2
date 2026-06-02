@@ -133,11 +133,11 @@ body{
         <small>Administrator</small>
     </div>
 
-    <div class="menu">
-        <a href="{{ route('fstats') }}"><i class="fa fa-home"></i> Dashboard</a>
-        <a href="{{ route('fprofile') }}"><i class="fa fa-users"></i> Animal Inventory</a>
-        <a href="{{ route('faccount') }}"><i class="fa fa-building"></i> Account</a>
-    </div>
+        <div class="menu">
+            <a href="{{ route('farmer-dashboard') }}"><i class="fa fa-home"></i> Dashboard</a>
+            <a href="{{ route('farmer-animal-inventory') }}"><i class="fa fa-users"></i> Animal Inventory</a>
+            <a href="{{ route('farmer-profile') }}"><i class="fa fa-building"></i> Account</a>
+        </div>
 
 </div>
 

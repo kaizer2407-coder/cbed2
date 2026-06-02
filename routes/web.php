@@ -26,9 +26,6 @@ Route::get('/farmer', function () {
     return view('farmer');
 })->name('farmer');
 
-Route::get('/fprofile', function () {
-    return view('fprofile');
-})->name('fprofile');
 
 Route::get('/cooperative', function () {
     return view('cooperative');
@@ -70,17 +67,17 @@ Route::get('/sold', function () {
     return view('sold');
 })->name('sold');
 
-Route::get('/fproifle', function () {
-    return view('fproifle');
-})->name('fproifle');
+Route::get('/farmer-animal-inventory', function () {
+    return view('farmer-animal-inventory');
+})->name('farmer-animal-inventory');
 
-Route::get('/fstats', function () {
-    return view('fstats');
-})->name('fstats');
+Route::get('/farmer-dashboard', function () {
+    return view('farmer-dashboard');
+})->name('farmer-dashboard');
 
-Route::get('/faccount', function () {
-    return view('faccount');
-})->name('faccount');
+Route::get('/farmer-profile', function () {
+    return view('farmer-profile');
+})->name('farmer-profile');
 
 Route::get('/coop-profile', function () {
     return view('coop-profile');
