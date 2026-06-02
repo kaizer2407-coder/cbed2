@@ -308,7 +308,7 @@ body{
                     <tr>
                         <td>1</td>
                         <td>
-                            <a href="{{ route('fprofile') }}" class="text-primary text-decoration-none fw-semibold">
+                            <a href="{{ route('farmer.profile') }}" class="text-primary text-decoration-none fw-semibold">
                                 Juan Dela Cruz
                             </a>
                         </td>
