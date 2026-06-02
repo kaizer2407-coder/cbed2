@@ -20,21 +20,60 @@ body{background:var(--bg);font-family:Segoe UI;}
     position:relative;
 }
 
-.top-actions{position:absolute;top:20px;right:20px;display:flex;gap:15px;}
-.top-icon{color:white;}
+.logo{
+    font-size:28px;
+    font-weight:700;
+    text-align:center;
+    margin-bottom:40px;
+}
 
-.user-box{text-align:center;margin-top:50px;margin-bottom:40px;}
-.user-box i{font-size:70px;}
+.top-actions{
+    position:absolute;
+    top:20px;
+    right:20px;
+    display:flex;
+    gap:15px;
+}
+
+.top-icon{
+    color:white;
+    font-size:18px;
+    text-decoration:none;
+    transition:.3s;
+}
+
+.top-icon:hover{
+    color:#dbeafe;
+    transform:rotate(15deg);
+}
+
+.user-box{
+    text-align:center;
+    margin-top:50px;
+    margin-bottom:40px;
+}
+
+.user-box i{
+    font-size:70px;
+    margin-bottom:10px;
+}
 
 .menu a{
     display:block;
     color:white;
-    padding:15px;
     text-decoration:none;
+    padding:15px 20px;
     border-radius:12px;
     margin-bottom:10px;
+    transition:.3s;
 }
-.menu a:hover{background:rgba(255,255,255,.15);}
+
+.menu a i{ margin-right:10px; }
+
+.menu a:hover{
+    background:rgba(255,255,255,.15);
+    transform:translateX(5px);
+}
 
 .table-box{
     background:white;

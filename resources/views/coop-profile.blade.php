@@ -30,6 +30,13 @@ body{
     position:relative;
 }
 
+.logo{
+    font-size:28px;
+    font-weight:700;
+    text-align:center;
+    margin-bottom:40px;
+}
+
 .top-actions{
     position:absolute;
     top:20px;
@@ -41,6 +48,13 @@ body{
 .top-icon{
     color:white;
     font-size:18px;
+    text-decoration:none;
+    transition:.3s;
+}
+
+.top-icon:hover{
+    color:#dbeafe;
+    transform:rotate(15deg);
 }
 
 .user-box{
@@ -51,19 +65,24 @@ body{
 
 .user-box i{
     font-size:70px;
+    margin-bottom:10px;
 }
 
 .menu a{
     display:block;
     color:white;
     text-decoration:none;
-    padding:15px;
+    padding:15px 20px;
     border-radius:12px;
     margin-bottom:10px;
+    transition:.3s;
 }
+
+.menu a i{ margin-right:10px; }
 
 .menu a:hover{
     background:rgba(255,255,255,.15);
+    transform:translateX(5px);
 }
 
 /* PROFILE */
