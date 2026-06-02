@@ -43,6 +43,7 @@ body{
     text-decoration:none;
 }
 
+/* USER */
 .user-box{
     text-align:center;
     margin-top:50px;
@@ -50,11 +51,13 @@ body{
 }
 
 .user-box i{
-    font-size:70px;
+    font-size:75px;
+    margin-bottom:12px;
 }
 
 .user-box h5{
     font-weight:700;
+    margin-bottom:5px;
 }
 
 .user-box small{
@@ -65,9 +68,14 @@ body{
     display:block;
     color:white;
     text-decoration:none;
-    padding:15px;
+    padding:15px 20px;
     border-radius:12px;
     margin-bottom:10px;
+    transition:.3s;
+}
+
+.menu a i{
+    margin-right:10px;
 }
 
 .menu a:hover{
