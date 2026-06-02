@@ -308,12 +308,22 @@ body{
                 <table class="table table-hover">
                     <tr>
                         <th>ID</th>
-                        <th>Name</th>
+                        <th>Eartag/ID</th>
+                        <th>Bolus</th>
+                        <th>Sex</th>
+                        <th>Birthdate</th>
+                        <th>Classification</th>
+                        <th>Year</th>
                         <th>Status</th>
                     </tr>
                     <tr>
                         <td>1</td>
-                        <td>Carabao A</td>
+                        <td>5PAN23110</td>
+                        <td>123445678</td>
+                        <td>Female</td>
+                        <td>01-Jan-26</td>
+                        <td>Heifer</td>
+                        <td>2026</td>
                         <td>Active</td>
                     </tr>
                 </table>
