@@ -26,6 +26,7 @@ body{
     background:linear-gradient(180deg,var(--navy),var(--navy2));
     padding:30px 20px;
     color:white;
+    position:relative;
 }
 
 .logo{
@@ -35,6 +36,49 @@ body{
     margin-bottom:40px;
 }
 
+/* TOP RIGHT ICONS */
+.top-actions{
+    position:absolute;
+    top:20px;
+    right:20px;
+    display:flex;
+    gap:15px;
+}
+
+.top-icon{
+    color:white;
+    font-size:18px;
+    text-decoration:none;
+    transition:.3s;
+}
+
+.top-icon:hover{
+    color:#dbeafe;
+    transform:rotate(15deg);
+}
+
+/* USER */
+.user-box{
+    text-align:center;
+    margin-top:50px;
+    margin-bottom:40px;
+}
+
+.user-box i{
+    font-size:75px;
+    margin-bottom:12px;
+}
+
+.user-box h5{
+    font-weight:700;
+    margin-bottom:5px;
+}
+
+.user-box small{
+    color:#dbeafe;
+}
+
+/* MENU */
 .menu a{
     display:block;
     color:white;
@@ -54,26 +98,34 @@ body{
     transform:translateX(5px);
 }
 
-/* PROFILE */
+/* PROFILE BOX */
 .profile-box{
     background:white;
-    border-radius:20px;
+    border-radius:22px;
     padding:30px;
     box-shadow:0 8px 25px rgba(0,0,0,.08);
 }
 
+/* PROFILE HEADER */
 .profile-header{
-    background:var(--navy);
+    background:linear-gradient(135deg,var(--navy),var(--navy2));
     color:white;
-    padding:20px;
-    border-radius:15px;
+    padding:25px;
+    border-radius:18px;
     margin-bottom:25px;
 }
 
+.profile-header h4{
+    margin-bottom:5px;
+    font-weight:700;
+}
+
+/* INFO */
 .label{
     font-size:12px;
     color:#6c757d;
     text-transform:uppercase;
+    margin-bottom:5px;
 }
 
 .value{
@@ -82,16 +134,21 @@ body{
     color:var(--navy);
 }
 
-/* CARDS */
-.card{
+/* STAT CARDS */
+.stat-card{
     border:none;
     border-radius:18px;
     transition:.3s;
     box-shadow:0 8px 20px rgba(0,0,0,.08);
 }
 
-.card:hover{
+.stat-card:hover{
     transform:translateY(-5px);
+}
+
+.page-title{
+    color:var(--navy);
+    font-weight:700;
 }
 </style>
 </head>
@@ -103,37 +160,93 @@ body{
 
     <!-- SIDEBAR -->
     <div class="col-lg-2 sidebar">
-        <div class="logo">CBED</div>
 
-        <div class="menu">
-            <a href="{{ route('dashboard') }}"><i class="fa fa-home"></i> Dashboard</a>
-            <a href="{{ route('farmer') }}"><i class="fa fa-users"></i> Farmer</a>
-            <a href="{{ route('cooperative') }}"><i class="fa fa-building"></i> Cooperative</a>
-            <a href="{{ route('carabao') }}"><i class="fa fa-cow"></i> Carabao</a>
-            <a href="#"><i class="fa fa-chart-line"></i> Reports</a>
+        <!-- TOP ACTIONS -->
+        <div class="top-actions">
+
+            <a href="#" class="top-icon">
+                <i class="fa-solid fa-gear"></i>
+            </a>
+
+            <a href="{{ route('login') }}" class="top-icon">
+                <i class="fa-solid fa-right-from-bracket"></i>
+            </a>
+
         </div>
+
+        <!-- USER -->
+        <div class="user-box">
+
+            <i class="fa-solid fa-circle-user"></i>
+
+            <h5>John Carlo</h5>
+
+            <small>Administrator</small>
+
+        </div>
+
+        <!-- MENU -->
+        <div class="menu">
+
+            <a href="{{ route('dashboard') }}">
+                <i class="fa fa-home"></i>
+                Dashboard
+            </a>
+
+            <a href="{{ route('farmer') }}">
+                <i class="fa fa-users"></i>
+                Farmer
+            </a>
+
+            <a href="{{ route('cooperative') }}">
+                <i class="fa fa-building"></i>
+                Cooperative
+            </a>
+
+            <a href="{{ route('carabao') }}">
+                <i class="fa fa-cow"></i>
+                Carabao
+            </a>
+
+            <a href="#">
+                <i class="fa fa-chart-line"></i>
+                Reports
+            </a>
+
+        </div>
+
     </div>
 
     <!-- CONTENT -->
     <div class="col-lg-10 p-4">
 
-        <!-- HEADER -->
+        <!-- PAGE HEADER -->
         <div class="d-flex justify-content-between align-items-center mb-4">
-            <h3 style="color:#083d6f; font-weight:700;">Farmer Profile</h3>
+
+            <h3 class="page-title">
+                Farmer Profile
+            </h3>
 
             <a href="{{ route('farmer') }}" class="btn btn-secondary">
-                <i class="fa fa-arrow-left"></i> Back
+                <i class="fa fa-arrow-left me-1"></i>
+                Back
             </a>
+
         </div>
 
         <!-- PROFILE BOX -->
         <div class="profile-box mb-4">
 
+            <!-- HEADER -->
             <div class="profile-header">
-                <h4 class="mb-1">Juan Dela Cruz</h4>
+
+                <h4>Juan Dela Cruz</h4>
+
                 <small>Farmer ID: FRM-001</small>
+
             </div>
 
+            <!-- INFORMATION -->
             <div class="row">
 
                 <div class="col-md-6 mb-3">
@@ -158,8 +271,11 @@ body{
 
                 <div class="col-md-6 mb-3">
                     <div class="label">Status</div>
+
                     <div class="value">
-                        <span class="badge bg-success">Active</span>
+                        <span class="badge bg-success">
+                            Active
+                        </span>
                     </div>
                 </div>
 
@@ -172,54 +288,84 @@ body{
 
         </div>
 
-        <!-- STATS CARDS BELOW PROFILE -->
-        <div class="row g-4">
+        <!-- STATS CARDS -->
+        <div class="row g-4 mb-4">
 
+            <!-- CARABAO -->
             <div class="col-md-4 col-lg-2">
-                <div class="card p-3 text-center">
+                <div class="card stat-card p-3 text-center">
+
                     <i class="fa-solid fa-cow fa-2x text-primary mb-2"></i>
+
                     <h4>25</h4>
+
                     <p class="mb-0">Carabao</p>
+
                 </div>
             </div>
 
+            <!-- MILK -->
             <div class="col-md-4 col-lg-2">
-                <div class="card p-3 text-center">
+                <div class="card stat-card p-3 text-center">
+
                     <i class="fa-solid fa-glass-water fa-2x text-info mb-2"></i>
+
                     <h4>120L</h4>
+
                     <p class="mb-0">Milk</p>
+
                 </div>
             </div>
 
+            <!-- PREGNANT -->
             <div class="col-md-4 col-lg-2">
-                <div class="card p-3 text-center">
+                <div class="card stat-card p-3 text-center">
+
                     <i class="fa-solid fa-baby fa-2x text-warning mb-2"></i>
+
                     <h4>8</h4>
+
                     <p class="mb-0">Pregnant</p>
+
                 </div>
             </div>
 
+            <!-- LACTATING -->
             <div class="col-md-4 col-lg-2">
-                <div class="card p-3 text-center">
+                <div class="card stat-card p-3 text-center">
+
                     <i class="fa-solid fa-hand-holding-water fa-2x text-success mb-2"></i>
+
                     <h4>10</h4>
+
                     <p class="mb-0">Lactating</p>
+
                 </div>
             </div>
 
+            <!-- DEAD -->
             <div class="col-md-4 col-lg-2">
-                <div class="card p-3 text-center">
+                <div class="card stat-card p-3 text-center">
+
                     <i class="fa-solid fa-skull fa-2x text-danger mb-2"></i>
+
                     <h4>2</h4>
+
                     <p class="mb-0">Dead</p>
+
                 </div>
             </div>
 
+            <!-- SOLD -->
             <div class="col-md-4 col-lg-2">
-                <div class="card p-3 text-center">
+                <div class="card stat-card p-3 text-center">
+
                     <i class="fa-solid fa-money-bill-wave fa-2x text-secondary mb-2"></i>
+
                     <h4>6</h4>
+
                     <p class="mb-0">Sold</p>
+
                 </div>
             </div>
 
@@ -228,6 +374,8 @@ body{
     </div>
 </div>
 </div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
 
 </body>
 </html>

@@ -69,3 +69,7 @@ Route::get('/deadcalf', function () {
 Route::get('/sold', function () {
     return view('sold');
 })->name('sold');
+
+Route::get('/fproifle', function () {
+    return view('fproifle');
+})->name('fproifle');

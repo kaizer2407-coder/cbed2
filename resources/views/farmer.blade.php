@@ -26,6 +26,7 @@ body{
     background:linear-gradient(180deg,var(--navy),var(--navy2));
     padding:30px 20px;
     color:white;
+    position:relative;
 }
 
 .logo{
@@ -35,6 +36,49 @@ body{
     margin-bottom:40px;
 }
 
+/* TOP ACTIONS (FROM DASHBOARD) */
+.top-actions{
+    position:absolute;
+    top:20px;
+    right:20px;
+    display:flex;
+    gap:15px;
+}
+
+.top-icon{
+    color:white;
+    font-size:18px;
+    text-decoration:none;
+    transition:.3s;
+}
+
+.top-icon:hover{
+    color:#dbeafe;
+    transform:rotate(15deg);
+}
+
+/* USER BOX (FROM DASHBOARD) */
+.user-box{
+    text-align:center;
+    margin-top:50px;
+    margin-bottom:40px;
+}
+
+.user-box i{
+    font-size:75px;
+    margin-bottom:10px;
+}
+
+.user-box h5{
+    font-weight:700;
+    margin-bottom:5px;
+}
+
+.user-box small{
+    color:#dbeafe;
+}
+
+/* MENU */
 .menu a{
     display:block;
     color:white;
@@ -142,10 +186,34 @@ body{
 <div class="container-fluid">
 <div class="row">
 
-    <!-- SIDEBAR -->
+    <!-- SIDEBAR (UPDATED ONLY) -->
     <div class="col-lg-2 sidebar">
-        <div class="logo">CBED</div>
 
+        <!-- TOP ACTIONS -->
+        <div class="top-actions">
+
+            <a href="#" class="top-icon">
+                <i class="fa-solid fa-gear"></i>
+            </a>
+
+            <a href="{{ route('login') }}" class="top-icon">
+                <i class="fa-solid fa-right-from-bracket"></i>
+            </a>
+
+        </div>
+
+        <!-- USER -->
+        <div class="user-box">
+
+            <i class="fa-solid fa-circle-user"></i>
+
+            <h5>John Carlo</h5>
+
+            <small>Administrator</small>
+
+        </div>
+
+        <!-- MENU -->
         <div class="menu">
             <a href="{{ route('dashboard') }}"><i class="fa fa-home"></i> Dashboard</a>
             <a href="{{ route('farmer') }}"><i class="fa fa-users"></i> Farmer</a>
@@ -153,9 +221,10 @@ body{
             <a href="{{ route('carabao') }}"><i class="fa fa-cow"></i> Carabao</a>
             <a href="#"><i class="fa fa-chart-line"></i> Reports</a>
         </div>
+
     </div>
 
-    <!-- CONTENT -->
+    <!-- CONTENT (UNCHANGED) -->
     <div class="col-lg-10 p-4">
 
         <!-- HEADER -->
@@ -236,7 +305,6 @@ body{
                 </thead>
 
                 <tbody>
-
                     <tr>
                         <td>1</td>
                         <td>
@@ -251,8 +319,7 @@ body{
                         <td>2026</td>
                         <td><span class="badge bg-success">Active</span></td>
                         <td class="action-icons">
-                            <a href="#"
-                               class="text-primary me-3"
+                            <a href="#" class="text-primary me-3"
                                data-bs-toggle="offcanvas"
                                data-bs-target="#editFarmerOffcanvas">
                                 <i class="fa fa-pen-to-square"></i>
@@ -263,7 +330,6 @@ body{
                             </a>
                         </td>
                     </tr>
-
                 </tbody>
             </table>
 
@@ -273,16 +339,14 @@ body{
 </div>
 </div>
 
-<!-- ADD FARMER OFFCANVAS -->
+<!-- OFFCANVAS (UNCHANGED) -->
 <div class="offcanvas offcanvas-end" tabindex="-1" id="addFarmerOffcanvas">
-
     <div class="offcanvas-header">
         <h5>Add Farmer</h5>
         <button class="btn-close" data-bs-dismiss="offcanvas"></button>
     </div>
 
     <div class="offcanvas-body">
-
         <div class="section-title">Farmer Info</div>
 
         <label class="form-label">Name</label>
@@ -318,20 +382,16 @@ body{
         </select>
 
         <button class="btn btn-success w-100 mt-3">Save Farmer</button>
-
     </div>
 </div>
 
-<!-- EDIT FARMER OFFCANVAS -->
 <div class="offcanvas offcanvas-end" tabindex="-1" id="editFarmerOffcanvas">
-
     <div class="offcanvas-header">
         <h5>Update Farmer</h5>
         <button class="btn-close" data-bs-dismiss="offcanvas"></button>
     </div>
 
     <div class="offcanvas-body">
-
         <div class="section-title">Edit Farmer Info</div>
 
         <label class="form-label">Name</label>
@@ -351,7 +411,7 @@ body{
         <div class="section-title">Other</div>
 
         <label class="form-label">Year</label>
-        <input class="form-control" type="number" value="2026">
+        <input class="form-control" value="2026">
 
         <label class="form-label">Status</label>
         <select class="form-select">
@@ -360,7 +420,6 @@ body{
         </select>
 
         <button class="btn btn-primary w-100 mt-3">Update Farmer</button>
-
     </div>
 </div>
 

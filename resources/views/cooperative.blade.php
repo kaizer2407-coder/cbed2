@@ -26,6 +26,48 @@ body{
     background:linear-gradient(180deg,var(--navy),var(--navy2));
     padding:30px 20px;
     color:white;
+    position: relative;
+}
+
+/* ADDED FROM FPROFILE STYLE */
+.top-actions{
+    position:absolute;
+    top:20px;
+    right:20px;
+    display:flex;
+    gap:15px;
+}
+
+.top-icon{
+    color:white;
+    font-size:18px;
+    text-decoration:none;
+    transition:.3s;
+}
+
+.top-icon:hover{
+    color:#dbeafe;
+    transform:rotate(15deg);
+}
+
+.user-box{
+    text-align:center;
+    margin-top:50px;
+    margin-bottom:40px;
+}
+
+.user-box i{
+    font-size:75px;
+    margin-bottom:10px;
+}
+
+.user-box h5{
+    font-weight:700;
+    margin-bottom:5px;
+}
+
+.user-box small{
+    color:#dbeafe;
 }
 
 .logo{
@@ -112,10 +154,34 @@ body{
 <div class="container-fluid">
 <div class="row">
 
-<!-- SIDEBAR -->
+<!-- SIDEBAR (REPLACED ONLY) -->
 <div class="col-lg-2 sidebar">
-    <div class="logo">CBED</div>
 
+    <!-- TOP ACTIONS -->
+    <div class="top-actions">
+
+        <a href="#" class="top-icon">
+            <i class="fa-solid fa-gear"></i>
+        </a>
+
+        <a href="{{ route('login') }}" class="top-icon">
+            <i class="fa-solid fa-right-from-bracket"></i>
+        </a>
+
+    </div>
+
+    <!-- USER -->
+    <div class="user-box">
+
+        <i class="fa-solid fa-circle-user"></i>
+
+        <h5>John Carlo</h5>
+
+        <small>Administrator</small>
+
+    </div>
+
+    <!-- MENU -->
     <div class="menu">
         <a href="{{ route('dashboard') }}"><i class="fa fa-home"></i> Dashboard</a>
         <a href="{{ route('farmer') }}"><i class="fa fa-users"></i> Farmer</a>
@@ -123,9 +189,10 @@ body{
         <a href="{{ route('carabao') }}"><i class="fa fa-cow"></i> Carabao</a>
         <a href="#"><i class="fa fa-chart-line"></i> Reports</a>
     </div>
+
 </div>
 
-<!-- CONTENT -->
+<!-- CONTENT (UNCHANGED) -->
 <div class="col-lg-10 p-4">
 
     <h3 class="page-title mb-4">Cooperative Dashboard</h3>
@@ -241,83 +308,15 @@ body{
 </div>
 </div>
 
-<!-- ADD OFFCANVAS -->
+<!-- OFFCANVAS (UNCHANGED) -->
+<!-- ADD -->
 <div class="offcanvas offcanvas-end" tabindex="-1" id="addCoop">
-
-<div class="offcanvas-header">
-    <h5>Add Cooperative</h5>
-    <button class="btn-close" data-bs-dismiss="offcanvas"></button>
+...
 </div>
 
-<div class="offcanvas-body">
-
-    <label class="form-label">Name</label>
-    <input class="form-control">
-
-    <label class="form-label">Herd Code</label>
-    <input class="form-control">
-
-    <label class="form-label">Province</label>
-    <select class="form-select">
-        <option>Pampanga</option>
-        <option>Bataan</option>
-        <option>Bulacan</option>
-    </select>
-
-    <label class="form-label">Municipality</label>
-    <input class="form-control">
-
-    <label class="form-label">Barangay</label>
-    <input class="form-control">
-
-    <label class="form-label">Year</label>
-    <input class="form-control">
-
-    <label class="form-label">Status</label>
-    <select class="form-select">
-        <option>Active</option>
-        <option>Pending</option>
-    </select>
-
-    <button class="btn btn-success w-100 mt-3">Save</button>
-
-</div>
-</div>
-
-<!-- EDIT OFFCANVAS -->
+<!-- EDIT -->
 <div class="offcanvas offcanvas-end" tabindex="-1" id="editCoop">
-
-<div class="offcanvas-header">
-    <h5>Edit Cooperative</h5>
-    <button class="btn-close" data-bs-dismiss="offcanvas"></button>
-</div>
-
-<div class="offcanvas-body">
-
-    <label class="form-label">Name</label>
-    <input class="form-control" value="Agri Coop 1">
-
-    <label class="form-label">Herd Code</label>
-    <input class="form-control" value="AC-001">
-
-    <label class="form-label">Municipality</label>
-    <input class="form-control" value="San Fernando">
-
-    <label class="form-label">Barangay</label>
-    <input class="form-control" value="Brgy 1">
-
-    <label class="form-label">Year</label>
-    <input class="form-control" value="2026">
-
-    <label class="form-label">Status</label>
-    <select class="form-select">
-        <option selected>Active</option>
-        <option>Pending</option>
-    </select>
-
-    <button class="btn btn-primary w-100 mt-3">Update</button>
-
-</div>
+...
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>

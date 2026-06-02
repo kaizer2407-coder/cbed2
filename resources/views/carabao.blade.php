@@ -25,6 +25,7 @@
             background:linear-gradient(180deg,var(--navy),var(--navy2));
             padding:30px 20px;
             color:white;
+            position: relative;
         }
 
         .logo{
@@ -89,6 +90,48 @@
             font-weight:700;
             color:var(--navy);
         }
+
+        /* TOP ACTIONS FIX */
+        .top-actions{
+            position:absolute;
+            top:20px;
+            right:20px;
+            display:flex;
+            gap:15px;
+        }
+
+        .top-icon{
+            color:white;
+            font-size:18px;
+            text-decoration:none;
+            transition:.3s;
+        }
+
+        .top-icon:hover{
+            color:#dbeafe;
+            transform:scale(1.1);
+        }
+
+        .user-box{
+            text-align:center;
+            margin-top:50px;
+            margin-bottom:40px;
+        }
+
+        .user-box i{
+            font-size:75px;
+            margin-bottom:10px;
+        }
+
+        .user-box h5{
+            font-weight:700;
+            margin-bottom:5px;
+        }
+
+        .user-box small{
+            color:#dbeafe;
+        }
+
     </style>
 </head>
 
@@ -99,15 +142,61 @@
 
     <!-- SIDEBAR -->
     <div class="col-lg-2 sidebar">
-        <div class="logo">CBED</div>
 
-        <div class="menu">
-            <a href="{{ route('dashboard') }}"><i class="fa fa-home"></i> Dashboard</a>
-            <a href="{{ route('farmer') }}"><i class="fa fa-users"></i> Farmer</a>
-            <a href="{{ route('cooperative') }}"><i class="fa fa-building"></i> Cooperative</a>
-            <a href="{{ route('carabao') }}"><i class="fa fa-cow"></i> Carabao</a>
-            <a href="#"><i class="fa fa-chart-line"></i> Reports</a>
+        <!-- TOP ACTIONS -->
+        <div class="top-actions">
+
+            <a href="#" class="top-icon">
+                <i class="fa-solid fa-gear"></i>
+            </a>
+
+            <a href="{{ route('login') }}" class="top-icon">
+                <i class="fa-solid fa-right-from-bracket"></i>
+            </a>
+
         </div>
+
+        <!-- USER -->
+        <div class="user-box">
+
+            <i class="fa-solid fa-circle-user"></i>
+
+            <h5>John Carlo</h5>
+
+            <small>Administrator</small>
+
+        </div>
+
+        <!-- MENU -->
+        <div class="menu">
+
+            <a href="{{ route('dashboard') }}">
+                <i class="fa fa-home"></i>
+                Dashboard
+            </a>
+
+            <a href="{{ route('farmer') }}">
+                <i class="fa fa-users"></i>
+                Farmer
+            </a>
+
+            <a href="{{ route('cooperative') }}">
+                <i class="fa fa-building"></i>
+                Cooperative
+            </a>
+
+            <a href="{{ route('carabao') }}">
+                <i class="fa fa-cow"></i>
+                Carabao
+            </a>
+
+            <a href="#">
+                <i class="fa fa-chart-line"></i>
+                Reports
+            </a>
+
+        </div>
+
     </div>
 
     <!-- CONTENT -->
@@ -144,75 +233,20 @@
 
         </div>
 
-        <!-- 🌍 REGION 3 CARABAOS -->
+        <!-- REGION 3 -->
         <h5 class="mb-3">Region 3 - Carabao Population per Province</h5>
 
-        <div class="card p-4 mb-4" style="border-radius:20px;">
+        <div class="card p-4 mb-4">
             <div class="row g-4">
 
-                <div class="col-md-3">
-                    <div class="province-card p-3 text-center">
-                        <h6>Pampanga</h6>
-                        <h4 class="text-primary">320</h4>
-                        <small>Carabaos</small>
-                    </div>
-                </div>
-
-                <div class="col-md-3">
-                    <div class="province-card p-3 text-center">
-                        <h6>Bataan</h6>
-                        <h4 class="text-primary">150</h4>
-                        <small>Carabaos</small>
-                    </div>
-                </div>
-
-                <div class="col-md-3">
-                    <div class="province-card p-3 text-center">
-                        <h6>Bulacan</h6>
-                        <h4 class="text-primary">210</h4>
-                        <small>Carabaos</small>
-                    </div>
-                </div>
-
-                <div class="col-md-3">
-                    <div class="province-card p-3 text-center">
-                        <h6>Nueva Ecija</h6>
-                        <h4 class="text-primary">280</h4>
-                        <small>Carabaos</small>
-                    </div>
-                </div>
-
-                <div class="col-md-3">
-                    <div class="province-card p-3 text-center">
-                        <h6>Tarlac</h6>
-                        <h4 class="text-primary">120</h4>
-                        <small>Carabaos</small>
-                    </div>
-                </div>
-
-                <div class="col-md-3">
-                    <div class="province-card p-3 text-center">
-                        <h6>Zambales</h6>
-                        <h4 class="text-primary">95</h4>
-                        <small>Carabaos</small>
-                    </div>
-                </div>
-
-                <div class="col-md-3">
-                    <div class="province-card p-3 text-center">
-                        <h6>Angeles City</h6>
-                        <h4 class="text-primary">60</h4>
-                        <small>Carabaos</small>
-                    </div>
-                </div>
-
-                <div class="col-md-3">
-                    <div class="province-card p-3 text-center">
-                        <h6>Nueva Vizcaya</h6>
-                        <h4 class="text-primary">85</h4>
-                        <small>Carabaos</small>
-                    </div>
-                </div>
+                <div class="col-md-3"><div class="province-card p-3 text-center"><h6>Pampanga</h6><h4>320</h4></div></div>
+                <div class="col-md-3"><div class="province-card p-3 text-center"><h6>Bataan</h6><h4>150</h4></div></div>
+                <div class="col-md-3"><div class="province-card p-3 text-center"><h6>Bulacan</h6><h4>210</h4></div></div>
+                <div class="col-md-3"><div class="province-card p-3 text-center"><h6>Nueva Ecija</h6><h4>280</h4></div></div>
+                <div class="col-md-3"><div class="province-card p-3 text-center"><h6>Tarlac</h6><h4>120</h4></div></div>
+                <div class="col-md-3"><div class="province-card p-3 text-center"><h6>Zambales</h6><h4>95</h4></div></div>
+                <div class="col-md-3"><div class="province-card p-3 text-center"><h6>Angeles City</h6><h4>60</h4></div></div>
+                <div class="col-md-3"><div class="province-card p-3 text-center"><h6>Nueva Vizcaya</h6><h4>85</h4></div></div>
 
             </div>
         </div>
