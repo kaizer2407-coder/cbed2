@@ -348,39 +348,138 @@ body{
     </div>
 
     <div class="offcanvas-body">
-        <div class="section-title">Farmer Info</div>
+        <div class="row">
+            <!-- SELECT -->
+            <div class="col-md-6">
+                <label class="form-label">Last Name</label>
+                <input type="text" class="form-control">
+            </div>
 
-        <label class="form-label">Name</label>
+            <div class="col-md-6">
+                <label class="form-label">First Name</label>
+                <input type="text" class="form-control">
+            </div>
+        </div>
+
+        <div class="row">
+            <!-- SELECT -->
+            <div class="col-md-6">
+                <label class="form-label">Middle Name</label>
+                <input type="text" class="form-control">
+            </div>
+
+            <div class="col-md-6">
+                <label class="form-label">Birthday</label>
+                <input type="date" class="form-control">
+            </div>
+        </div>
+
+        <div class="row">
+            <!-- SELECT -->
+            <div class="col-md-6">
+                <label class="form-label">Contact Number</label>
+                <input type="number" class="form-control">
+            </div>
+
+            <div class="col-md-6">
+                <label class="form-label">Civil Status</label>
+                    <select class="form-select">
+                        <option></option>
+                        <option>Sigle</option>
+                        <option>Married</option>
+                        <option>Widow/Widower</option>
+                        <option>Seperated</option>
+                    </select>
+            </div>
+        </div>
+
+        <div class="row">
+            <!-- SELECT -->
+            <div class="col-md-6">
+                <label class="form-label">City/Town/Municipality</label>
+                <input type="text" class="form-control">
+            </div>
+
+            <div class="col-md-6">
+                <label class="form-label">Barangay</label>
+                <input type="text" class="form-control">
+            </div>
+        </div>
+
+        <div class="row">
+            <!-- SELECT -->
+            <div class="col-md-6">
+                <label class="form-label">Region</label>
+                    <select class="form-select">
+                        <option></option>
+                        <option>Married</option>
+                        <option>Widow/Widower</option>
+                        <option>Seperated</option>
+                    </select>
+            </div>
+
+            <div class="col-md-6">
+                <label class="form-label">Province</label>
+                    <select class="form-select">
+                        <option></option>
+                        <option>Married</option>
+                        <option>Widow/Widower</option>
+                        <option>Seperated</option>
+                    </select>
+            </div>
+        </div>
+
+        <label class="form-label">Address Line</label>
         <input class="form-control">
 
-        <label class="form-label">Herd Code</label>
-        <input class="form-control">
+        <div class="row">
+            <!-- SELECT -->
+            <div class="col-md-6">
+                <label class="form-label">Cooperative</label>
+                    <select class="form-select">
+                        <option></option>
+                        <option>Married</option>
+                        <option>Widow/Widower</option>
+                        <option>Seperated</option>
+                    </select>
+            </div>
 
-        <div class="section-title">Location</div>
+            <div class="col-md-6">
+                <label class="form-label">Position</label>
+                    <select class="form-select">
+                        <option></option>
+                        <option>Married</option>
+                        <option>Widow/Widower</option>
+                        <option>Seperated</option>
+                    </select>
+            </div>
+        </div>
 
-        <label class="form-label">Province</label>
-        <select class="form-select">
-            <option>Pampanga</option>
-            <option>Bataan</option>
-            <option>Bulacan</option>
-        </select>
+        <div class="row">
+            <!-- SELECT -->
+            <div class="col-md-6">
+                <label class="form-label">Work</label>
+                <input type="text" class="form-control">
+            </div>
 
-        <label class="form-label">Municipality</label>
-        <input class="form-control">
+            <div class="col-md-6">
+                <label class="form-label">Spouse</label>
+                <input type="text" class="form-control">
+            </div>
+        </div>
 
-        <label class="form-label">Barangay</label>
-        <input class="form-control">
+        <div class="row">
+            <!-- SELECT -->
+            <div class="col-md-6">
+                <label class="form-label">Spouse's Occupation</label>
+                <input type="text" class="form-control">
+            </div>
 
-        <div class="section-title">Other</div>
-
-        <label class="form-label">Year</label>
-        <input class="form-control" type="number">
-
-        <label class="form-label">Status</label>
-        <select class="form-select">
-            <option>Active</option>
-            <option>Pending</option>
-        </select>
+            <div class="col-md-6">
+                <label class="form-label">Year</label>
+                <input type="text" class="form-control">
+            </div>
+        </div>
 
         <button class="btn btn-success w-100 mt-3">Save Farmer</button>
     </div>
