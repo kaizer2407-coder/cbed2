@@ -77,8 +77,20 @@ Route::get('/farmer-dashboard', function () {
 
 Route::get('/farmer-profile', function () {
     return view('farmer-profile');
-})->name('farmer-profile');
+})->name('farmer.profile');
 
 Route::get('/coop-profile', function () {
     return view('coop-profile');
 })->name('coop-profile');
+
+Route::get('/coop-dashboard', function () {
+    return view('coop-dashboard');
+})->name('coop-dashboard');
+
+Route::get('/coop-animal-inventory', function () {
+    return view('coop-animal-inventory');
+})->name('coop-animal-inventory');
+
+Route::get('/coop-list-farmer', function () {
+    return view('coop-list-farmer');
+})->name('coop-list-farmer');

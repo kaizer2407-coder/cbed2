@@ -351,7 +351,7 @@ body{
                     <tr>
 
                         <td>
-                            <a href="{{ route('fproifle') }}">
+                            <a href="{{ route('farmer.profile') }}">
                                 Juan Dela Cruz
                             </a>
                         </td>
@@ -381,7 +381,7 @@ body{
                     <tr>
 
                         <td>
-                            <a href="{{ route('fproifle') }}">
+                            <a href="{{ route('farmer.profile') }}">
                                 Maria Santos
                             </a>
                         </td>
@@ -411,7 +411,7 @@ body{
                     <tr>
 
                         <td>
-                            <a href="{{ route('fproifle') }}">
+                            <a href="{{ route('farmer.profile') }}">
                                 Pedro Reyes
                             </a>
                         </td>
