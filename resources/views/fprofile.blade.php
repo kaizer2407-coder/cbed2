@@ -424,6 +424,9 @@ body{
             <option>Under Contract with PCC (LGU)</option>
         </select>
 
+        <label class="form-label">Year</label>
+        <input type="text" class="form-control">
+
         <button class="btn btn-navy w-100 mt-3">
             Save Carabao
         </button>
