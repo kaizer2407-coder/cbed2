@@ -175,6 +175,12 @@ body{
     color: white;
 }
 
+@media (min-width: 1200px) {
+    .custom-col-5 {
+        width: 20%;
+        flex: 0 0 20%;
+    }
+}
 
 </style>
 </head>
@@ -216,7 +222,7 @@ body{
         <!-- STATS (CLICKABLE TABS) -->
         <div class="row g-3 mb-4">
 
-            <div class="col">
+            <div class="col-6 col-md-4 col-lg-3 col-xl-2 custom-col-5">
                 <div class="card stat-card p-3 text-center active tab-btn" data-tab="carabao">
                     <i class="fa-solid fa-cow fa-2x text-primary mb-2"></i>
                     <h5>25</h5>
@@ -224,7 +230,7 @@ body{
                 </div>
             </div>
 
-            <div class="col">
+            <div class="col-6 col-md-4 col-lg-3 col-xl-2 custom-col-5">
                 <div class="card stat-card p-3 text-center tab-btn" data-tab="milk">
                     <i class="fa-solid fa-glass-water fa-2x text-info mb-2"></i>
                     <h5>120L</h5>
@@ -232,7 +238,7 @@ body{
                 </div>
             </div>
 
-            <div class="col">
+            <div class="col-6 col-md-4 col-lg-3 col-xl-2 custom-col-5">
                 <div class="card stat-card p-3 text-center tab-btn" data-tab="pregnant">
                     <i class="fa-solid fa-baby fa-2x text-warning mb-2"></i>
                     <h5>8</h5>
@@ -240,7 +246,7 @@ body{
                 </div>
             </div>
 
-            <div class="col">
+            <div class="col-6 col-md-4 col-lg-3 col-xl-2 custom-col-5">
                 <div class="card stat-card p-3 text-center tab-btn" data-tab="lactating">
                     <i class="fa-solid fa-hand-holding-water fa-2x text-success mb-2"></i>
                     <h5>10</h5>
@@ -249,7 +255,7 @@ body{
             </div>
 
             <!-- ARTIFICIAL INSEMINATION -->
-            <div class="col">
+            <div class="col-6 col-md-4 col-lg-3 col-xl-2 custom-col-5">
                 <div class="card stat-card p-3 text-center tab-btn" data-tab="ai">
                     <i class="fa-solid fa-syringe fa-2x text-danger mb-2"></i>
                     <h5>12</h5>
@@ -257,8 +263,17 @@ body{
                 </div>
             </div>
 
+            <!-- HEALTH & NUTRITION -->
+            <div class="col-6 col-md-4 col-lg-3 col-xl-2 custom-col-5">
+                <div class="card stat-card p-3 text-center tab-btn" data-tab="health"> 
+                    <i class="fa-solid fa-heart-pulse fa-2x text-danger mb-2"></i> 
+                    <h5>23</h5> 
+                    <p class="mb-0 small">Health & Nutrition</p> 
+                </div> 
+            </div>
+
             <!-- CALF DROP -->
-            <div class="col">
+            <div class="col-6 col-md-4 col-lg-3 col-xl-2 custom-col-5">
                 <div class="card stat-card p-3 text-center tab-btn" data-tab="calfdrop">
                     <i class="fa-solid fa-baby-carriage fa-2x text-primary mb-2"></i>
                     <h5>6</h5>
@@ -266,7 +281,8 @@ body{
                 </div>
             </div>
 
-            <div class="col">
+            <!-- DEAD -->
+            <div class="col-6 col-md-4 col-lg-3 col-xl-2 custom-col-5">
                 <div class="card stat-card p-3 text-center tab-btn" data-tab="dead">
                     <i class="fa-solid fa-skull fa-2x text-danger mb-2"></i>
                     <h5>2</h5>
@@ -274,7 +290,8 @@ body{
                 </div>
             </div>
 
-            <div class="col">
+            <!-- DEAD -->
+            <div class="col-6 col-md-4 col-lg-3 col-xl-2 custom-col-5">
                 <div class="card stat-card p-3 text-center tab-btn" data-tab="sold">
                     <i class="fa-solid fa-money-bill-wave fa-2x text-secondary mb-2"></i>
                     <h5>6</h5>
@@ -282,7 +299,8 @@ body{
                 </div>
             </div>
 
-            <div class="col">
+            <!-- EXPENSES -->
+            <div class="col-6 col-md-4 col-lg-3 col-xl-2 custom-col-5">
                 <div class="card stat-card p-3 text-center tab-btn" data-tab="expenses">
                     <i class="fa-solid fa-wallet fa-2x text-dark mb-2"></i>
                     <h5>₱15K</h5>
@@ -294,721 +312,860 @@ body{
         <!--end -->
 
 
-        <!-- TAB CONTENT -->
-        <div class="tab-content-box">
-
-            <!-- CARABAO -->
-            <div id="carabao" class="tab-content-item">
-
-                <!-- HEADER -->
-                <div class="d-flex justify-content-between align-items-center mb-3">
-                    <h5 class="mb-0">Carabao List</h5>
-
-                    <!-- ADD BUTTON -->
-                    <button class="btn btn-navy btn-sm"
-                            data-bs-toggle="offcanvas"
-                            data-bs-target="#addCarabaoOffcanvas">
-                        <i class="fa fa-plus me-1"></i> Add Carabao
-                    </button>
-                </div>
-
-                <!-- TABLE -->
-                <div class="table-responsive">
-                    <table class="table table-hover align-middle">
-
-                        <thead class="table-light">
-                            <tr>
-                                <th>ID</th>
-                                <th>Eartag/ID</th>
-                                <th>Bolus</th>
-                                <th>Sex</th>
-                                <th>Birthdate</th>
-                                <th>Classification</th>
-                                <th>Year</th>
-                                <th>Status</th>
-                            </tr>
-                        </thead>
-
-                        <tbody>
-                            <tr>
-                                <td>1</td>
-                                <td>5PAN23110</td>
-                                <td>123445678</td>
-                                <td>Female</td>
-                                <td>01-Jan-26</td>
-                                <td>Heifer</td>
-                                <td>2026</td>
-                                <td>
-                                    <span class="badge bg-success">
-                                        Active
-                                    </span>
-                                </td>
-                            </tr>
-
-                            <tr>
-                                <td>2</td>
-                                <td>5PAN23111</td>
-                                <td>987654321</td>
-                                <td>Male</td>
-                                <td>15-Feb-26</td>
-                                <td>Junior Bull</td>
-                                <td>2026</td>
-                                <td>
-                                    <span class="badge bg-primary">
-                                        Healthy
-                                    </span>
-                                </td>
-                            </tr>
-                        </tbody>
-
-                    </table>
-                </div>
-
-            </div>
-
-            <!-- MILK -->
-            <div id="milk" class="tab-content-item d-none">
-
-                <!-- HEADER -->
-                <div class="d-flex justify-content-between align-items-center mb-3">
-                    <h5 class="mb-0">Milk Records</h5>
-
-                    <!-- ADD BUTTON -->
-                    <button class="btn btn-navy btn-sm"
-                            data-bs-toggle="offcanvas"
-                            data-bs-target="#addMilkOffcanvas">
-                        <i class="fa fa-plus me-1"></i> Add Record
-                    </button>
-                </div>
-
-                <!-- TABLE -->
-                <div class="table-responsive">
-                    <table class="table table-hover align-middle">
-
-                        <thead class="table-light">
-                            <tr>
-                                <th>ID</th>
-                                <th>Date</th>
-                                <th>Carabao ID</th>
-                                <th>Breed</th>
-                                <th>Milk Produced</th>
-                                <th>Session</th>
-                                <th>Status</th>
-                            </tr>
-                        </thead>
-
-                        <tbody>
-                            <tr>
-                                <td>1</td>
-                                <td>02-Jun-26</td>
-                                <td>5PAN23110</td>
-                                <td>Murrah</td>
-                                <td>15 Liters</td>
-                                <td>Morning</td>
-                                <td>
-                                    <span class="badge bg-success">
-                                        Completed
-                                    </span>
-                                </td>
-                            </tr>
-
-                            <tr>
-                                <td>2</td>
-                                <td>01-Jun-26</td>
-                                <td>5PAN23111</td>
-                                <td>Native</td>
-                                <td>10 Liters</td>
-                                <td>Afternoon</td>
-                                <td>
-                                    <span class="badge bg-warning text-dark">
-                                        Pending
-                                    </span>
-                                </td>
-                            </tr>
-                        </tbody>
-
-                    </table>
-                </div>
-
-            </div>
-
-            <!-- PREGNANT -->
-            <div id="pregnant" class="tab-content-item d-none">
-
-                <!-- HEADER -->
-                <div class="d-flex justify-content-between align-items-center mb-3">
-                    <h5 class="mb-0">Pregnant Carabaos</h5>
-
-                    <!-- ADD BUTTON -->
-                    <button class="btn btn-navy btn-sm"
-                            data-bs-toggle="offcanvas"
-                            data-bs-target="#addPregnantOffcanvas">
-                        <i class="fa fa-plus me-1"></i> Add Record
-                    </button>
-                </div>
-
-                <!-- TABLE -->
-                <div class="table-responsive">
-                    <table class="table table-hover align-middle">
-
-                        <thead class="table-light">
-                            <tr>
-                                <th>ID</th>
-                                <th>Eartag/ID</th>
-                                <th>Breed</th>
-                                <th>Sex</th>
-                                <th>Breeding Date</th>
-                                <th>Expected Delivery</th>
-                                <th>Months Pregnant</th>
-                                <th>Status</th>
-                            </tr>
-                        </thead>
-
-                        <tbody>
-                            <tr>
-                                <td>1</td>
-                                <td>5PAN23110</td>
-                                <td>Murrah</td>
-                                <td>Female</td>
-                                <td>15-Jan-26</td>
-                                <td>15-Oct-26</td>
-                                <td>5 Months</td>
-                                <td>
-                                    <span class="badge bg-success">
-                                        Healthy
-                                    </span>
-                                </td>
-                            </tr>
-
-                            <tr>
-                                <td>2</td>
-                                <td>5PAN23111</td>
-                                <td>Native</td>
-                                <td>Female</td>
-                                <td>01-Feb-26</td>
-                                <td>01-Nov-26</td>
-                                <td>4 Months</td>
-                                <td>
-                                    <span class="badge bg-warning text-dark">
-                                        Under Observation
-                                    </span>
-                                </td>
-                            </tr>
-                        </tbody>
-
-                    </table>
-                </div>
-
-            </div>
-
-            <div id="lactating" class="tab-content-item d-none">
-
-                <!-- HEADER -->
-                <div class="d-flex justify-content-between align-items-center mb-3">
-                    <h5 class="mb-0">Lactating Carabaos</h5>
-
-                    <!-- ADD BUTTON -->
-                    <button class="btn btn-navy btn-sm"
-                            data-bs-toggle="offcanvas"
-                            data-bs-target="#addLactatingOffcanvas">
-                        <i class="fa fa-plus me-1"></i> Add Record
-                    </button>
-                </div>
-
-                <!-- TABLE -->
-                <div class="table-responsive">
-                    <table class="table table-hover align-middle">
-
-                        <thead class="table-light">
-                            <tr>
-                                <th>ID</th>
-                                <th>Eartag/ID</th>
-                                <th>Breed</th>
-                                <th>Birth Date</th>
-                                <th>Lactation Start</th>
-                                <th>Milk Yield</th>
-                                <th>Lactation Stage</th>
-                                <th>Status</th>
-                            </tr>
-                        </thead>
-
-                        <tbody>
-                            <tr>
-                                <td>1</td>
-                                <td>5PAN23110</td>
-                                <td>Murrah</td>
-                                <td>10-Dec-25</td>
-                                <td>15-Dec-25</td>
-                                <td>15 Liters/day</td>
-                                <td>Early</td>
-                                <td>
-                                    <span class="badge bg-success">
-                                        Active
-                                    </span>
-                                </td>
-                            </tr>
-
-                            <tr>
-                                <td>2</td>
-                                <td>5PAN23111</td>
-                                <td>Native</td>
-                                <td>01-Nov-25</td>
-                                <td>05-Nov-25</td>
-                                <td>10 Liters/day</td>
-                                <td>Mid</td>
-                                <td>
-                                    <span class="badge bg-primary">
-                                        Monitoring
-                                    </span>
-                                </td>
-                            </tr>
-                        </tbody>
-
-                    </table>
-                </div>
-
-            </div>
-
-            <!-- DEAD -->
-            <div id="dead" class="tab-content-item d-none">
-
-                <!-- HEADER -->
-                <div class="d-flex justify-content-between align-items-center mb-3">
-                    <h5 class="mb-0">Dead Records</h5>
-
-                    <!-- ADD BUTTON -->
-                    <button class="btn btn-danger btn-sm"
-                            data-bs-toggle="offcanvas"
-                            data-bs-target="#addDeadOffcanvas">
-                        <i class="fa fa-plus me-1"></i> Add Record
-                    </button>
-                </div>
-
-                <!-- TABLE -->
-                <div class="table-responsive">
-                    <table class="table table-hover align-middle">
-
-                        <thead class="table-light">
-                            <tr>
-                                <th>ID</th>
-                                <th>Eartag/ID</th>
-                                <th>Breed</th>
-                                <th>Sex</th>
-                                <th>Date of Death</th>
-                                <th>Cause</th>
-                                <th>Age</th>
-                                <th>Status</th>
-                            </tr>
-                        </thead>
-
-                        <tbody>
-                            <tr>
-                                <td>1</td>
-                                <td>5PAN23110</td>
-                                <td>Murrah</td>
-                                <td>Female</td>
-                                <td>20-May-26</td>
-                                <td>Illness</td>
-                                <td>5 Years</td>
-                                <td>
-                                    <span class="badge bg-danger">
-                                        Deceased
-                                    </span>
-                                </td>
-                            </tr>
-
-                            <tr>
-                                <td>2</td>
-                                <td>5PAN23111</td>
-                                <td>Native</td>
-                                <td>Male</td>
-                                <td>10-Apr-26</td>
-                                <td>Accident</td>
-                                <td>3 Years</td>
-                                <td>
-                                    <span class="badge bg-danger">
-                                        Deceased
-                                    </span>
-                                </td>
-                            </tr>
-                        </tbody>
-
-                    </table>
-                </div>
-
-            </div>
-
-            <!-- SOLD -->
-            <div id="sold" class="tab-content-item d-none">
-
-                <!-- HEADER -->
-                <div class="d-flex justify-content-between align-items-center mb-3">
-                    <h5 class="mb-0">Sold Records</h5>
-
-                    <!-- ADD BUTTON -->
-                    <button class="btn btn-warning btn-sm"
-                            data-bs-toggle="offcanvas"
-                            data-bs-target="#addSoldOffcanvas">
-                        <i class="fa fa-plus me-1"></i> Add Record
-                    </button>
-                </div>
-
-                <!-- TABLE -->
-                <div class="table-responsive">
-                    <table class="table table-hover align-middle">
-
-                        <thead class="table-light">
-                            <tr>
-                                <th>ID</th>
-                                <th>Eartag/ID</th>
-                                <th>Breed</th>
-                                <th>Sex</th>
-                                <th>Date Sold</th>
-                                <th>Buyer</th>
-                                <th>Amount</th>
-                                <th>Status</th>
-                            </tr>
-                        </thead>
-
-                        <tbody>
-                            <tr>
-                                <td>1</td>
-                                <td>5PAN23110</td>
-                                <td>Murrah</td>
-                                <td>Female</td>
-                                <td>15-May-26</td>
-                                <td>Juan Dela Cruz</td>
-                                <td>₱85,000</td>
-                                <td>
-                                    <span class="badge bg-success">
-                                        Sold
-                                    </span>
-                                </td>
-                            </tr>
-
-                            <tr>
-                                <td>2</td>
-                                <td>5PAN23111</td>
-                                <td>Native</td>
-                                <td>Male</td>
-                                <td>20-Apr-26</td>
-                                <td>Pedro Santos</td>
-                                <td>₱70,000</td>
-                                <td>
-                                    <span class="badge bg-success">
-                                        Sold
-                                    </span>
-                                </td>
-                            </tr>
-                        </tbody>
-
-                    </table>
-                </div>
-
-            </div>
-
-            <!-- EXPENSES -->
-            <div id="expenses" class="tab-content-item d-none">
-
-                <!-- HEADER -->
-                <div class="d-flex justify-content-between align-items-center mb-3">
-                    <h5 class="mb-0">Expense Records</h5>
-
-                    <!-- ADD BUTTON -->
-                    <button class="btn btn-dark btn-sm"
-                            data-bs-toggle="offcanvas"
-                            data-bs-target="#addExpenseOffcanvas">
-                        <i class="fa fa-plus me-1"></i> Add Expense
-                    </button>
-                </div>
-
-                <!-- TABLE -->
-                <div class="table-responsive">
-                    <table class="table table-hover align-middle">
-
-                        <thead class="table-light">
-                            <tr>
-                                <th>ID</th>
-                                <th>Date</th>
-                                <th>Category</th>
-                                <th>Description</th>
-                                <th>Amount</th>
-                                <th>Recorded By</th>
-                                <th>Status</th>
-                            </tr>
-                        </thead>
-
-                        <tbody>
-                            <tr>
-                                <td>1</td>
-                                <td>02-Jun-26</td>
-                                <td>Feeds</td>
-                                <td>Purchased animal feeds</td>
-                                <td>₱5,000</td>
-                                <td>Admin</td>
-                                <td>
-                                    <span class="badge bg-success">
-                                        Paid
-                                    </span>
-                                </td>
-                            </tr>
-
-                            <tr>
-                                <td>2</td>
-                                <td>01-Jun-26</td>
-                                <td>Medicine</td>
-                                <td>Vaccination supplies</td>
-                                <td>₱2,500</td>
-                                <td>Admin</td>
-                                <td>
-                                    <span class="badge bg-warning text-dark">
-                                        Pending
-                                    </span>
-                                </td>
-                            </tr>
-
-                            <tr>
-                                <td>3</td>
-                                <td>30-May-26</td>
-                                <td>Maintenance</td>
-                                <td>Farm fence repair</td>
-                                <td>₱8,000</td>
-                                <td>Manager</td>
-                                <td>
-                                    <span class="badge bg-primary">
-                                        Processing
-                                    </span>
-                                </td>
-                            </tr>
-                        </tbody>
-
-                    </table>
-                </div>
-
-            </div>
-
-            <div id="ai" class="tab-content-item d-none">
-
-                <div class="d-flex justify-content-between align-items-center mb-3">
-                    <h5>Artificial Insemination Records</h5>
-
-                    <!-- OFFCANVAS BUTTON -->
-                    <button class="btn btn-navy btn-sm"
-                            data-bs-toggle="offcanvas"
-                            data-bs-target="#addAIOffcanvas">
-                        <i class="fa fa-plus me-1"></i> Add AI Record
-                    </button>
-                </div>
-
-                <div class="table-responsive">
-                    <table class="table table-hover align-middle">
-                        <thead>
-                            <tr>
-                                <th>ID</th>
-                                <th>Carabao ID</th>
-                                <th>Breed</th>
-                                <th>Insemination Date</th>
-                                <th>Semen Type</th>
-                                <th>Technician</th>
-                                <th>Result</th>
-                                <th>Status</th>
-                            </tr>
-                        </thead>
-
-                        <tbody>
-                            <tr>
-                                <td>1</td>
-                                <td>5PAN23110</td>
-                                <td>Murrah</td>
-                                <td>01-Jun-26</td>
-                                <td>Frozen</td>
-                                <td>Dr. Santos</td>
-                                <td>Successful</td>
-                                <td><span class="badge bg-success">Pregnant</span></td>
-                            </tr>
-
-                            <tr>
-                                <td>2</td>
-                                <td>5PAN23111</td>
-                                <td>Native</td>
-                                <td>15-May-26</td>
-                                <td>Fresh</td>
-                                <td>Dr. Reyes</td>
-                                <td>Failed</td>
-                                <td><span class="badge bg-danger">Retry</span></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-
-            </div>
-
-            <div id="calfdrop" class="tab-content-item d-none">
-
-                <div class="d-flex justify-content-between align-items-center mb-3">
-                    <h5>Calf Drop Records</h5>
-
-                    <!-- OFFCANVAS BUTTON -->
-                    <button class="btn btn-navy btn-sm"
-                            data-bs-toggle="offcanvas"
-                            data-bs-target="#addCalfDropOffcanvas">
-                        <i class="fa fa-plus me-1"></i> Add Calf Drop
-                    </button>
-                </div>
-
-                <div class="table-responsive">
-                    <table class="table table-hover align-middle">
-                        <thead>
-                            <tr>
-                                <th>ID</th>
-                                <th>Mother ID</th>
-                                <th>Calf ID</th>
-                                <th>Birth Date</th>
-                                <th>Breed</th>
-                                <th>Sex</th>
-                                <th>Weight</th>
-                                <th>Status</th>
-                            </tr>
-                        </thead>
-
-                        <tbody>
-                            <tr>
-                                <td>1</td>
-                                <td>5PAN23110</td>
-                                <td>CALF-001</td>
-                                <td>10-Jun-26</td>
-                                <td>Murrah</td>
-                                <td>Female</td>
-                                <td>28 kg</td>
-                                <td><span class="badge bg-success">Healthy</span></td>
-                            </tr>
-
-                            <tr>
-                                <td>2</td>
-                                <td>5PAN23111</td>
-                                <td>CALF-002</td>
-                                <td>22-May-26</td>
-                                <td>Native</td>
-                                <td>Male</td>
-                                <td>30 kg</td>
-                                <td><span class="badge bg-warning text-dark">Monitoring</span></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-
-            </div>
-
+ <!-- TAB CONTENT -->
+<div class="tab-content-box">
+
+    <!-- CARABAO -->
+    <div id="carabao" class="tab-content-item">
+
+        <div class="d-flex justify-content-between align-items-center mb-3">
+            <h5 class="mb-0">Carabao List</h5>
+
+            <button class="btn btn-navy btn-sm"
+                    data-bs-toggle="offcanvas"
+                    data-bs-target="#addCarabaoOffcanvas">
+                <i class="fa fa-plus me-1"></i> Add Carabao
+            </button>
         </div>
-        <!-- END -->
+
+        <div class="table-responsive">
+            <table class="table table-hover align-middle">
+                <thead class="table-light">
+                    <tr>
+                        <th>ID</th>
+                        <th>Eartag/ID</th>
+                        <th>Bolus</th>
+                        <th>Sex</th>
+                        <th>Birthdate</th>
+                        <th>Classification</th>
+                        <th>Year</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>5PAN23110</td>
+                        <td>123445678</td>
+                        <td>Female</td>
+                        <td>01-Jan-26</td>
+                        <td>Heifer</td>
+                        <td>2026</td>
+                        <td><span class="badge bg-success">Active</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+
+    <!-- MILK -->
+    <div id="milk" class="tab-content-item d-none">
+        <div class="d-flex justify-content-between align-items-center mb-3">
+            <h5>Milk Records</h5>
+
+            <button class="btn btn-navy btn-sm"
+                    data-bs-toggle="offcanvas"
+                    data-bs-target="#addMilkOffcanvas">
+                <i class="fa fa-plus me-1"></i> Add Milk
+            </button>
+        </div>
+
+        <div class="table-responsive">
+            <table class="table table-hover align-middle">
+                <thead class="table-light">
+                    <tr>
+                        <th>ID</th>
+                        <th>Date</th>
+                        <th>Carabao ID</th>
+                        <th>Breed</th>
+                        <th>Milk Produced</th>
+                        <th>Session</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>02-Jun-26</td>
+                        <td>5PAN23110</td>
+                        <td>Murrah</td>
+                        <td>15 Liters</td>
+                        <td>Morning</td>
+                        <td><span class="badge bg-success">Completed</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- PREGNANT -->
+    <div id="pregnant" class="tab-content-item d-none">
+        <div class="d-flex justify-content-between align-items-center mb-3">
+            <h5>Pregnant Carabaos</h5>
+
+            <button class="btn btn-navy btn-sm"
+                    data-bs-toggle="offcanvas"
+                    data-bs-target="#addPregnantOffcanvas">
+                <i class="fa fa-plus me-1"></i> Add Pregnant
+            </button>
+        </div>
+
+        <div class="table-responsive">
+            <table class="table table-hover align-middle">
+                <thead class="table-light">
+                    <tr>
+                        <th>ID</th>
+                        <th>Eartag/ID</th>
+                        <th>Breed</th>
+                        <th>Sex</th>
+                        <th>Breeding Date</th>
+                        <th>Expected Delivery</th>
+                        <th>Months Pregnant</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>5PAN23110</td>
+                        <td>Murrah</td>
+                        <td>Female</td>
+                        <td>15-Jan-26</td>
+                        <td>15-Oct-26</td>
+                        <td>5 Months</td>
+                        <td><span class="badge bg-success">Healthy</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- LACTATING -->
+    <div id="lactating" class="tab-content-item d-none">
+        <div class="d-flex justify-content-between align-items-center mb-3">
+            <h5>Lactating Carabaos</h5>
+
+            <button class="btn btn-navy btn-sm"
+                    data-bs-toggle="offcanvas"
+                    data-bs-target="#addLactatingOffcanvas">
+                <i class="fa fa-plus me-1"></i> Add Lactating
+            </button>
+        </div>
+
+        <div class="table-responsive">
+            <table class="table table-hover align-middle">
+                <thead class="table-light">
+                    <tr>
+                        <th>ID</th>
+                        <th>Eartag/ID</th>
+                        <th>Breed</th>
+                        <th>Birth Date</th>
+                        <th>Lactation Start</th>
+                        <th>Milk Yield</th>
+                        <th>Lactation Stage</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>5PAN23110</td>
+                        <td>Murrah</td>
+                        <td>10-Dec-25</td>
+                        <td>15-Dec-25</td>
+                        <td>15 Liters/day</td>
+                        <td>Early</td>
+                        <td><span class="badge bg-success">Active</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- DEAD -->
+    <div id="dead" class="tab-content-item d-none">
+        <div class="d-flex justify-content-between align-items-center mb-3">
+            <h5>Dead Records</h5>
+
+            <button class="btn btn-navy btn-sm"
+                    data-bs-toggle="offcanvas"
+                    data-bs-target="#addDeadOffcanvas">
+                <i class="fa fa-plus me-1"></i> Add Dead
+            </button>
+        </div>
+
+        <div class="table-responsive">
+            <table class="table table-hover align-middle">
+                <thead class="table-light">
+                    <tr>
+                        <th>ID</th>
+                        <th>Eartag/ID</th>
+                        <th>Breed</th>
+                        <th>Sex</th>
+                        <th>Date of Death</th>
+                        <th>Cause</th>
+                        <th>Age</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>5PAN23110</td>
+                        <td>Murrah</td>
+                        <td>Female</td>
+                        <td>20-May-26</td>
+                        <td>Illness</td>
+                        <td>5 Years</td>
+                        <td><span class="badge bg-danger">Deceased</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- SOLD -->
+    <div id="sold" class="tab-content-item d-none">
+        <div class="d-flex justify-content-between align-items-center mb-3">
+            <h5>Sold Records</h5>
+
+            <button class="btn btn-navy btn-sm"
+                    data-bs-toggle="offcanvas"
+                    data-bs-target="#addSoldOffcanvas">
+                <i class="fa fa-plus me-1"></i> Add Sold
+            </button>
+        </div>
+
+        <div class="table-responsive">
+            <table class="table table-hover align-middle">
+                <thead class="table-light">
+                    <tr>
+                        <th>ID</th>
+                        <th>Eartag/ID</th>
+                        <th>Breed</th>
+                        <th>Sex</th>
+                        <th>Date Sold</th>
+                        <th>Buyer</th>
+                        <th>Amount</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>5PAN23110</td>
+                        <td>Murrah</td>
+                        <td>Female</td>
+                        <td>15-May-26</td>
+                        <td>Juan Dela Cruz</td>
+                        <td>₱85,000</td>
+                        <td><span class="badge bg-success">Sold</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- EXPENSES -->
+    <div id="expenses" class="tab-content-item d-none">
+        <div class="d-flex justify-content-between align-items-center mb-3">
+            <h5>Expense Records</h5>
+
+            <button class="btn btn-navy btn-sm"
+                    data-bs-toggle="offcanvas"
+                    data-bs-target="#addExpenseOffcanvas">
+                <i class="fa fa-plus me-1"></i> Add Expense
+            </button>
+        </div>
+
+        <div class="table-responsive">
+            <table class="table table-hover align-middle">
+                <thead class="table-light">
+                    <tr>
+                        <th>ID</th>
+                        <th>Date</th>
+                        <th>Category</th>
+                        <th>Description</th>
+                        <th>Amount</th>
+                        <th>Recorded By</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>02-Jun-26</td>
+                        <td>Feeds</td>
+                        <td>Purchased animal feeds</td>
+                        <td>₱5,000</td>
+                        <td>Admin</td>
+                        <td><span class="badge bg-success">Paid</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- AI -->
+    <div id="ai" class="tab-content-item d-none">
+        <div class="d-flex justify-content-between align-items-center mb-3">
+            <h5>Artificial Insemination Records</h5>
+
+            <button class="btn btn-navy btn-sm"
+                    data-bs-toggle="offcanvas"
+                    data-bs-target="#addAIOffcanvas">
+                <i class="fa fa-plus me-1"></i> Add AI
+            </button>
+        </div>
+
+        <div class="table-responsive">
+            <table class="table table-hover align-middle">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Carabao ID</th>
+                        <th>Breed</th>
+                        <th>Insemination Date</th>
+                        <th>Semen Type</th>
+                        <th>Technician</th>
+                        <th>Result</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>5PAN23110</td>
+                        <td>Murrah</td>
+                        <td>01-Jun-26</td>
+                        <td>Frozen</td>
+                        <td>Dr. Santos</td>
+                        <td>Successful</td>
+                        <td><span class="badge bg-success">Pregnant</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- CALF DROP -->
+    <div id="calfdrop" class="tab-content-item d-none">
+        <div class="d-flex justify-content-between align-items-center mb-3">
+            <h5>Calf Drop Records</h5>
+
+            <button class="btn btn-navy btn-sm"
+                    data-bs-toggle="offcanvas"
+                    data-bs-target="#addCalfDropOffcanvas">
+                <i class="fa fa-plus me-1"></i> Add Calf Drop
+            </button>
+        </div>
+
+        <div class="table-responsive">
+            <table class="table table-hover align-middle">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Mother ID</th>
+                        <th>Calf ID</th>
+                        <th>Birth Date</th>
+                        <th>Breed</th>
+                        <th>Sex</th>
+                        <th>Weight</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>5PAN23110</td>
+                        <td>CALF-001</td>
+                        <td>10-Jun-26</td>
+                        <td>Murrah</td>
+                        <td>Female</td>
+                        <td>28 kg</td>
+                        <td><span class="badge bg-success">Healthy</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- HEALTH -->
+    <div id="health" class="tab-content-item d-none">
+
+        <div class="d-flex justify-content-between align-items-center mb-3">
+            <h5>Health Records</h5>
+
+            <button class="btn btn-navy btn-sm"
+                    data-bs-toggle="offcanvas"
+                    data-bs-target="#addHealthOffcanvas">
+                <i class="fa fa-plus me-1"></i> Add Health Record
+            </button>
+        </div>
+
+        <div class="table-responsive">
+            <table class="table table-hover align-middle">
+                <thead class="table-light">
+                    <tr>
+                        <th>ID</th>
+                        <th>Carabao ID</th>
+                        <th>Date</th>
+                        <th>Condition</th>
+                        <th>Diagnosis</th>
+                        <th>Treatment</th>
+                        <th>Veterinarian</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>5PAN23110</td>
+                        <td>02-Jun-26</td>
+                        <td>Fever</td>
+                        <td>Viral Infection</td>
+                        <td>Antibiotics</td>
+                        <td>Dr. Santos</td>
+                        <td><span class="badge bg-warning text-dark">Under Treatment</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+
+</div>
+<!-- END TAB CONTENT -->
+         
     </div>
 </div>
 </div>
 
-<div class="offcanvas offcanvas-end" tabindex="-1" id="addCarabaoOffcanvas">
+
+<!-- ================= OFFCANVAS : CARABAO ================= -->
+<div class="offcanvas offcanvas-end"
+     tabindex="-1"
+     id="addCarabaoOffcanvas">
 
     <div class="offcanvas-header">
-        <h5>Add Carabao</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+        <h5 class="offcanvas-title">Add Carabao</h5>
+
+        <button type="button"
+                class="btn-close"
+                data-bs-dismiss="offcanvas">
+        </button>
     </div>
 
     <div class="offcanvas-body">
 
         <label class="form-label">Breed</label>
-        <select class="form-select">
-            <option value="" disabled selected>Select Breed</option>
+        <select class="form-select mb-3">
+            <option selected disabled>Select Breed</option>
             <option>RV</option>
             <option>SP</option>
             <option>ItMB</option>
             <option>USMB</option>
             <option>CB50</option>
-            <option>CB75</option>
-            <option>CB87</option>
-            <option>CB93</option>
         </select>
 
         <label class="form-label">Eartag/ID</label>
-        <input type="text" class="form-control">
+        <input type="text" class="form-control mb-3">
 
         <label class="form-label">Sex</label>
-        <select class="form-select">
+        <select class="form-select mb-3">
             <option>Male</option>
             <option>Female</option>
         </select>
 
-        <div class="mb-3">
-            <label for="birthday" class="form-label">Birthday</label>
-            <input type="date" class="form-control" id="birthday" name="birthday">
-        </div>
+        <label class="form-label">Birthday</label>
+        <input type="date" class="form-control mb-3">
 
         <label class="form-label">Classification</label>
-        <select class="form-select">
-            <option value="" disabled selected>Select Animal Classification</option>
+        <select class="form-select mb-3">
+            <option selected disabled>Select Classification</option>
             <option>Female Calf</option>
             <option>Yearling Heifer</option>
             <option>Heifer</option>
-            <option>Cow Dry</option>
-            <option>Cow Dry Pregnant</option>
             <option>Cow Lactating</option>
-            <option>Cow Lactating Pregnant</option>
-            <option>Male Calf</option>
-            <option>Yearling Bull</option>
             <option>Junior Bull</option>
-            <option>Senior Bull</option>
         </select>
 
-        <div class="mb-3">
-            <label for="estimated_amount" class="form-label">Estimated Amount</label>
-            <input type="number" class="form-control" id="estimated_amount" name="estimated_amount">
-        </div>
-
-        <label class="form-label">Ownership Type</label>
-        <select class="form-select">
-            <option value="" disabled selected>Select Ownership Type</option>
-            <option>PCC-Owned</option>
-            <option>Farmer-Owned</option>
-            <option>Co-Owned</option>
-            <option>LGU-Owned</option>
-            <option>Coop-Owned</option>
-        </select>
-
-        <label class="form-label">Animal Source</label>
-        <select class="form-select">
-            <option value="" disabled selected>Select Source</option>
-            <option>Purchased by Farmer</option>
-            <option>Purchased by Coop</option>
-            <option>Purchased by LGU</option>
-            <option>Under Contract with PCC (Farmer)</option>
-            <option>Under Contract with PCC (Coop)</option>
-            <option>Under Contract with PCC (LGU)</option>
-        </select>
-
-        <label class="form-label">Year</label>
-        <input type="text" class="form-control">
-
-        <button class="btn btn-navy w-100 mt-3">
+        <button class="btn btn-navy w-100">
             Save Carabao
         </button>
 
     </div>
+
 </div>
+<!-- ================= END CARABAO ================= -->
+
+
+<!-- ================= OFFCANVAS : MILK ================= -->
+<div class="offcanvas offcanvas-end"
+     tabindex="-1"
+     id="addMilkOffcanvas">
+
+    <div class="offcanvas-header">
+        <h5 class="offcanvas-title">Add Milk Record</h5>
+
+        <button type="button"
+                class="btn-close"
+                data-bs-dismiss="offcanvas">
+        </button>
+    </div>
+
+    <div class="offcanvas-body">
+
+        <label class="form-label">Date</label>
+        <input type="date" class="form-control mb-3">
+
+        <label class="form-label">Carabao ID</label>
+        <input type="text"
+               class="form-control mb-3"
+               placeholder="Enter Eartag">
+
+        <label class="form-label">Milk Produced</label>
+        <input type="number"
+               class="form-control mb-3"
+               placeholder="Liters">
+
+        <label class="form-label">Session</label>
+        <select class="form-select mb-3">
+            <option>Morning</option>
+            <option>Afternoon</option>
+            <option>Evening</option>
+        </select>
+
+        <button class="btn btn-navy w-100">
+            Save Milk Record
+        </button>
+
+    </div>
+
+</div>
+<!-- ================= END MILK ================= -->
+
+
+<!-- ================= OFFCANVAS : PREGNANT ================= -->
+<div class="offcanvas offcanvas-end"
+     tabindex="-1"
+     id="addPregnantOffcanvas">
+
+    <div class="offcanvas-header">
+        <h5 class="offcanvas-title">Add Pregnant Record</h5>
+
+        <button type="button"
+                class="btn-close"
+                data-bs-dismiss="offcanvas">
+        </button>
+    </div>
+
+    <div class="offcanvas-body">
+
+        <label class="form-label">Eartag/ID</label>
+        <input type="text" class="form-control mb-3">
+
+        <label class="form-label">Breeding Date</label>
+        <input type="date" class="form-control mb-3">
+
+        <label class="form-label">Expected Delivery</label>
+        <input type="date" class="form-control mb-3">
+
+        <button class="btn btn-navy w-100">
+            Save Record
+        </button>
+
+    </div>
+
+</div>
+<!-- ================= END PREGNANT ================= -->
+
+
+<!-- ================= OFFCANVAS : LACTATING ================= -->
+<div class="offcanvas offcanvas-end"
+     tabindex="-1"
+     id="addLactatingOffcanvas">
+
+    <div class="offcanvas-header">
+        <h5 class="offcanvas-title">Add Lactating Record</h5>
+
+        <button type="button"
+                class="btn-close"
+                data-bs-dismiss="offcanvas">
+        </button>
+    </div>
+
+    <div class="offcanvas-body">
+
+        <label class="form-label">Eartag/ID</label>
+        <input type="text" class="form-control mb-3">
+
+        <label class="form-label">Milk Yield</label>
+        <input type="text"
+               class="form-control mb-3"
+               placeholder="15 Liters/day">
+
+        <label class="form-label">Lactation Stage</label>
+        <select class="form-select mb-3">
+            <option>Early</option>
+            <option>Mid</option>
+            <option>Late</option>
+        </select>
+
+        <button class="btn btn-navy w-100">
+            Save Record
+        </button>
+
+    </div>
+
+</div>
+<!-- ================= END LACTATING ================= -->
+
+
+<!-- ================= OFFCANVAS : DEAD ================= -->
+<div class="offcanvas offcanvas-end"
+     tabindex="-1"
+     id="addDeadOffcanvas">
+
+    <div class="offcanvas-header">
+        <h5 class="offcanvas-title">Add Dead Record</h5>
+
+        <button type="button"
+                class="btn-close"
+                data-bs-dismiss="offcanvas">
+        </button>
+    </div>
+
+    <div class="offcanvas-body">
+
+        <label class="form-label">Eartag/ID</label>
+        <input type="text" class="form-control mb-3">
+
+        <label class="form-label">Date of Death</label>
+        <input type="date" class="form-control mb-3">
+
+        <label class="form-label">Cause</label>
+        <input type="text" class="form-control mb-3">
+
+        <button class="btn btn-navy w-100">
+            Save Record
+        </button>
+
+    </div>
+
+</div>
+<!-- ================= END DEAD ================= -->
+
+
+<!-- ================= OFFCANVAS : SOLD ================= -->
+<div class="offcanvas offcanvas-end"
+     tabindex="-1"
+     id="addSoldOffcanvas">
+
+    <div class="offcanvas-header">
+        <h5 class="offcanvas-title">Add Sold Record</h5>
+
+        <button type="button"
+                class="btn-close"
+                data-bs-dismiss="offcanvas">
+        </button>
+    </div>
+
+    <div class="offcanvas-body">
+
+        <label class="form-label">Buyer</label>
+        <input type="text" class="form-control mb-3">
+
+        <label class="form-label">Amount</label>
+        <input type="number" class="form-control mb-3">
+
+        <label class="form-label">Date Sold</label>
+        <input type="date" class="form-control mb-3">
+
+        <button class="btn btn-navy w-100">
+            Save Record
+        </button>
+
+    </div>
+
+</div>
+<!-- ================= END SOLD ================= -->
+
+
+<!-- ================= OFFCANVAS : EXPENSE ================= -->
+<div class="offcanvas offcanvas-end"
+     tabindex="-1"
+     id="addExpenseOffcanvas">
+
+    <div class="offcanvas-header">
+        <h5 class="offcanvas-title">Add Expense</h5>
+
+        <button type="button"
+                class="btn-close"
+                data-bs-dismiss="offcanvas">
+        </button>
+    </div>
+
+    <div class="offcanvas-body">
+
+        <label class="form-label">Category</label>
+        <input type="text" class="form-control mb-3">
+
+        <label class="form-label">Amount</label>
+        <input type="number" class="form-control mb-3">
+
+        <label class="form-label">Description</label>
+        <textarea class="form-control mb-3"></textarea>
+
+        <button class="btn btn-navy w-100">
+            Save Expense
+        </button>
+
+    </div>
+
+</div>
+<!-- ================= END EXPENSE ================= -->
+
+
+<!-- ================= OFFCANVAS : AI ================= -->
+<div class="offcanvas offcanvas-end"
+     tabindex="-1"
+     id="addAIOffcanvas">
+
+    <div class="offcanvas-header">
+        <h5 class="offcanvas-title">Add AI Record</h5>
+
+        <button type="button"
+                class="btn-close"
+                data-bs-dismiss="offcanvas">
+        </button>
+    </div>
+
+    <div class="offcanvas-body">
+
+        <label class="form-label">Carabao ID</label>
+        <input type="text" class="form-control mb-3">
+
+        <label class="form-label">Insemination Date</label>
+        <input type="date" class="form-control mb-3">
+
+        <label class="form-label">Technician</label>
+        <input type="text" class="form-control mb-3">
+
+        <button class="btn btn-navy w-100">
+            Save AI Record
+        </button>
+
+    </div>
+
+</div>
+<!-- ================= END AI ================= -->
+
+
+<!-- ================= OFFCANVAS : CALF DROP ================= -->
+<div class="offcanvas offcanvas-end"
+     tabindex="-1"
+     id="addCalfDropOffcanvas">
+
+    <div class="offcanvas-header">
+        <h5 class="offcanvas-title">Add Calf Drop</h5>
+
+        <button type="button"
+                class="btn-close"
+                data-bs-dismiss="offcanvas">
+        </button>
+    </div>
+
+    <div class="offcanvas-body">
+
+        <label class="form-label">Mother ID</label>
+        <input type="text" class="form-control mb-3">
+
+        <label class="form-label">Calf ID</label>
+        <input type="text" class="form-control mb-3">
+
+        <label class="form-label">Birth Date</label>
+        <input type="date" class="form-control mb-3">
+
+        <button class="btn btn-navy w-100">
+            Save Calf Record
+        </button>
+
+    </div>
+
+</div>
+<!-- ================= END CALF DROP ================= -->
+
+<!-- ================= OFFCANVAS : HEALTH ================= -->
+<div class="offcanvas offcanvas-end"
+     tabindex="-1"
+     id="addHealthOffcanvas">
+
+    <div class="offcanvas-header">
+        <h5 class="offcanvas-title">Add Health Record</h5>
+
+        <button type="button"
+                class="btn-close"
+                data-bs-dismiss="offcanvas">
+        </button>
+    </div>
+
+    <div class="offcanvas-body">
+
+        <label class="form-label">Carabao ID</label>
+        <input type="text" class="form-control mb-3">
+
+        <label class="form-label">Date</label>
+        <input type="date" class="form-control mb-3">
+
+        <label class="form-label">Condition</label>
+        <input type="text" class="form-control mb-3">
+
+        <label class="form-label">Diagnosis</label>
+        <input type="text" class="form-control mb-3">
+
+        <label class="form-label">Treatment</label>
+        <input type="text" class="form-control mb-3">
+
+        <label class="form-label">Veterinarian</label>
+        <input type="text" class="form-control mb-3">
+
+        <label class="form-label">Status</label>
+        <input type="text" class="form-control mb-3">
+
+        <button class="btn btn-navy w-100">
+            Save Health Record
+        </button>
+
+    </div>
+
+</div>
+<!-- ================= END HEALTH ================= -->
+
 
 <script>
 const tabs = document.querySelectorAll('.tab-btn');
 const contents = document.querySelectorAll('.tab-content-item');
 
 tabs.forEach(tab => {
+
     tab.addEventListener('click', function () {
 
         tabs.forEach(t => t.classList.remove('active'));
+
         this.classList.add('active');
 
         let target = this.getAttribute('data-tab');
 
-        contents.forEach(c => c.classList.add('d-none'));
+        contents.forEach(c => {
+            c.classList.add('d-none');
+        });
 
         document.getElementById(target).classList.remove('d-none');
+
     });
+
 });
 </script>
 
@@ -1016,3 +1173,4 @@ tabs.forEach(tab => {
 
 </body>
 </html>
+```
