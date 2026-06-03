@@ -333,13 +333,13 @@ body{
         <div class="input-group input-group-sm" style="width:280px; height:38px;">
 
             <span class="input-group-text d-flex align-items-center justify-content-center"
-                  style="width:38px; height:38px;">
+                    style="width:38px; height:38px;">
                 <i class="fa fa-search"></i>
             </span>
 
             <input type="text"
                    class="form-control table-search h-100"
-                   placeholder="Search Carabao...">
+                   placeholder="Search Carabao Record...">
 
         </div>
     </div>
@@ -404,7 +404,7 @@ body{
 
                 <input type="text"
                     class="form-control table-search h-100"
-                    placeholder="Search Milk...">
+                    placeholder="Search Milk Record...">
 
             </div>
         </div>
@@ -467,7 +467,7 @@ body{
 
                 <input type="text"
                     class="form-control table-search h-100"
-                    placeholder="Search Pregnant...">
+                    placeholder="Search Pregnant Record...">
 
             </div>
         </div>
@@ -506,9 +506,10 @@ body{
         <!-- PAGINATION -->
         <div class="d-flex justify-content-end mt-3 pagination-box"></div>
 
-            </div>
+    </div>
 
-            <div id="lactating" class="tab-content-item d-none">
+        <!-- LACTATING -->
+        <div id="lactating" class="tab-content-item d-none">
 
             <div class="d-flex justify-content-between align-items-center mb-3">
                 <h5>Lactating Carabaos</h5>
@@ -523,8 +524,10 @@ body{
             <!-- SEARCH -->
             <div class="d-flex justify-content-end mb-3">
                 <div class="input-group input-group-sm" style="width:280px; height:38px;">
-                    <span class="input-group-text"><i class="fa fa-search"></i></span>
-                    <input type="text" class="form-control table-search" placeholder="Search Lactating...">
+                    <span class="input-group-text d-flex align-items-center justify-content-center"
+                    style="width:38px; height:38px;">
+                    <i class="fa fa-search"></i></span>
+                    <input type="text" class="form-control table-search" placeholder="Search Lactating Record...">
                 </div>
             </div>
 
@@ -576,10 +579,19 @@ body{
             </button>
         </div>
 
+        <!-- SEARCH (STYLED) -->
         <div class="d-flex justify-content-end mb-3">
-            <div class="input-group input-group-sm" style="width:280px;">
-                <span class="input-group-text"><i class="fa fa-search"></i></span>
-                <input type="text" class="form-control table-search" placeholder="Search Dead...">
+            <div class="input-group input-group-sm" style="width:280px; height:38px;">
+
+                <span class="input-group-text d-flex align-items-center justify-content-center"
+                    style="width:38px; height:38px;">
+                    <i class="fa fa-search"></i>
+                </span>
+
+                <input type="text"
+                    class="form-control table-search h-100"
+                    placeholder="Search Dead Record...">
+
             </div>
         </div>
 
@@ -632,7 +644,8 @@ body{
         <!-- SEARCH -->
         <div class="d-flex justify-content-end mb-3">
             <div class="input-group input-group-sm" style="width:280px;">
-                <span class="input-group-text">
+                <span class="input-group-text d-flex align-items-center justify-content-center"
+                    style="width:38px; height:38px;">
                     <i class="fa fa-search"></i>
                 </span>
 
@@ -694,7 +707,8 @@ body{
         <!-- SEARCH -->
         <div class="d-flex justify-content-end mb-3">
             <div class="input-group input-group-sm" style="width:280px;">
-                <span class="input-group-text">
+                <span class="input-group-text d-flex align-items-center justify-content-center"
+                    style="width:38px; height:38px;">
                     <i class="fa fa-search"></i>
                 </span>
 
@@ -751,11 +765,19 @@ body{
             </button>
         </div>
 
-        <!-- SEARCH -->
+        <!-- SEARCH (STYLED) -->
         <div class="d-flex justify-content-end mb-3">
-            <div class="input-group input-group-sm" style="width:280px;">
-                <span class="input-group-text"><i class="fa fa-search"></i></span>
-                <input type="text" class="form-control table-search" placeholder="Search AI...">
+            <div class="input-group input-group-sm" style="width:280px; height:38px;">
+
+                <span class="input-group-text d-flex align-items-center justify-content-center"
+                    style="width:38px; height:38px;">
+                    <i class="fa fa-search"></i>
+                </span>
+
+                <input type="text"
+                    class="form-control table-search h-100"
+                    placeholder="Search AI Record...">
+
             </div>
         </div>
 
@@ -807,12 +829,21 @@ body{
         </button>
     </div>
 
-    <div class="d-flex justify-content-end mb-3">
-        <div class="input-group input-group-sm" style="width:280px;">
-            <span class="input-group-text"><i class="fa fa-search"></i></span>
-            <input type="text" class="form-control table-search" placeholder="Search Calf Drop...">
+    <!-- SEARCH (STYLED) -->
+        <div class="d-flex justify-content-end mb-3">
+            <div class="input-group input-group-sm" style="width:280px; height:38px;">
+
+                <span class="input-group-text d-flex align-items-center justify-content-center"
+                    style="width:38px; height:38px;">
+                    <i class="fa fa-search"></i>
+                </span>
+
+                <input type="text"
+                    class="form-control table-search h-100"
+                    placeholder="Search Calf Drop Record...">
+
+            </div>
         </div>
-    </div>
 
     <div class="table-responsive">
         <table class="table table-hover align-middle data-table">
@@ -859,12 +890,21 @@ body{
         </button>
     </div>
 
-    <div class="d-flex justify-content-end mb-3">
-        <div class="input-group input-group-sm" style="width:280px;">
-            <span class="input-group-text"><i class="fa fa-search"></i></span>
-            <input type="text" class="form-control table-search" placeholder="Search Health...">
+    <!-- SEARCH (STYLED) -->
+        <div class="d-flex justify-content-end mb-3">
+            <div class="input-group input-group-sm" style="width:280px; height:38px;">
+
+                <span class="input-group-text d-flex align-items-center justify-content-center"
+                    style="width:38px; height:38px;">
+                    <i class="fa fa-search"></i>
+                </span>
+
+                <input type="text"
+                    class="form-control table-search h-100"
+                    placeholder="Search Health & Nutrition Record...">
+
+            </div>
         </div>
-    </div>
 
     <div class="table-responsive">
         <table class="table table-hover align-middle data-table">
