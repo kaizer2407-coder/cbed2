@@ -278,7 +278,6 @@ body{
                 <th>Province</th>
                 <th>Municipality</th>
                 <th>Barangay</th>
-                <th>Year</th>
                 <th>Status</th>
                 <th>Action</th>
             </tr>
@@ -301,7 +300,6 @@ body{
                     <td>{{ $coop->province }}</td>
                     <td>{{ $coop->city_municipality }}</td>
                     <td>{{ $coop->barangay }}</td>
-                    <td>{{ $coop->year }}</td>
 
                     <td>
                         <span class="badge bg-success">
