@@ -740,6 +740,7 @@ body{
 
     <!-- AI -->
     <div id="ai" class="tab-content-item d-none">
+
         <div class="d-flex justify-content-between align-items-center mb-3">
             <h5>Artificial Insemination Records</h5>
 
@@ -750,8 +751,17 @@ body{
             </button>
         </div>
 
+        <!-- SEARCH -->
+        <div class="d-flex justify-content-end mb-3">
+            <div class="input-group input-group-sm" style="width:280px;">
+                <span class="input-group-text"><i class="fa fa-search"></i></span>
+                <input type="text" class="form-control table-search" placeholder="Search AI...">
+            </div>
+        </div>
+
+        <!-- TABLE -->
         <div class="table-responsive">
-            <table class="table table-hover align-middle">
+            <table class="table table-hover align-middle data-table">
                 <thead>
                     <tr>
                         <th>ID</th>
@@ -778,93 +788,115 @@ body{
                 </tbody>
             </table>
         </div>
+
+        <!-- PAGINATION -->
+        <div class="d-flex justify-content-end mt-3 pagination-box"></div>
     </div>
+
 
     <!-- CALF DROP -->
     <div id="calfdrop" class="tab-content-item d-none">
-        <div class="d-flex justify-content-between align-items-center mb-3">
-            <h5>Calf Drop Records</h5>
 
-            <button class="btn btn-navy btn-sm"
-                    data-bs-toggle="offcanvas"
-                    data-bs-target="#addCalfDropOffcanvas">
-                <i class="fa fa-plus me-1"></i> Add Calf Drop
-            </button>
-        </div>
+    <div class="d-flex justify-content-between align-items-center mb-3">
+        <h5>Calf Drop Records</h5>
 
-        <div class="table-responsive">
-            <table class="table table-hover align-middle">
-                <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>Mother ID</th>
-                        <th>Calf ID</th>
-                        <th>Birth Date</th>
-                        <th>Breed</th>
-                        <th>Sex</th>
-                        <th>Weight</th>
-                        <th>Status</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>5PAN23110</td>
-                        <td>CALF-001</td>
-                        <td>10-Jun-26</td>
-                        <td>Murrah</td>
-                        <td>Female</td>
-                        <td>28 kg</td>
-                        <td><span class="badge bg-success">Healthy</span></td>
-                    </tr>
-                </tbody>
-            </table>
+        <button class="btn btn-navy btn-sm"
+            data-bs-toggle="offcanvas"
+            data-bs-target="#addCalfDropOffcanvas">
+            <i class="fa fa-plus me-1"></i> Add Calf Drop
+        </button>
+    </div>
+
+    <div class="d-flex justify-content-end mb-3">
+        <div class="input-group input-group-sm" style="width:280px;">
+            <span class="input-group-text"><i class="fa fa-search"></i></span>
+            <input type="text" class="form-control table-search" placeholder="Search Calf Drop...">
         </div>
     </div>
+
+    <div class="table-responsive">
+        <table class="table table-hover align-middle data-table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Mother ID</th>
+                    <th>Calf ID</th>
+                    <th>Birth Date</th>
+                    <th>Breed</th>
+                    <th>Sex</th>
+                    <th>Weight</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>5PAN23110</td>
+                    <td>CALF-001</td>
+                    <td>10-Jun-26</td>
+                    <td>Murrah</td>
+                    <td>Female</td>
+                    <td>28 kg</td>
+                    <td><span class="badge bg-success">Healthy</span></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="d-flex justify-content-end mt-3 pagination-box"></div>
+</div>
+
 
     <!-- HEALTH -->
-    <div id="health" class="tab-content-item d-none">
+  <div id="health" class="tab-content-item d-none">
 
-        <div class="d-flex justify-content-between align-items-center mb-3">
-            <h5>Health Records</h5>
-
-            <button class="btn btn-navy btn-sm"
-                    data-bs-toggle="offcanvas"
-                    data-bs-target="#addHealthOffcanvas">
-                <i class="fa fa-plus me-1"></i> Add Health Record
-            </button>
-        </div>
-
-        <div class="table-responsive">
-            <table class="table table-hover align-middle">
-                <thead class="table-light">
-                    <tr>
-                        <th>ID</th>
-                        <th>Carabao ID</th>
-                        <th>Date</th>
-                        <th>Condition</th>
-                        <th>Diagnosis</th>
-                        <th>Treatment</th>
-                        <th>Veterinarian</th>
-                        <th>Status</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>5PAN23110</td>
-                        <td>02-Jun-26</td>
-                        <td>Fever</td>
-                        <td>Viral Infection</td>
-                        <td>Antibiotics</td>
-                        <td>Dr. Santos</td>
-                        <td><span class="badge bg-warning text-dark">Under Treatment</span></td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-
+    <div class="d-flex justify-content-between align-items-center mb-3">
+        <h5>Health Records</h5>
+        <button class="btn btn-navy btn-sm"
+            data-bs-toggle="offcanvas"
+            data-bs-target="#addHealthOffcanvas">
+            <i class="fa fa-plus me-1"></i> Add Health Record
+        </button>
     </div>
+
+    <div class="d-flex justify-content-end mb-3">
+        <div class="input-group input-group-sm" style="width:280px;">
+            <span class="input-group-text"><i class="fa fa-search"></i></span>
+            <input type="text" class="form-control table-search" placeholder="Search Health...">
+        </div>
+    </div>
+
+    <div class="table-responsive">
+        <table class="table table-hover align-middle data-table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Carabao ID</th>
+                    <th>Date</th>
+                    <th>Condition</th>
+                    <th>Diagnosis</th>
+                    <th>Treatment</th>
+                    <th>Veterinarian</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>5PAN23110</td>
+                    <td>02-Jun-26</td>
+                    <td>Fever</td>
+                    <td>Viral Infection</td>
+                    <td>Antibiotics</td>
+                    <td>Dr. Santos</td>
+                    <td><span class="badge bg-warning text-dark">Under Treatment</span></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="d-flex justify-content-end mt-3 pagination-box"></div>
+</div>
 
 </div>
 <!-- END TAB CONTENT -->
