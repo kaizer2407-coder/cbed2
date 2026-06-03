@@ -315,52 +315,74 @@ body{
  <!-- TAB CONTENT -->
 <div class="tab-content-box">
 
-    <!-- CARABAO -->
-    <div id="carabao" class="tab-content-item">
+<!-- CARABAO -->
+<div id="carabao" class="tab-content-item">
 
-        <div class="d-flex justify-content-between align-items-center mb-3">
-            <h5 class="mb-0">Carabao List</h5>
+    <div class="d-flex justify-content-between align-items-center mb-3">
+        <h5 class="mb-0">Carabao List</h5>
 
-            <button class="btn btn-navy btn-sm"
-                    data-bs-toggle="offcanvas"
-                    data-bs-target="#addCarabaoOffcanvas">
-                <i class="fa fa-plus me-1"></i> Add Carabao
-            </button>
+        <button class="btn btn-navy btn-sm"
+                data-bs-toggle="offcanvas"
+                data-bs-target="#addCarabaoOffcanvas">
+            <i class="fa fa-plus me-1"></i> Add Carabao
+        </button>
+    </div>
+
+    <!-- SEARCH (STYLED) -->
+    <div class="d-flex justify-content-end mb-3">
+        <div class="input-group input-group-sm" style="width:280px; height:38px;">
+
+            <span class="input-group-text d-flex align-items-center justify-content-center"
+                  style="width:38px; height:38px;">
+                <i class="fa fa-search"></i>
+            </span>
+
+            <input type="text"
+                   class="form-control table-search h-100"
+                   placeholder="Search Carabao...">
+
         </div>
+    </div>
 
-        <div class="table-responsive">
-            <table class="table table-hover align-middle">
-                <thead class="table-light">
-                    <tr>
-                        <th>ID</th>
-                        <th>Eartag/ID</th>
-                        <th>Bolus</th>
-                        <th>Sex</th>
-                        <th>Birthdate</th>
-                        <th>Classification</th>
-                        <th>Year</th>
-                        <th>Status</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>5PAN23110</td>
-                        <td>123445678</td>
-                        <td>Female</td>
-                        <td>01-Jan-26</td>
-                        <td>Heifer</td>
-                        <td>2026</td>
-                        <td><span class="badge bg-success">Active</span></td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+    <!-- TABLE -->
+    <div class="table-responsive">
+        <table class="table table-hover align-middle data-table">
+            <thead class="table-light">
+                <tr>
+                    <th>ID</th>
+                    <th>Eartag/ID</th>
+                    <th>Bolus</th>
+                    <th>Sex</th>
+                    <th>Birthdate</th>
+                    <th>Classification</th>
+                    <th>Year</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>5PAN23110</td>
+                    <td>123445678</td>
+                    <td>Female</td>
+                    <td>01-Jan-26</td>
+                    <td>Heifer</td>
+                    <td>2026</td>
+                    <td><span class="badge bg-success">Active</span></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- PAGINATION -->
+    <div class="d-flex justify-content-end mt-3 pagination-box"></div>
 
     </div>
 
     <!-- MILK -->
     <div id="milk" class="tab-content-item d-none">
+
         <div class="d-flex justify-content-between align-items-center mb-3">
             <h5>Milk Records</h5>
 
@@ -371,8 +393,25 @@ body{
             </button>
         </div>
 
+        <!-- SEARCH (STYLED) -->
+        <div class="d-flex justify-content-end mb-3">
+            <div class="input-group input-group-sm" style="width:280px; height:38px;">
+
+                <span class="input-group-text d-flex align-items-center justify-content-center"
+                    style="width:38px; height:38px;">
+                    <i class="fa fa-search"></i>
+                </span>
+
+                <input type="text"
+                    class="form-control table-search h-100"
+                    placeholder="Search Milk...">
+
+            </div>
+        </div>
+
+        <!-- TABLE -->
         <div class="table-responsive">
-            <table class="table table-hover align-middle">
+            <table class="table table-hover align-middle data-table">
                 <thead class="table-light">
                     <tr>
                         <th>ID</th>
@@ -384,6 +423,7 @@ body{
                         <th>Status</th>
                     </tr>
                 </thead>
+
                 <tbody>
                     <tr>
                         <td>1</td>
@@ -397,10 +437,15 @@ body{
                 </tbody>
             </table>
         </div>
+
+        <!-- PAGINATION -->
+        <div class="d-flex justify-content-end mt-3 pagination-box"></div>
+
     </div>
 
     <!-- PREGNANT -->
     <div id="pregnant" class="tab-content-item d-none">
+
         <div class="d-flex justify-content-between align-items-center mb-3">
             <h5>Pregnant Carabaos</h5>
 
@@ -411,8 +456,25 @@ body{
             </button>
         </div>
 
+        <!-- SEARCH -->
+        <div class="d-flex justify-content-end mb-3">
+            <div class="input-group input-group-sm" style="width:280px; height:38px;">
+
+                <span class="input-group-text d-flex align-items-center justify-content-center"
+                    style="width:38px; height:38px;">
+                    <i class="fa fa-search"></i>
+                </span>
+
+                <input type="text"
+                    class="form-control table-search h-100"
+                    placeholder="Search Pregnant...">
+
+            </div>
+        </div>
+
+        <!-- TABLE -->
         <div class="table-responsive">
-            <table class="table table-hover align-middle">
+            <table class="table table-hover align-middle data-table">
                 <thead class="table-light">
                     <tr>
                         <th>ID</th>
@@ -425,6 +487,7 @@ body{
                         <th>Status</th>
                     </tr>
                 </thead>
+
                 <tbody>
                     <tr>
                         <td>1</td>
@@ -439,52 +502,70 @@ body{
                 </tbody>
             </table>
         </div>
-    </div>
 
-    <!-- LACTATING -->
-    <div id="lactating" class="tab-content-item d-none">
-        <div class="d-flex justify-content-between align-items-center mb-3">
-            <h5>Lactating Carabaos</h5>
+        <!-- PAGINATION -->
+        <div class="d-flex justify-content-end mt-3 pagination-box"></div>
 
-            <button class="btn btn-navy btn-sm"
-                    data-bs-toggle="offcanvas"
-                    data-bs-target="#addLactatingOffcanvas">
-                <i class="fa fa-plus me-1"></i> Add Lactating
-            </button>
+            </div>
+
+            <div id="lactating" class="tab-content-item d-none">
+
+            <div class="d-flex justify-content-between align-items-center mb-3">
+                <h5>Lactating Carabaos</h5>
+
+                <button class="btn btn-navy btn-sm"
+                        data-bs-toggle="offcanvas"
+                        data-bs-target="#addLactatingOffcanvas">
+                    <i class="fa fa-plus me-1"></i> Add Lactating
+                </button>
+            </div>
+
+            <!-- SEARCH -->
+            <div class="d-flex justify-content-end mb-3">
+                <div class="input-group input-group-sm" style="width:280px; height:38px;">
+                    <span class="input-group-text"><i class="fa fa-search"></i></span>
+                    <input type="text" class="form-control table-search" placeholder="Search Lactating...">
+                </div>
+            </div>
+
+            <!-- TABLE -->
+            <div class="table-responsive">
+                <table class="table table-hover align-middle data-table">
+                    <thead class="table-light">
+                        <tr>
+                            <th>ID</th>
+                            <th>Eartag/ID</th>
+                            <th>Breed</th>
+                            <th>Birth Date</th>
+                            <th>Lactation Start</th>
+                            <th>Milk Yield</th>
+                            <th>Lactation Stage</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>5PAN23110</td>
+                            <td>Murrah</td>
+                            <td>10-Dec-25</td>
+                            <td>15-Dec-25</td>
+                            <td>15 Liters/day</td>
+                            <td>Early</td>
+                            <td><span class="badge bg-success">Active</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- PAGINATION -->
+            <div class="d-flex justify-content-end mt-3 pagination-box"></div>
+
         </div>
-
-        <div class="table-responsive">
-            <table class="table table-hover align-middle">
-                <thead class="table-light">
-                    <tr>
-                        <th>ID</th>
-                        <th>Eartag/ID</th>
-                        <th>Breed</th>
-                        <th>Birth Date</th>
-                        <th>Lactation Start</th>
-                        <th>Milk Yield</th>
-                        <th>Lactation Stage</th>
-                        <th>Status</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>5PAN23110</td>
-                        <td>Murrah</td>
-                        <td>10-Dec-25</td>
-                        <td>15-Dec-25</td>
-                        <td>15 Liters/day</td>
-                        <td>Early</td>
-                        <td><span class="badge bg-success">Active</span></td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </div>
 
     <!-- DEAD -->
     <div id="dead" class="tab-content-item d-none">
+
         <div class="d-flex justify-content-between align-items-center mb-3">
             <h5>Dead Records</h5>
 
@@ -495,8 +576,15 @@ body{
             </button>
         </div>
 
+        <div class="d-flex justify-content-end mb-3">
+            <div class="input-group input-group-sm" style="width:280px;">
+                <span class="input-group-text"><i class="fa fa-search"></i></span>
+                <input type="text" class="form-control table-search" placeholder="Search Dead...">
+            </div>
+        </div>
+
         <div class="table-responsive">
-            <table class="table table-hover align-middle">
+            <table class="table table-hover align-middle data-table">
                 <thead class="table-light">
                     <tr>
                         <th>ID</th>
@@ -523,10 +611,14 @@ body{
                 </tbody>
             </table>
         </div>
+
+        <div class="d-flex justify-content-end mt-3 pagination-box"></div>
+
     </div>
 
     <!-- SOLD -->
     <div id="sold" class="tab-content-item d-none">
+
         <div class="d-flex justify-content-between align-items-center mb-3">
             <h5>Sold Records</h5>
 
@@ -537,6 +629,20 @@ body{
             </button>
         </div>
 
+        <!-- SEARCH -->
+        <div class="d-flex justify-content-end mb-3">
+            <div class="input-group input-group-sm" style="width:280px;">
+                <span class="input-group-text">
+                    <i class="fa fa-search"></i>
+                </span>
+
+                <input type="text"
+                    class="form-control table-search"
+                    placeholder="Search Sold Records...">
+            </div>
+        </div>
+
+        <!-- TABLE -->
         <div class="table-responsive">
             <table class="table table-hover align-middle">
                 <thead class="table-light">
@@ -551,6 +657,7 @@ body{
                         <th>Status</th>
                     </tr>
                 </thead>
+
                 <tbody>
                     <tr>
                         <td>1</td>
@@ -565,10 +672,15 @@ body{
                 </tbody>
             </table>
         </div>
+
+        <!-- PAGINATION -->
+        <div class="d-flex justify-content-end mt-3 pagination-box"></div>
+
     </div>
 
     <!-- EXPENSES -->
     <div id="expenses" class="tab-content-item d-none">
+
         <div class="d-flex justify-content-between align-items-center mb-3">
             <h5>Expense Records</h5>
 
@@ -579,6 +691,20 @@ body{
             </button>
         </div>
 
+        <!-- SEARCH -->
+        <div class="d-flex justify-content-end mb-3">
+            <div class="input-group input-group-sm" style="width:280px;">
+                <span class="input-group-text">
+                    <i class="fa fa-search"></i>
+                </span>
+
+                <input type="text"
+                    class="form-control table-search"
+                    placeholder="Search Expense Records...">
+            </div>
+        </div>
+
+        <!-- TABLE -->
         <div class="table-responsive">
             <table class="table table-hover align-middle">
                 <thead class="table-light">
@@ -592,6 +718,7 @@ body{
                         <th>Status</th>
                     </tr>
                 </thead>
+
                 <tbody>
                     <tr>
                         <td>1</td>
@@ -605,6 +732,10 @@ body{
                 </tbody>
             </table>
         </div>
+
+        <!-- PAGINATION -->
+        <div class="d-flex justify-content-end mt-3 pagination-box"></div>
+
     </div>
 
     <!-- AI -->
@@ -1166,6 +1297,127 @@ tabs.forEach(tab => {
 
     });
 
+});
+
+
+document.querySelectorAll('.tab-content-item').forEach(container => {
+
+    const table = container.querySelector('table');
+    const searchInput = container.querySelector('.table-search');
+    const paginationBox = container.querySelector('.pagination-box');
+
+    if (!table || !searchInput || !paginationBox) return;
+
+    const tbody = table.querySelector('tbody');
+
+    // store ORIGINAL rows only once
+    const originalRows = Array.from(tbody.querySelectorAll('tr'));
+
+    let filteredRows = [...originalRows];
+    let currentPage = 1;
+    const rowsPerPage = 5;
+
+    function renderTable() {
+
+        tbody.innerHTML = "";
+
+        const start = (currentPage - 1) * rowsPerPage;
+        const end = start + rowsPerPage;
+
+        const pageRows = filteredRows.slice(start, end);
+
+        if (pageRows.length === 0) {
+            const colspan = table.querySelectorAll('thead th').length;
+
+            tbody.innerHTML = `
+                <tr>
+                    <td colspan="${colspan}" class="text-center text-muted">
+                        No data found
+                    </td>
+                </tr>
+            `;
+        } else {
+            pageRows.forEach(row => tbody.appendChild(row));
+        }
+
+        renderPagination();
+    }
+
+    function renderPagination() {
+
+        paginationBox.innerHTML = "";
+
+        const totalPages = Math.ceil(filteredRows.length / rowsPerPage);
+
+        if (totalPages <= 1) return;
+
+        const ul = document.createElement('ul');
+        ul.className = "pagination pagination-sm";
+
+        // PREV
+        const prevLi = document.createElement('li');
+        prevLi.className = "page-item " + (currentPage === 1 ? "disabled" : "");
+        prevLi.innerHTML = `<a class="page-link" href="#">&laquo;</a>`;
+        prevLi.addEventListener('click', (e) => {
+            e.preventDefault();
+            if (currentPage > 1) {
+                currentPage--;
+                renderTable();
+            }
+        });
+        ul.appendChild(prevLi);
+
+        // PAGES
+        for (let i = 1; i <= totalPages; i++) {
+            const li = document.createElement('li');
+            li.className = "page-item " + (i === currentPage ? "active" : "");
+            li.innerHTML = `<a class="page-link" href="#">${i}</a>`;
+
+            li.addEventListener('click', (e) => {
+                e.preventDefault();
+                currentPage = i;
+                renderTable();
+            });
+
+            ul.appendChild(li);
+        }
+
+        // NEXT
+        const nextLi = document.createElement('li');
+        nextLi.className = "page-item " + (currentPage === totalPages ? "disabled" : "");
+        nextLi.innerHTML = `<a class="page-link" href="#">&raquo;</a>`;
+        nextLi.addEventListener('click', (e) => {
+            e.preventDefault();
+            if (currentPage < totalPages) {
+                currentPage++;
+                renderTable();
+            }
+        });
+
+        ul.appendChild(nextLi);
+
+        paginationBox.appendChild(ul);
+    }
+
+    function applySearch(value) {
+
+        value = value.toLowerCase();
+
+        // IMPORTANT: always reset from ORIGINAL rows
+        filteredRows = originalRows.filter(row =>
+            row.textContent.toLowerCase().includes(value)
+        );
+
+        currentPage = 1;
+        renderTable();
+    }
+
+    searchInput.addEventListener('input', function () {
+        applySearch(this.value);
+    });
+
+    // INIT
+    renderTable();
 });
 </script>
 
