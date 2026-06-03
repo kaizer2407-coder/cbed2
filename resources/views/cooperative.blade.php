@@ -191,22 +191,8 @@ body{
 
         <div class="col-md-4">
             <div class="card stat-card p-4 text-center">
-                <h3>84</h3>
+                <h3>{{ $totalCooperatives}}</h3>
                 <p>Total Cooperatives</p>
-            </div>
-        </div>
-
-        <div class="col-md-4">
-            <div class="card stat-card p-4 text-center">
-                <h3>72</h3>
-                <p>Active Cooperatives</p>
-            </div>
-        </div>
-
-        <div class="col-md-4">
-            <div class="card stat-card p-4 text-center">
-                <h3>12</h3>
-                <p>Pending Cooperatives</p>
             </div>
         </div>
 
@@ -218,14 +204,14 @@ body{
     <div class="card p-4 mb-4">
         <div class="row g-4">
 
-            <div class="col-md-3"><div class="province-card p-3 text-center"><h6>Pampanga</h6><h4>12</h4></div></div>
-            <div class="col-md-3"><div class="province-card p-3 text-center"><h6>Bataan</h6><h4>8</h4></div></div>
-            <div class="col-md-3"><div class="province-card p-3 text-center"><h6>Bulacan</h6><h4>18</h4></div></div>
-            <div class="col-md-3"><div class="province-card p-3 text-center"><h6>Nueva Ecija</h6><h4>22</h4></div></div>
-            <div class="col-md-3"><div class="province-card p-3 text-center"><h6>Tarlac</h6><h4>10</h4></div></div>
-            <div class="col-md-3"><div class="province-card p-3 text-center"><h6>Zambales</h6><h4>6</h4></div></div>
-            <div class="col-md-3"><div class="province-card p-3 text-center"><h6>Angeles City</h6><h4>4</h4></div></div>
-            <div class="col-md-3"><div class="province-card p-3 text-center"><h6>Nueva Vizcaya</h6><h4>7</h4></div></div>
+            <div class="col-md-3"><div class="province-card p-3 text-center"><h6>Pampanga</h6><h4>{{ $pampangaCount ?? 0 }}</h4></div></div>
+            <div class="col-md-3"><div class="province-card p-3 text-center"><h6>Bataan</h6><h4>{{ $bataanCount ?? 0 }}</h4></div></div>
+            <div class="col-md-3"><div class="province-card p-3 text-center"><h6>Bulacan</h6><h4>{{ $bulacanCount ?? 0 }}</h4></div></div>
+            <div class="col-md-3"><div class="province-card p-3 text-center"><h6>Nueva Ecija</h6><h4>{{ $neCount ?? 0 }}</h4></div></div>
+            <div class="col-md-3"><div class="province-card p-3 text-center"><h6>Tarlac</h6><h4>{{ $tarlacCount ?? 0 }}</h4></div></div>
+            <div class="col-md-3"><div class="province-card p-3 text-center"><h6>Zambales</h6><h4>{{ $zambalesCount ?? 0 }}</h4></div></div>
+            <div class="col-md-3"><div class="province-card p-3 text-center"><h6>Aurora</h6><h4>{{ $aaCount ?? 0 }}</h4></div></div>
+            <div class="col-md-3"><div class="province-card p-3 text-center"><h6>Nueva Vizcaya</h6><h4>{{ $nvCount ?? 0 }}</h4></div></div>
 
         </div>
     </div>

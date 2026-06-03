@@ -12,7 +12,38 @@ class CooperativeController extends Controller
     {
         $cooperatives = Cooperative::orderBy('id', 'asc')->get();
 
-        return view('cooperative', compact('cooperatives'));
+        $totalCooperatives = Cooperative::count();
+
+        // 👇 COUNT PER PROVINCE
+        $byProvince = Cooperative::select('province')
+            ->selectRaw('COUNT(*) as total')
+            ->groupBy('province')
+            ->orderBy('total', 'desc')
+            ->get();
+
+        // ✅ ADD THIS ONLY (Pampanga count)
+        $pampangaCount = Cooperative::where('province', 'Pampanga')->count();
+        $bataanCount = Cooperative::where('province', 'Bataan')->count();
+        $bulacanCount = Cooperative::where('province', 'Bulacan')->count();
+        $neCount = Cooperative::where('province', 'Nueva Ecija')->count();
+        $tarlacCount = Cooperative::where('province', 'Tarlac')->count();
+        $zambalesCount = Cooperative::where('province', 'Zambales')->count();
+        $aaCount = Cooperative::where('province', 'Aurora')->count();
+        $nvCount = Cooperative::where('province', 'Nueva Viscaya')->count();
+
+        return view('cooperative', compact(
+            'cooperatives',
+            'totalCooperatives',
+            'byProvince',
+            'pampangaCount',
+            'bataanCount',
+            'bulacanCount',
+            'neCount',
+            'tarlacCount',
+            'zambalesCount',
+            'aaCount',
+            'nvCount',
+        ));
     }
 
     public function destroy($id)
@@ -21,6 +52,7 @@ class CooperativeController extends Controller
 
         return redirect()->back()->with('success', 'Deleted successfully!');
     }
+
 
     // STORE DATA
     public function store(Request $request)
