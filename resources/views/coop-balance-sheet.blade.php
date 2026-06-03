@@ -29,6 +29,13 @@ body{
     position:relative;
 }
 
+.logo{
+    font-size:28px;
+    font-weight:700;
+    text-align:center;
+    margin-bottom:40px;
+}
+
 .top-actions{
     position:absolute;
     top:20px;
@@ -40,7 +47,11 @@ body{
 .top-icon{
     color:white;
     font-size:18px;
-    text-decoration:none;
+}
+
+.top-icon:hover{
+    color:#dbeafe;
+    transform:rotate(15deg);
 }
 
 .user-box{
@@ -61,7 +72,6 @@ body{
     padding:15px 20px;
     border-radius:12px;
     margin-bottom:10px;
-    transition:.3s;
 }
 
 .menu a i{ margin-right:10px; }
@@ -71,9 +81,26 @@ body{
     transform:translateX(5px);
 }
 
-.page-title{
-    font-weight:700;
-    color:var(--navy);
+/* PROFILE */
+.profile-box{
+    background:white;
+    border-radius:22px;
+    padding:30px;
+    box-shadow:0 8px 25px rgba(0,0,0,.08);
+}
+
+.profile-header{
+    background:linear-gradient(135deg,var(--navy),var(--navy2));
+    color:white;
+    padding:25px;
+    border-radius:18px;
+    margin-bottom:25px;
+}
+
+.label{
+    font-size:12px;
+    color:#6c757d;
+    text-transform:uppercase;
 }
 
 .card-box{
@@ -89,6 +116,11 @@ body{
     padding:20px;
     text-align:center;
     box-shadow:0 8px 20px rgba(0,0,0,.08);
+}
+
+.page-title{
+    font-weight:700;
+    color:var(--navy);
 }
 </style>
 
@@ -127,7 +159,20 @@ body{
 <!-- CONTENT -->
 <div class="col-lg-10 p-4">
 
-    <h3 class="page-title mb-4">Balance Sheet</h3>
+    <!-- TITLE + YEAR -->
+    <div class="d-flex justify-content-between align-items-center mb-4">
+
+        <h3 class="page-title mb-0">
+            Balance Sheet (<span id="yearText">2026</span>)
+        </h3>
+
+        <select class="form-select w-auto" id="yearSelect" onchange="changeYear()">
+            <option value="2026">2026</option>
+            <option value="2025">2025</option>
+            <option value="2024">2024</option>
+        </select>
+
+    </div>
 
     <!-- SUMMARY -->
     <div class="row g-4 mb-4">
@@ -135,7 +180,7 @@ body{
         <div class="col-md-4">
             <div class="stat-card">
                 <i class="fa fa-building text-primary"></i>
-                <h4>₱200,000</h4>
+                <h4 id="assets">₱200,000</h4>
                 <p class="mb-0">Total Assets</p>
             </div>
         </div>
@@ -143,7 +188,7 @@ body{
         <div class="col-md-4">
             <div class="stat-card">
                 <i class="fa fa-credit-card text-danger"></i>
-                <h4>₱80,000</h4>
+                <h4 id="liabilities">₱80,000</h4>
                 <p class="mb-0">Liabilities</p>
             </div>
         </div>
@@ -151,7 +196,7 @@ body{
         <div class="col-md-4">
             <div class="stat-card">
                 <i class="fa fa-scale-balanced text-success"></i>
-                <h4>₱120,000</h4>
+                <h4 id="equity">₱120,000</h4>
                 <p class="mb-0">Equity</p>
             </div>
         </div>
@@ -169,15 +214,15 @@ body{
                 <table class="table table-sm">
                     <tr>
                         <td>Cash</td>
-                        <td>₱50,000</td>
+                        <td id="cash">₱50,000</td>
                     </tr>
                     <tr>
                         <td>Milk Inventory</td>
-                        <td>₱30,000</td>
+                        <td id="milkInv">₱30,000</td>
                     </tr>
                     <tr>
                         <td>Livestock</td>
-                        <td>₱120,000</td>
+                        <td id="livestock">₱120,000</td>
                     </tr>
                 </table>
             </div>
@@ -191,11 +236,11 @@ body{
                 <table class="table table-sm">
                     <tr>
                         <td>Loans Payable</td>
-                        <td>₱50,000</td>
+                        <td id="loans">₱50,000</td>
                     </tr>
                     <tr>
                         <td>Accounts Payable</td>
-                        <td>₱30,000</td>
+                        <td id="accounts">₱30,000</td>
                     </tr>
                 </table>
             </div>
@@ -209,11 +254,11 @@ body{
                 <table class="table table-sm">
                     <tr>
                         <td>Capital</td>
-                        <td>₱100,000</td>
+                        <td id="capital">₱100,000</td>
                     </tr>
                     <tr>
                         <td>Retained Earnings</td>
-                        <td>₱20,000</td>
+                        <td id="retained">₱20,000</td>
                     </tr>
                 </table>
             </div>
@@ -225,6 +270,61 @@ body{
 
 </div>
 </div>
+
+<script>
+function changeYear(){
+    let year = document.getElementById("yearSelect").value;
+    document.getElementById("yearText").innerText = year;
+
+    if(year == "2026"){
+        document.getElementById("assets").innerText = "₱200,000";
+        document.getElementById("liabilities").innerText = "₱80,000";
+        document.getElementById("equity").innerText = "₱120,000";
+
+        document.getElementById("cash").innerText = "₱50,000";
+        document.getElementById("milkInv").innerText = "₱30,000";
+        document.getElementById("livestock").innerText = "₱120,000";
+
+        document.getElementById("loans").innerText = "₱50,000";
+        document.getElementById("accounts").innerText = "₱30,000";
+
+        document.getElementById("capital").innerText = "₱100,000";
+        document.getElementById("retained").innerText = "₱20,000";
+    }
+
+    if(year == "2025"){
+        document.getElementById("assets").innerText = "₱150,000";
+        document.getElementById("liabilities").innerText = "₱60,000";
+        document.getElementById("equity").innerText = "₱90,000";
+
+        document.getElementById("cash").innerText = "₱40,000";
+        document.getElementById("milkInv").innerText = "₱25,000";
+        document.getElementById("livestock").innerText = "₱85,000";
+
+        document.getElementById("loans").innerText = "₱35,000";
+        document.getElementById("accounts").innerText = "₱25,000";
+
+        document.getElementById("capital").innerText = "₱70,000";
+        document.getElementById("retained").innerText = "₱20,000";
+    }
+
+    if(year == "2024"){
+        document.getElementById("assets").innerText = "₱100,000";
+        document.getElementById("liabilities").innerText = "₱40,000";
+        document.getElementById("equity").innerText = "₱60,000";
+
+        document.getElementById("cash").innerText = "₱30,000";
+        document.getElementById("milkInv").innerText = "₱20,000";
+        document.getElementById("livestock").innerText = "₱50,000";
+
+        document.getElementById("loans").innerText = "₱20,000";
+        document.getElementById("accounts").innerText = "₱20,000";
+
+        document.getElementById("capital").innerText = "₱50,000";
+        document.getElementById("retained").innerText = "₱10,000";
+    }
+}
+</script>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
 </body>

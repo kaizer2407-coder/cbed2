@@ -81,6 +81,26 @@ body{background:var(--bg);font-family:Segoe UI;}
     border-radius:18px;
     box-shadow:0 8px 20px rgba(0,0,0,.08);
 }
+
+.card-box{
+    background:white;
+    border-radius:18px;
+    padding:20px;
+    box-shadow:0 8px 20px rgba(0,0,0,.08);
+}
+
+.stat-card{
+    border:none;
+    border-radius:18px;
+    padding:20px;
+    text-align:center;
+    box-shadow:0 8px 20px rgba(0,0,0,.08);
+}
+
+.page-title{
+    font-weight:700;
+    color:var(--navy);
+}
 </style>
 </head>
 

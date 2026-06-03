@@ -7,7 +7,6 @@
 
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-<link rel="icon" href="{{ asset('images/pcclogo.jpg') }}" type="image/png">
 
 <style>
 :root{
@@ -28,6 +27,13 @@ body{
     padding:30px 20px;
     color:white;
     position:relative;
+}
+
+.logo{
+    font-size:28px;
+    font-weight:700;
+    text-align:center;
+    margin-bottom:40px;
 }
 
 .top-actions{
@@ -78,7 +84,13 @@ body{
     transform:translateX(5px);
 }
 
-/* DASH CARDS */
+.table-box{
+    background:white;
+    padding:25px;
+    border-radius:18px;
+    box-shadow:0 8px 20px rgba(0,0,0,.08);
+}
+
 .card-box{
     background:white;
     border-radius:18px;
@@ -94,20 +106,11 @@ body{
     box-shadow:0 8px 20px rgba(0,0,0,.08);
 }
 
-.stat-card i{
-    border:none;
-    border-radius:18px;
-    padding:20px;
-    text-align:center;
-    box-shadow:0 8px 20px rgba(0,0,0,.08);
-}
-
 .page-title{
     font-weight:700;
     color:var(--navy);
 }
 </style>
-
 </head>
 
 <body>
@@ -120,7 +123,7 @@ body{
 
     <div class="top-actions">
         <a href="#"><i class="fa fa-gear top-icon"></i></a>
-        <a href="{{ route('login') }}"><i class="fa fa-right-from-bracket top-icon"></i></a>
+        <a href="#"><i class="fa fa-right-from-bracket top-icon"></i></a>
     </div>
 
     <div class="user-box">
@@ -143,7 +146,20 @@ body{
 <!-- CONTENT -->
 <div class="col-lg-10 p-4">
 
-    <h3 class="page-title mb-4">Cooperative Dashboard</h3>
+    <!-- TITLE + YEAR SELECT -->
+    <div class="d-flex justify-content-between align-items-center mb-4">
+
+        <h3 class="page-title mb-0">
+            Cooperative Dashboard (<span id="yearText">2026</span>)
+        </h3>
+
+        <select class="form-select w-auto" id="yearSelect" onchange="changeYear()">
+            <option value="2026">2026</option>
+            <option value="2025">2025</option>
+            <option value="2024">2024</option>
+        </select>
+
+    </div>
 
     <!-- STATS -->
     <div class="row g-4 mb-4">
@@ -151,7 +167,7 @@ body{
         <div class="col-md-3">
             <div class="stat-card bg-white">
                 <i class="fa fa-users text-primary"></i>
-                <h4>120</h4>
+                <h4 id="farmers">120</h4>
                 <p class="mb-0">Farmers</p>
             </div>
         </div>
@@ -159,7 +175,7 @@ body{
         <div class="col-md-3">
             <div class="stat-card bg-white">
                 <i class="fa fa-cow text-success"></i>
-                <h4>350</h4>
+                <h4 id="animals">350</h4>
                 <p class="mb-0">Animals</p>
             </div>
         </div>
@@ -167,7 +183,7 @@ body{
         <div class="col-md-3">
             <div class="stat-card bg-white">
                 <i class="fa fa-glass-water text-info"></i>
-                <h4>1,250L</h4>
+                <h4 id="milk">1250L</h4>
                 <p class="mb-0">Milk Production</p>
             </div>
         </div>
@@ -175,21 +191,21 @@ body{
         <div class="col-md-3">
             <div class="stat-card bg-white">
                 <i class="fa fa-money-bill text-warning"></i>
-                <h4>₱85,000</h4>
+                <h4 id="revenue">₱85,000</h4>
                 <p class="mb-0">Revenue</p>
             </div>
         </div>
 
     </div>
 
-    <!-- SECOND ROW -->
+    <!-- QUICK SUMMARY -->
     <div class="row g-4">
 
         <div class="col-md-6">
             <div class="card-box">
                 <h5 class="mb-3">Recent Farmers</h5>
 
-                <table class="table table-hover align-middle">
+                <table class="table table-hover">
                     <thead>
                         <tr>
                             <th>Name</th>
@@ -214,15 +230,15 @@ body{
                 <h5 class="mb-3">Quick Summary</h5>
 
                 <div class="p-3 border rounded mb-3">
-                    <strong>Pregnant Animals:</strong> 8
+                    <strong>Pregnant Animals:</strong> <span id="pregnant">8</span>
                 </div>
 
                 <div class="p-3 border rounded mb-3">
-                    <strong>Lactating Animals:</strong> 10
+                    <strong>Lactating Animals:</strong> <span id="lactating">10</span>
                 </div>
 
                 <div class="p-3 border rounded">
-                    <strong>Dead Records:</strong> 2
+                    <strong>Dead Records:</strong> <span id="dead">2</span>
                 </div>
 
             </div>
@@ -234,6 +250,43 @@ body{
 
 </div>
 </div>
+
+<script>
+function changeYear(){
+    let year = document.getElementById("yearSelect").value;
+    document.getElementById("yearText").innerText = year;
+
+    if(year == "2026"){
+        document.getElementById("farmers").innerText = "120";
+        document.getElementById("animals").innerText = "350";
+        document.getElementById("milk").innerText = "1250L";
+        document.getElementById("revenue").innerText = "₱85,000";
+        document.getElementById("pregnant").innerText = "8";
+        document.getElementById("lactating").innerText = "10";
+        document.getElementById("dead").innerText = "2";
+    }
+
+    if(year == "2025"){
+        document.getElementById("farmers").innerText = "95";
+        document.getElementById("animals").innerText = "280";
+        document.getElementById("milk").innerText = "980L";
+        document.getElementById("revenue").innerText = "₱60,000";
+        document.getElementById("pregnant").innerText = "6";
+        document.getElementById("lactating").innerText = "7";
+        document.getElementById("dead").innerText = "3";
+    }
+
+    if(year == "2024"){
+        document.getElementById("farmers").innerText = "70";
+        document.getElementById("animals").innerText = "200";
+        document.getElementById("milk").innerText = "650L";
+        document.getElementById("revenue").innerText = "₱40,000";
+        document.getElementById("pregnant").innerText = "4";
+        document.getElementById("lactating").innerText = "5";
+        document.getElementById("dead").innerText = "1";
+    }
+}
+</script>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
 </body>
