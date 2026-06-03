@@ -216,7 +216,7 @@ body{
             <a href="{{ route('farmer') }}"><i class="fa fa-users"></i> Farmer</a>
             <a href="{{ route('cooperative') }}"><i class="fa fa-building"></i> Cooperative</a>
             <a href="{{ route('carabao') }}"><i class="fa fa-cow"></i> Carabao</a>
-            <a href="#"><i class="fa fa-chart-line"></i> Reports</a>
+            <a href="{{ route('login.information') }}"><i class="fa fa-user-lock"></i></i> Login Information</a>
         </div>
 
     </div>

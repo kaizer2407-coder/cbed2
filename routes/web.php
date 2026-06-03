@@ -14,6 +14,14 @@ Route::get('/signup', function () {
     return view('signup');
 })->name('signup');
 
+Route::get('/account', function () {
+    return view('account');
+})->name('account');
+
+Route::get('/login-information', function () {
+    return view('login-information');
+})->name('login.information');
+
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
