@@ -216,9 +216,6 @@ body{
                 <div class="p-3 border rounded mb-3">
                     <strong>Pregnant Animals:</strong> 8
                 </div>
-                <div class="p-3 border rounded mb-3">
-                    <strong>Pregnant Animals:</strong> 8
-                </div>
 
                 <div class="p-3 border rounded mb-3">
                     <strong>Lactating Animals:</strong> 10

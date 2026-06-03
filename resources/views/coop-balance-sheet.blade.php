@@ -64,6 +64,8 @@ body{
     transition:.3s;
 }
 
+.menu a i{ margin-right:10px; }
+
 .menu a:hover{
     background:rgba(255,255,255,.15);
     transform:translateX(5px);
