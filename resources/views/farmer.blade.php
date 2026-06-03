@@ -283,14 +283,23 @@ body{
             <div class="d-flex justify-content-between align-items-center mb-3">
                 <h4 class="mb-0">Farmer List</h4>
 
-                <button class="btn btn-primary"
-                        data-bs-toggle="offcanvas"
-                        data-bs-target="#addFarmerOffcanvas">
-                    <i class="fa fa-plus me-1"></i> Add Farmer
-                </button>
+                <!-- SEARCH ADDED -->
+                <div class="d-flex align-items-center" style="width:280px;">
+                    <div class="input-group input-group-sm" style="width:280px; height:38px;">
+                        <span class="input-group-text d-flex align-items-center justify-content-center"
+                            style="width:38px; height:38px;">
+                            <i class="fa fa-search"></i>
+                        </span>
+
+                        <input type="text"
+                            id="searchInput"
+                            class="form-control h-100"
+                            placeholder="Search...">
+                    </div>
+                </div>
             </div>
 
-            <table class="table table-hover">
+            <table class="table table-hover" id="farmerTable">
                 <thead>
                     <tr>
                         <th>ID</th>
@@ -306,6 +315,8 @@ body{
                 </thead>
 
                 <tbody>
+
+                    <!-- ORIGINAL ROW -->
                     <tr>
                         <td>1</td>
                         <td>
@@ -320,19 +331,54 @@ body{
                         <td>2026</td>
                         <td><span class="badge bg-success">Active</span></td>
                         <td class="action-icons">
-                            <a href="#" class="text-primary me-3"
-                               data-bs-toggle="offcanvas"
-                               data-bs-target="#editFarmerOffcanvas">
-                                <i class="fa fa-pen-to-square"></i>
-                            </a>
-
-                            <a href="#" class="text-danger">
-                                <i class="fa fa-trash"></i>
-                            </a>
+                            <a href="#" class="text-primary me-3"><i class="fa fa-pen-to-square"></i></a>
+                            <a href="#" class="text-danger"><i class="fa fa-trash"></i></a>
                         </td>
                     </tr>
+
+                    <!-- EXTRA ROWS (FOR PAGINATION DEMO) -->
+                    @for($i = 2; $i <= 12; $i++)
+                    <tr>
+                        <td>{{ $i }}</td>
+                        <td>Farmer {{ $i }}</td>
+                        <td>FRM-00{{ $i }}</td>
+                        <td>Pampanga</td>
+                        <td>City {{ $i }}</td>
+                        <td>Barangay {{ $i }}</td>
+                        <td>2026</td>
+                        <td><span class="badge bg-success">Active</span></td>
+                        <td class="action-icons">
+                            <a href="#" class="text-primary me-3"><i class="fa fa-pen-to-square"></i></a>
+                            <a href="#" class="text-danger"><i class="fa fa-trash"></i></a>
+                        </td>
+                    </tr>
+                    @endfor
+
                 </tbody>
             </table>
+
+            <!-- PAGINATION ADDED -->
+            <div class="d-flex justify-content-end mt-3">
+                <nav>
+                    <ul class="pagination pagination-sm mb-0" id="pagination">
+
+                        <li class="page-item disabled">
+                            <a class="page-link" href="#">«</a>
+                        </li>
+
+                        <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                        <li class="page-item"><a class="page-link" href="#">2</a></li>
+                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                        <li class="page-item"><a class="page-link" href="#">4</a></li>
+                        <li class="page-item"><a class="page-link" href="#">5</a></li>
+
+                        <li class="page-item">
+                            <a class="page-link" href="#">»</a>
+                        </li>
+
+                    </ul>
+                </nav>
+            </div>
 
         </div>
 
@@ -525,5 +571,20 @@ body{
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
 
+<script>
+const searchInput = document.getElementById("searchInput");
+const table = document.getElementById("farmerTable");
+
+searchInput.addEventListener("keyup", function () {
+    let value = this.value.toLowerCase();
+    let rows = table.querySelectorAll("tbody tr");
+
+    rows.forEach(row => {
+        row.style.display = row.textContent.toLowerCase().includes(value)
+            ? ""
+            : "none";
+    });
+});
+</script>
 </body>
 </html>

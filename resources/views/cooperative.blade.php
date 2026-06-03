@@ -30,7 +30,6 @@ body{
     position: relative;
 }
 
-/* ADDED FROM FPROFILE STYLE */
 .top-actions{
     position:absolute;
     top:20px;
@@ -69,13 +68,6 @@ body{
 
 .user-box small{
     color:#dbeafe;
-}
-
-.logo{
-    font-size:28px;
-    font-weight:700;
-    text-align:center;
-    margin-bottom:40px;
 }
 
 .menu a{
@@ -135,7 +127,6 @@ body{
     color:var(--navy);
 }
 
-/* OFFCANVAS */
 .form-control, .form-select{
     border-radius:10px;
     padding:10px;
@@ -155,34 +146,20 @@ body{
 <div class="container-fluid">
 <div class="row">
 
-<!-- SIDEBAR (REPLACED ONLY) -->
+<!-- SIDEBAR -->
 <div class="col-lg-2 sidebar">
 
-    <!-- TOP ACTIONS -->
     <div class="top-actions">
-
-        <a href="#" class="top-icon">
-            <i class="fa-solid fa-gear"></i>
-        </a>
-
-        <a href="{{ route('login') }}" class="top-icon">
-            <i class="fa-solid fa-right-from-bracket"></i>
-        </a>
-
+        <a href="#" class="top-icon"><i class="fa-solid fa-gear"></i></a>
+        <a href="{{ route('login') }}" class="top-icon"><i class="fa-solid fa-right-from-bracket"></i></a>
     </div>
 
-    <!-- USER -->
     <div class="user-box">
-
         <i class="fa-solid fa-circle-user"></i>
-
         <h5>John Carlo</h5>
-
         <small>Administrator</small>
-
     </div>
 
-    <!-- MENU -->
     <div class="menu">
         <a href="{{ route('dashboard') }}"><i class="fa fa-home"></i> Dashboard</a>
         <a href="{{ route('farmer') }}"><i class="fa fa-users"></i> Farmer</a>
@@ -193,12 +170,12 @@ body{
 
 </div>
 
-<!-- CONTENT (UNCHANGED) -->
+<!-- CONTENT -->
 <div class="col-lg-10 p-4">
 
     <h3 class="page-title mb-4">Cooperative Dashboard</h3>
 
-    <!-- 3 CARDS -->
+    <!-- CARDS (UNCHANGED) -->
     <div class="row g-4 mb-4">
 
         <div class="col-md-4">
@@ -224,7 +201,7 @@ body{
 
     </div>
 
-    <!-- REGION -->
+    <!-- REGION (UNCHANGED) -->
     <h5 class="mb-3">Region 3 - Cooperatives per Province</h5>
 
     <div class="card p-4 mb-4">
@@ -249,15 +226,24 @@ body{
 
             <h4 class="mb-0">Cooperative List</h4>
 
-            <button class="btn btn-primary"
-                    data-bs-toggle="offcanvas"
-                    data-bs-target="#addCoop">
-                <i class="fa fa-plus me-1"></i> Add Cooperative
-            </button>
+            <!-- ✅ SEARCH ADDED -->
+            <div class="d-flex align-items-center" style="width:280px;">
+                    <div class="input-group input-group-sm" style="width:280px; height:38px;">
+                        <span class="input-group-text d-flex align-items-center justify-content-center"
+                            style="width:38px; height:38px;">
+                            <i class="fa fa-search"></i>
+                        </span>
+
+                        <input type="text"
+                            id="searchInput"
+                            class="form-control h-100"
+                            placeholder="Search...">
+                    </div>
+                </div>
 
         </div>
 
-        <table class="table table-hover">
+        <table class="table table-hover" id="coopTable">
             <thead>
                 <tr>
                     <th>ID</th>
@@ -273,11 +259,12 @@ body{
             </thead>
 
             <tbody>
+
                 <tr>
                     <td>1</td>
                     <td>
-                        <a href="{{ url('/coop-profile') }}" class="text-primary text-decoration-none fw-semibold">
-                         Cooperative 1
+                        <a href="{{ route('farmer.profile') }}" class="text-primary text-decoration-none fw-semibold">
+                            Cooperative 1
                         </a>
                     </td>
                     <td>AC-001</td>
@@ -287,159 +274,107 @@ body{
                     <td>2026</td>
                     <td><span class="badge bg-success">Active</span></td>
                     <td>
-                        <a href="#"
-                        class="text-primary me-3"
-                        data-bs-toggle="offcanvas"
-                        data-bs-target="#editCoop">
-                            <i class="fa fa-pen-to-square"></i>
-                        </a>
-
-                        <a href="#" class="text-danger">
-                            <i class="fa fa-trash"></i>
-                        </a>
+                        <a href="#" class="text-primary me-3"><i class="fa fa-pen-to-square"></i></a>
+                        <a href="#" class="text-danger"><i class="fa fa-trash"></i></a>
                     </td>
                 </tr>
-            </tbody>
 
+                @for($i = 2; $i <= 15; $i++)
+                <tr>
+                    <td>{{ $i }}</td>
+                    <td>Cooperative {{ $i }}</td>
+                    <td>AC-00{{ $i }}</td>
+                    <td>Pampanga</td>
+                    <td>Municipality {{ $i }}</td>
+                    <td>Barangay {{ $i }}</td>
+                    <td>2026</td>
+                    <td><span class="badge bg-success">Active</span></td>
+                    <td>
+                        <a href="#" class="text-primary me-3"><i class="fa fa-pen-to-square"></i></a>
+                        <a href="#" class="text-danger"><i class="fa fa-trash"></i></a>
+                    </td>
+                </tr>
+                @endfor
+
+            </tbody>
         </table>
 
+        <!-- PAGINATION (CLIENT SIDE) -->
+        <div class="d-flex justify-content-end mt-3">
+            <ul class="pagination pagination-sm mb-0" id="pagination"></ul>
+        </div>
+
     </div>
 
 </div>
 </div>
-</div>
-
-<div class="offcanvas offcanvas-end" tabindex="-1" id="addCoop">
-
-    <div class="offcanvas-header">
-        <h5 class="offcanvas-title">Add Cooperative</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
-    </div>
-
-    <div class="offcanvas-body">
-
-        <!-- ROW: 2 INPUTS -->
-        <div class="row">
-            <div class="col-md-6">
-                <label class="form-label">CDA Registration No.</label>
-                <input type="text" class="form-control">
-            </div>
-
-            <div class="col-md-6">
-                <label class="form-label">Cooperative Code</label>
-                <input type="text" class="form-control">
-            </div>
-        </div>
-
-        <!-- SINGLE INPUT -->
-        <div class="mt-1">
-            <label class="form-label">Cooperative Name</label>
-            <input type="text" class="form-control">
-        </div>
-
-        <div class="row">
-            <!-- SELECT -->
-            <div class="col-md-6">
-                <label class="form-label">Accreditation Status</label>
-                <select class="form-select">
-                    <option selected disabled>Select Status</option>
-                    <option>Active</option>
-                    <option>Inactive</option>
-                </select>
-            </div>
-
-            <div class="col-md-6">
-                <label class="form-label">Coop Type:</label>
-                <select class="form-select">
-                    <option selected disabled>Select Status</option>
-                    <option>Active</option>
-                    <option>Inactive</option>
-                </select>
-            </div>
-        </div>
-
-        <div class="row">
-            <!-- SELECT -->
-            <div class="col-md-6">
-                <label class="form-label">Category</label>
-                <select class="form-select">
-                    <option selected disabled>Select Status</option>
-                    <option>Active</option>
-                    <option>Inactive</option>
-                </select>
-            </div>
-
-            <div class="col-md-6">
-                <label class="form-label">Date Established</label>
-                <select class="form-select">
-                    <option selected disabled>Select Status</option>
-                    <option>Active</option>
-                    <option>Inactive</option>
-                </select>
-            </div>
-        </div>
-
-        <div class="row">
-            <!-- SELECT -->
-            <div class="col-md-6">
-                <label class="form-label">Region</label>
-                <select class="form-select">
-                    <option selected disabled>Select Status</option>
-                    <option>Active</option>
-                    <option>Inactive</option>
-                </select>
-            </div>
-
-            <div class="col-md-6">
-                <label class="form-label">Province</label>
-                <select class="form-select">
-                    <option selected disabled>Select Status</option>
-                    <option>Active</option>
-                    <option>Inactive</option>
-                </select>
-            </div>
-        </div>
-
-        <div class="row">
-            <!-- SELECT -->
-            <div class="col-md-6">
-                <label class="form-label">City/Town/Municipality</label>
-                <input type="text" class="form-control">
-            </div>
-
-            <div class="col-md-6">
-                <label class="form-label">Barangay</label>
-                <input type="text" class="form-control">
-            </div>
-        </div>
-
-        <!-- SINGLE INPUT -->
-        <div class="mt-1">
-            <label class="form-label">Address Specifics</label>
-            <input type="text" class="form-control">
-        </div>
-
-        <div class="row">
-            <!-- SELECT -->
-            <div class="col-md-6">
-                <label class="form-label">Network</label>
-                <input type="text" class="form-control">
-            </div>
-
-            <div class="col-md-6">
-                <label class="form-label">Year</label>
-                <input type="text" class="form-control">
-            </div>
-        </div>
-
-        <button class="btn btn-primary w-100 mt-4">
-            Save Cooperative
-        </button>
-
-    </div>
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+const rowsPerPage = 5;
+const table = document.getElementById("coopTable");
+const tbody = table.querySelector("tbody");
+const rows = tbody.querySelectorAll("tr");
+const pagination = document.getElementById("pagination");
+
+const searchInput = document.getElementById("searchInput");
+
+let currentPage = 1;
+let filteredRows = Array.from(rows);
+
+// SEARCH
+searchInput.addEventListener("keyup", function () {
+    const value = this.value.toLowerCase();
+
+    filteredRows = Array.from(rows).filter(row =>
+        row.textContent.toLowerCase().includes(value)
+    );
+
+    currentPage = 1;
+    renderTable();
+});
+
+// PAGINATION + RENDER
+function renderTable() {
+    tbody.innerHTML = "";
+
+    let start = (currentPage - 1) * rowsPerPage;
+    let end = start + rowsPerPage;
+
+    let pageRows = filteredRows.slice(start, end);
+
+    pageRows.forEach(row => tbody.appendChild(row));
+
+    renderPagination();
+}
+
+function renderPagination() {
+    pagination.innerHTML = "";
+
+    let pageCount = Math.ceil(filteredRows.length / rowsPerPage);
+
+    for (let i = 1; i <= pageCount; i++) {
+        let li = document.createElement("li");
+        li.classList.add("page-item");
+        if (i === currentPage) li.classList.add("active");
+
+        li.innerHTML = `<a class="page-link" href="#">${i}</a>`;
+
+        li.addEventListener("click", (e) => {
+            e.preventDefault();
+            currentPage = i;
+            renderTable();
+        });
+
+        pagination.appendChild(li);
+    }
+}
+
+// INIT
+renderTable();
+</script>
 
 </body>
 </html>
