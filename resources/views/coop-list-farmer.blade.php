@@ -20,13 +20,6 @@ body{background:var(--bg);font-family:Segoe UI;}
     position:relative;
 }
 
-.logo{
-    font-size:28px;
-    font-weight:700;
-    text-align:center;
-    margin-bottom:40px;
-}
-
 .top-actions{
     position:absolute;
     top:20px;
@@ -82,24 +75,16 @@ body{background:var(--bg);font-family:Segoe UI;}
     box-shadow:0 8px 20px rgba(0,0,0,.08);
 }
 
-.card-box{
-    background:white;
-    border-radius:18px;
-    padding:20px;
-    box-shadow:0 8px 20px rgba(0,0,0,.08);
-}
-
-.stat-card{
-    border:none;
-    border-radius:18px;
-    padding:20px;
-    text-align:center;
-    box-shadow:0 8px 20px rgba(0,0,0,.08);
-}
-
 .page-title{
     font-weight:700;
     color:var(--navy);
+}
+
+.table-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:15px;
 }
 </style>
 </head>
@@ -140,8 +125,18 @@ body{background:var(--bg);font-family:Segoe UI;}
 
 <div class="table-box">
 
+<!-- SEARCH -->
+<div class="table-header">
+    <h5 class="mb-0">Farmers</h5>
+
+    <div class="input-group" style="width:260px;">
+        <span class="input-group-text"><i class="fa fa-search"></i></span>
+        <input type="text" id="searchInput" class="form-control" placeholder="Search...">
+    </div>
+</div>
+
 <div class="table-responsive">
-<table class="table table-hover align-middle">
+<table class="table table-hover align-middle" id="farmerTable">
 
 <thead class="table-light">
 <tr>
@@ -153,25 +148,46 @@ body{background:var(--bg);font-family:Segoe UI;}
 </tr>
 </thead>
 
-<tbody>
+<tbody id="tableBody">
 
 <tr>
     <td>1</td>
-
-    <td>
-        <div class="fw-semibold">Juan Dela Cruz</div>
-        <small class="text-muted">Farmer</small>
-    </td>
-
+    <td><div class="fw-semibold">Juan Dela Cruz</div><small class="text-muted">Farmer</small></td>
     <td><span class="badge bg-primary">FRM-001</span></td>
+    <td>Pampanga - San Fernando</td>
+    <td><span class="badge bg-success">Active</span></td>
+</tr>
 
-    <td>
-        Pampanga - San Fernando - Dolores
-    </td>
+<tr>
+    <td>2</td>
+    <td><div class="fw-semibold">Pedro Santos</div></td>
+    <td><span class="badge bg-primary">FRM-002</span></td>
+    <td>Bulacan - Baliwag</td>
+    <td><span class="badge bg-success">Active</span></td>
+</tr>
 
-    <td>
-        <span class="badge bg-success">Active</span>
-    </td>
+<tr>
+    <td>3</td>
+    <td>Maria Lopez</td>
+    <td><span class="badge bg-primary">FRM-003</span></td>
+    <td>Tarlac City</td>
+    <td><span class="badge bg-warning text-dark">Inactive</span></td>
+</tr>
+
+<tr>
+    <td>4</td>
+    <td>Jose Reyes</td>
+    <td><span class="badge bg-primary">FRM-004</span></td>
+    <td>Nueva Ecija</td>
+    <td><span class="badge bg-success">Active</span></td>
+</tr>
+
+<tr>
+    <td>5</td>
+    <td>Anna Cruz</td>
+    <td><span class="badge bg-primary">FRM-005</span></td>
+    <td>Pampanga</td>
+    <td><span class="badge bg-success">Active</span></td>
 </tr>
 
 </tbody>
@@ -179,10 +195,91 @@ body{background:var(--bg);font-family:Segoe UI;}
 </table>
 </div>
 
+<!-- PAGINATION -->
+<div class="d-flex justify-content-end mt-3">
+    <nav>
+        <ul class="pagination pagination-sm mb-0" id="pagination"></ul>
+    </nav>
 </div>
 
 </div>
 </div>
+
 </div>
+</div>
+
+<script>
+const rowsPerPage = 3;
+let currentPage = 1;
+
+const tableBody = document.getElementById("tableBody");
+const allRows = Array.from(tableBody.querySelectorAll("tr"));
+const pagination = document.getElementById("pagination");
+
+let filteredRows = [...allRows];
+
+function displayTable() {
+    tableBody.innerHTML = "";
+
+    let start = (currentPage - 1) * rowsPerPage;
+    let end = start + rowsPerPage;
+
+    let pageRows = filteredRows.slice(start, end);
+
+    pageRows.forEach(row => tableBody.appendChild(row));
+
+    renderPagination();
+}
+
+function renderPagination() {
+    pagination.innerHTML = "";
+
+    let pageCount = Math.ceil(filteredRows.length / rowsPerPage);
+
+    pagination.innerHTML += `
+        <li class="page-item ${currentPage === 1 ? 'disabled' : ''}">
+            <a class="page-link" href="#" onclick="changePage(${currentPage - 1})">&lt;</a>
+        </li>
+    `;
+
+    for (let i = 1; i <= pageCount; i++) {
+        pagination.innerHTML += `
+            <li class="page-item ${i === currentPage ? 'active' : ''}">
+                <a class="page-link" href="#" onclick="changePage(${i})">${i}</a>
+            </li>
+        `;
+    }
+
+    pagination.innerHTML += `
+        <li class="page-item ${currentPage === pageCount ? 'disabled' : ''}">
+            <a class="page-link" href="#" onclick="changePage(${currentPage + 1})">&gt;</a>
+        </li>
+    `;
+}
+
+function changePage(page) {
+    let pageCount = Math.ceil(filteredRows.length / rowsPerPage);
+    if (page < 1 || page > pageCount) return;
+
+    currentPage = page;
+    displayTable();
+}
+
+/* SEARCH */
+document.getElementById("searchInput").addEventListener("keyup", function () {
+    let value = this.value.toLowerCase();
+
+    filteredRows = allRows.filter(row =>
+        row.textContent.toLowerCase().includes(value)
+    );
+
+    currentPage = 1;
+    displayTable();
+});
+
+/* INIT */
+displayTable();
+</script>
+
 </body>
 </html>

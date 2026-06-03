@@ -91,6 +91,14 @@ body{
     color:var(--navy);
 }
 
+/* SEARCH */
+.table-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:15px;
+}
+
 /* ACTION ICONS */
 .action-icons a{
     font-size:18px;
@@ -140,16 +148,24 @@ body{
 
     <div class="d-flex justify-content-between align-items-center mb-4">
         <h3 class="page-title">Animal Inventory</h3>
-
-        <button class="btn btn-primary">
-            <i class="fa fa-plus me-1"></i> Add Animal
-        </button>
     </div>
 
     <div class="table-box">
 
+        <!-- SEARCH -->
+        <div class="table-header">
+            <h5 class="mb-0">List of Animals</h5>
+
+            <div class="input-group" style="width:260px;">
+                <span class="input-group-text">
+                    <i class="fa fa-search"></i>
+                </span>
+                <input type="text" id="searchInput" class="form-control" placeholder="Search...">
+            </div>
+        </div>
+
         <div class="table-responsive">
-            <table class="table table-hover align-middle">
+            <table class="table table-hover align-middle" id="animalTable">
 
                 <thead class="table-light">
                     <tr>
@@ -164,56 +180,159 @@ body{
                     </tr>
                 </thead>
 
-                <tbody>
+                <tbody id="tableBody">
 
+                    <!-- SAMPLE DATA (ADDED MORE ROWS) -->
                     <tr>
                         <td>1</td>
-
-                        <td>
-                            <div class="fw-semibold">5PAN23110</div>
-                            <small class="text-muted">Bolus: 123445678</small>
-                        </td>
-
+                        <td><div class="fw-semibold">5PAN23110</div><small class="text-muted">Bolus: 123445678</small></td>
                         <td>Murrah</td>
-
-                        <td>
-                            <span class="badge bg-info text-dark">Female</span>
-                        </td>
-
+                        <td><span class="badge bg-info text-dark">Female</span></td>
                         <td>01-Jan-2026</td>
+                        <td><span class="badge bg-secondary">Heifer</span></td>
+                        <td><span class="badge bg-success">Active</span></td>
+                        <td class="action-icons"><a href="#" class="text-primary"><i class="fa fa-pen-to-square"></i></a><a href="#" class="text-danger"><i class="fa fa-trash"></i></a></td>
+                    </tr>
 
-                        <td>
-                            <span class="badge bg-secondary">Heifer</span>
-                        </td>
+                    <tr>
+                        <td>2</td>
+                        <td><div class="fw-semibold">5PAN23111</div><small class="text-muted">Bolus: 111222333</small></td>
+                        <td>Native</td>
+                        <td><span class="badge bg-info text-dark">Male</span></td>
+                        <td>10-Feb-2026</td>
+                        <td><span class="badge bg-secondary">Bull</span></td>
+                        <td><span class="badge bg-success">Active</span></td>
+                        <td class="action-icons"><a href="#" class="text-primary"><i class="fa fa-pen-to-square"></i></a><a href="#" class="text-danger"><i class="fa fa-trash"></i></a></td>
+                    </tr>
 
-                        <td>
-                            <span class="badge bg-success">Active</span>
-                        </td>
+                    <tr>
+                        <td>3</td>
+                        <td>5PAN23112</td>
+                        <td>Murrah</td>
+                        <td><span class="badge bg-info text-dark">Female</span></td>
+                        <td>12-Mar-2026</td>
+                        <td>Heifer</td>
+                        <td><span class="badge bg-warning text-dark">Monitoring</span></td>
+                        <td class="action-icons"><a href="#" class="text-primary"><i class="fa fa-pen-to-square"></i></a><a href="#" class="text-danger"><i class="fa fa-trash"></i></a></td>
+                    </tr>
 
-                        <td class="action-icons">
-                            <a href="#" class="text-primary">
-                                <i class="fa fa-pen-to-square"></i>
-                            </a>
+                    <tr>
+                        <td>4</td>
+                        <td>5PAN23113</td>
+                        <td>Crossbreed</td>
+                        <td>Male</td>
+                        <td>05-Apr-2026</td>
+                        <td>Calf</td>
+                        <td><span class="badge bg-success">Active</span></td>
+                        <td class="action-icons"><a href="#" class="text-primary"><i class="fa fa-pen-to-square"></i></a><a href="#" class="text-danger"><i class="fa fa-trash"></i></a></td>
+                    </tr>
 
-                            <a href="#" class="text-danger">
-                                <i class="fa fa-trash"></i>
-                            </a>
-                        </td>
-
+                    <tr>
+                        <td>5</td>
+                        <td>5PAN23114</td>
+                        <td>Native</td>
+                        <td>Female</td>
+                        <td>20-May-2026</td>
+                        <td>Heifer</td>
+                        <td><span class="badge bg-danger">Inactive</span></td>
+                        <td class="action-icons"><a href="#" class="text-primary"><i class="fa fa-pen-to-square"></i></a><a href="#" class="text-danger"><i class="fa fa-trash"></i></a></td>
                     </tr>
 
                 </tbody>
-
             </table>
         </div>
 
+        <!-- PAGINATION (BOTTOM RIGHT) -->
+        <div class="d-flex justify-content-end mt-3">
+            <nav>
+                <ul class="pagination pagination-sm mb-0" id="pagination"></ul>
+            </nav>
+        </div>
+
     </div>
-
 </div>
 
 </div>
 </div>
+
+<script>
+const rowsPerPage = 10;
+let currentPage = 1;
+
+const tableBody = document.getElementById("tableBody");
+const allRows = Array.from(tableBody.querySelectorAll("tr"));
+const pagination = document.getElementById("pagination");
+
+let filteredRows = [...allRows];
+
+function displayTable() {
+    tableBody.innerHTML = "";
+
+    let start = (currentPage - 1) * rowsPerPage;
+    let end = start + rowsPerPage;
+
+    let pageRows = filteredRows.slice(start, end);
+
+    pageRows.forEach(row => tableBody.appendChild(row));
+
+    renderPagination();
+}
+
+function renderPagination() {
+    pagination.innerHTML = "";
+
+    let pageCount = Math.ceil(filteredRows.length / rowsPerPage);
+
+    // PREVIOUS
+    pagination.innerHTML += `
+        <li class="page-item ${currentPage === 1 ? 'disabled' : ''}">
+            <a class="page-link" href="#" onclick="changePage(${currentPage - 1})">&lt;</a>
+        </li>
+    `;
+
+    // NUMBERS
+    for (let i = 1; i <= pageCount; i++) {
+        pagination.innerHTML += `
+            <li class="page-item ${i === currentPage ? 'active' : ''}">
+                <a class="page-link" href="#" onclick="changePage(${i})">${i}</a>
+            </li>
+        `;
+    }
+
+    // NEXT
+    pagination.innerHTML += `
+        <li class="page-item ${currentPage === pageCount ? 'disabled' : ''}">
+            <a class="page-link" href="#" onclick="changePage(${currentPage + 1})">&gt;</a>
+        </li>
+    `;
+}
+
+function changePage(page) {
+    let pageCount = Math.ceil(filteredRows.length / rowsPerPage);
+
+    if (page < 1 || page > pageCount) return;
+
+    currentPage = page;
+    displayTable();
+}
+
+/* SEARCH */
+document.getElementById("searchInput").addEventListener("keyup", function () {
+    let value = this.value.toLowerCase();
+
+    filteredRows = allRows.filter(row =>
+        row.textContent.toLowerCase().includes(value)
+    );
+
+    currentPage = 1;
+    displayTable();
+});
+
+/* INIT */
+displayTable();
+</script>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
+
 </body>
 </html>
