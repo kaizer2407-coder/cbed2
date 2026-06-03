@@ -259,7 +259,7 @@ body{
                 <div class="card stat-card p-3 text-center tab-btn" data-tab="ai">
                     <i class="fa-solid fa-syringe fa-2x text-danger mb-2"></i>
                     <h5>12</h5>
-                    <p class="mb-0 small">AI</p>
+                    <p class="mb-0 small">Mating</p>
                 </div>
             </div>
 
@@ -756,12 +756,12 @@ body{
     <div id="ai" class="tab-content-item d-none">
 
         <div class="d-flex justify-content-between align-items-center mb-3">
-            <h5>Artificial Insemination Records</h5>
+            <h5>Mating Records</h5>
 
             <button class="btn btn-navy btn-sm"
                     data-bs-toggle="offcanvas"
                     data-bs-target="#addAIOffcanvas">
-                <i class="fa fa-plus me-1"></i> Add AI
+                <i class="fa fa-plus me-1"></i> Add Mating
             </button>
         </div>
 
@@ -776,7 +776,7 @@ body{
 
                 <input type="text"
                     class="form-control table-search h-100"
-                    placeholder="Search AI Record...">
+                    placeholder="Search Mating Record...">
 
             </div>
         </div>

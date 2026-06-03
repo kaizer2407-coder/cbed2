@@ -239,7 +239,7 @@ body{
                             class="form-control h-100"
                             placeholder="Search...">
                     </div>
-                </div>
+            </div>
 
         </div>
 
@@ -263,7 +263,7 @@ body{
                 <tr>
                     <td>1</td>
                     <td>
-                        <a href="{{ route('farmer.profile') }}" class="text-primary text-decoration-none fw-semibold">
+                        <a href="{{ route('coop.profile') }}" class="text-primary text-decoration-none fw-semibold">
                             Cooperative 1
                         </a>
                     </td>

@@ -45,17 +45,28 @@ body{
     gap:15px;
 }
 
+.top-bar{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    width:100%;
+}
+
 .top-icon{
     color:white;
     font-size:18px;
     text-decoration:none;
-    transition:.3s;
+    transition:.3s ease;
+    display:flex;
+    align-items:center;
+    justify-content:center;
 }
 
 .top-icon:hover{
     color:#dbeafe;
     transform:rotate(15deg);
 }
+
 
 .user-box{
     text-align:center;
@@ -140,12 +151,19 @@ body{
 <div class="container-fluid">
 <div class="row">
 
-<!-- SIDEBAR -->
-<div class="col-lg-2 sidebar">
+    <!-- SIDEBAR -->
+    <div class="col-lg-2 sidebar">
+        <div class="top-bar">
 
-    <div class="top-actions">
-        <a href="#"><i class="fa fa-gear top-icon"></i></a>
-        <a href="{{ route('login') }}"><i class="fa fa-right-from-bracket top-icon"></i></a>
+             <!-- LEFT -->
+            <a href="{{ route('dashboard') }}" class="top-icon">
+                <i class="fa fa-home"></i>
+            </a>
+
+            <!-- RIGHT -->
+            <a href="{{ route('login') }}" class="top-icon">
+                <i class="fa fa-right-from-bracket"></i>
+            </a>
     </div>
 
     <div class="user-box">
