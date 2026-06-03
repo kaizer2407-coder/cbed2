@@ -113,9 +113,9 @@ body{
 
     <div class="menu">
         <a href="{{ route('coop.dashboard') }}"><i class="fa fa-home"></i> Dashboard</a>
+        <a href="{{ route('coop.profile') }}"><i class="fa fa-user"></i> Profile</a>
         <a href="{{ route('coop.list.farmer') }}"><i class="fa fa-users"></i> Farmer</a>
         <a href="{{ route('coop.animal.inventory') }}"><i class="fa fa-cow"></i> Animal Inventory</a>
-        <a href="{{ route('coop.profile') }}"><i class="fa fa-user"></i> Profile</a>
         <a href="{{ route('coop.income.statement') }}"><i class="fa-solid fa-money-bill-wave"></i> Income Statement</a>
         <a href="{{ route('coop.balance.sheet') }}"><i class="fa-solid fa-scale-balanced"></i> Balance Sheet</a>
     </div>
