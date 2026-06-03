@@ -94,3 +94,11 @@ Route::get('/coop-animal-inventory', function () {
 Route::get('/coop-list-farmer', function () {
     return view('coop-list-farmer');
 })->name('coop.list.farmer');
+
+Route::get('/coop-income-statement', function () {
+    return view('coop-income-statement');
+})->name('coop.income.statement');
+
+Route::get('/coop-balance-sheet', function () {
+    return view('coop-balance-sheet');
+})->name('coop.balance.sheet');

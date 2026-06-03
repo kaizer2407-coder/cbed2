@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Coop Animal Inventory</title>
+<title>Income Statement</title>
 
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
@@ -50,6 +50,7 @@ body{
     transform:rotate(15deg);
 }
 
+
 .user-box{
     text-align:center;
     margin-top:50px;
@@ -78,11 +79,10 @@ body{
     transform:translateX(5px);
 }
 
-/* TABLE BOX */
-.table-box{
+.card-box{
     background:white;
     border-radius:18px;
-    padding:25px;
+    padding:20px;
     box-shadow:0 8px 20px rgba(0,0,0,.08);
 }
 
@@ -91,15 +91,12 @@ body{
     color:var(--navy);
 }
 
-/* ACTION ICONS */
-.action-icons a{
-    font-size:18px;
-    margin-right:10px;
-    transition:0.2s;
-}
-
-.action-icons a:hover{
-    transform:scale(1.2);
+.stat-card{
+    border:none;
+    border-radius:18px;
+    padding:20px;
+    text-align:center;
+    box-shadow:0 8px 20px rgba(0,0,0,.08);
 }
 </style>
 
@@ -138,70 +135,79 @@ body{
 <!-- CONTENT -->
 <div class="col-lg-10 p-4">
 
-    <div class="d-flex justify-content-between align-items-center mb-4">
-        <h3 class="page-title">Animal Inventory</h3>
+    <h3 class="page-title mb-4">Income Statement</h3>
 
-        <button class="btn btn-primary">
-            <i class="fa fa-plus me-1"></i> Add Animal
-        </button>
+    <!-- SUMMARY CARDS -->
+    <div class="row g-4 mb-4">
+
+        <div class="col-md-4">
+            <div class="stat-card">
+                <i class="fa fa-coins text-success"></i>
+                <h4>₱120,000</h4>
+                <p class="mb-0">Total Income</p>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="stat-card">
+                <i class="fa fa-wallet text-danger"></i>
+                <h4>₱45,000</h4>
+                <p class="mb-0">Total Expenses</p>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="stat-card">
+                <i class="fa fa-chart-line text-primary"></i>
+                <h4>₱75,000</h4>
+                <p class="mb-0">Net Profit</p>
+            </div>
+        </div>
+
     </div>
 
-    <div class="table-box">
+    <!-- TABLE -->
+    <div class="card-box">
+
+        <h5 class="mb-3">Income Records</h5>
 
         <div class="table-responsive">
             <table class="table table-hover align-middle">
 
-                <thead class="table-light">
+                <thead>
                     <tr>
-                        <th>ID</th>
-                        <th>Eartag / Bolus</th>
-                        <th>Breed</th>
-                        <th>Sex</th>
-                        <th>Birthdate</th>
-                        <th>Classification</th>
+                        <th>Date</th>
+                        <th>Description</th>
+                        <th>Category</th>
+                        <th>Amount</th>
                         <th>Status</th>
-                        <th>Actions</th>
                     </tr>
                 </thead>
 
                 <tbody>
-
                     <tr>
-                        <td>1</td>
-
-                        <td>
-                            <div class="fw-semibold">5PAN23110</div>
-                            <small class="text-muted">Bolus: 123445678</small>
-                        </td>
-
-                        <td>Murrah</td>
-
-                        <td>
-                            <span class="badge bg-info text-dark">Female</span>
-                        </td>
-
-                        <td>01-Jan-2026</td>
-
-                        <td>
-                            <span class="badge bg-secondary">Heifer</span>
-                        </td>
-
-                        <td>
-                            <span class="badge bg-success">Active</span>
-                        </td>
-
-                        <td class="action-icons">
-                            <a href="#" class="text-primary">
-                                <i class="fa fa-pen-to-square"></i>
-                            </a>
-
-                            <a href="#" class="text-danger">
-                                <i class="fa fa-trash"></i>
-                            </a>
-                        </td>
-
+                        <td>02-Jun-26</td>
+                        <td>Milk Sales</td>
+                        <td>Product</td>
+                        <td>₱25,000</td>
+                        <td><span class="badge bg-success">Paid</span></td>
                     </tr>
 
+                    <tr>
+                        <td>01-Jun-26</td>
+                        <td>Carabao Sale</td>
+                        <td>Livestock</td>
+                        <td>₱40,000</td>
+                        <td><span class="badge bg-success">Completed</span></td>
+                    </tr>
+
+                    <tr>
+                        <td>30-May-26</td>
+                        <td>Milk Sales</td>
+                        <td>Product</td>
+                        <td>₱15,000</td>
+                        <td><span class="badge bg-warning text-dark">Pending</span></td>
+                    </tr>
                 </tbody>
 
             </table>
