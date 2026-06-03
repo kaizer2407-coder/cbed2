@@ -193,10 +193,6 @@ body{
         <!-- TOP ACTIONS -->
         <div class="top-actions">
 
-            <a href="#" class="top-icon">
-                <i class="fa-solid fa-gear"></i>
-            </a>
-
             <a href="{{ route('login') }}" class="top-icon">
                 <i class="fa-solid fa-right-from-bracket"></i>
             </a>
