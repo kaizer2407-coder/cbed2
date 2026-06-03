@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CooperativeController;
 
 Route::get('/welcome', function () {
     return view('welcome');
@@ -110,3 +111,9 @@ Route::get('/coop-income-statement', function () {
 Route::get('/coop-balance-sheet', function () {
     return view('coop-balance-sheet');
 })->name('coop.balance.sheet');
+
+
+
+Route::get('/cooperative', [CooperativeController::class, 'index'])->name('cooperative');
+Route::post('/cooperative/store', [CooperativeController::class, 'store'])->name('cooperative.store');
+Route::delete('/cooperative/{id}', [CooperativeController::class, 'destroy'])->name('cooperative.delete');
