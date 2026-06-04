@@ -175,9 +175,15 @@ body{
     letter-spacing: 1px;
 }
 
-.btn{
-    border-radius: 10px;
-    padding: 10px;
+.btn-navy{
+    background: var(--navy);
+    color: white;
+    border: none;
+}
+
+.btn-navy:hover{
+    background: var(--navy2);
+    color: white;
 }
 </style>
 </head>
@@ -276,8 +282,17 @@ body{
         <!-- TABLE -->
         <div class="table-box">
 
-            <div class="d-flex justify-content-between align-items-center mb-3">
+            <div class="d-flex justify-content-between align-items-center mb-3 flex-wrap gap-2">
                 <h4 class="mb-0">Farmer List</h4>
+                
+                <div class="d-flex align-items-center gap-2">
+                <!-- ADD BUTTON -->
+                <button class="btn btn-navy btn-sm"
+                    data-bs-toggle="offcanvas"
+                    data-bs-target="#addFarmerOffcanvas">
+                <i class="fa fa-plus me-1"></i>
+                Add Farmer
+                </button>
 
                 <!-- SEARCH ADDED -->
                 <div class="d-flex align-items-center" style="width:280px;">
@@ -292,6 +307,7 @@ body{
                             class="form-control h-100"
                             placeholder="Search...">
                     </div>
+                </div>
                 </div>
             </div>
 
@@ -390,141 +406,119 @@ body{
     </div>
 
     <div class="offcanvas-body">
-        <div class="row">
-            <!-- SELECT -->
-            <div class="col-md-6">
-                <label class="form-label">Last Name</label>
-                <input type="text" class="form-control">
-            </div>
+<form method="POST" action="{{ route('farmers.store') }}">
+    @csrf
 
-            <div class="col-md-6">
-                <label class="form-label">First Name</label>
-                <input type="text" class="form-control">
-            </div>
+    <div class="row">
+        <div class="col-md-6">
+            <label class="form-label">Last Name</label>
+            <input type="text" name="last_name" class="form-control" required>
         </div>
 
-        <div class="row">
-            <!-- SELECT -->
-            <div class="col-md-6">
-                <label class="form-label">Middle Name</label>
-                <input type="text" class="form-control">
-            </div>
-
-            <div class="col-md-6">
-                <label class="form-label">Birthday</label>
-                <input type="date" class="form-control">
-            </div>
+        <div class="col-md-6">
+            <label class="form-label">First Name</label>
+            <input type="text" name="first_name" class="form-control" required>
         </div>
-
-        <div class="row">
-            <!-- SELECT -->
-            <div class="col-md-6">
-                <label class="form-label">Contact Number</label>
-                <input type="number" class="form-control">
-            </div>
-
-            <div class="col-md-6">
-                <label class="form-label">Civil Status</label>
-                    <select class="form-select">
-                        <option></option>
-                        <option>Sigle</option>
-                        <option>Married</option>
-                        <option>Widow/Widower</option>
-                        <option>Seperated</option>
-                    </select>
-            </div>
-        </div>
-
-        <div class="row">
-            <!-- SELECT -->
-            <div class="col-md-6">
-                <label class="form-label">City/Town/Municipality</label>
-                <input type="text" class="form-control">
-            </div>
-
-            <div class="col-md-6">
-                <label class="form-label">Barangay</label>
-                <input type="text" class="form-control">
-            </div>
-        </div>
-
-        <div class="row">
-            <!-- SELECT -->
-            <div class="col-md-6">
-                <label class="form-label">Region</label>
-                    <select class="form-select">
-                        <option></option>
-                        <option>Married</option>
-                        <option>Widow/Widower</option>
-                        <option>Seperated</option>
-                    </select>
-            </div>
-
-            <div class="col-md-6">
-                <label class="form-label">Province</label>
-                    <select class="form-select">
-                        <option></option>
-                        <option>Married</option>
-                        <option>Widow/Widower</option>
-                        <option>Seperated</option>
-                    </select>
-            </div>
-        </div>
-
-        <label class="form-label">Address Line</label>
-        <input class="form-control">
-
-        <div class="row">
-            <!-- SELECT -->
-            <div class="col-md-6">
-                <label class="form-label">Cooperative</label>
-                    <select class="form-select">
-                        <option></option>
-                        <option>Married</option>
-                        <option>Widow/Widower</option>
-                        <option>Seperated</option>
-                    </select>
-            </div>
-
-            <div class="col-md-6">
-                <label class="form-label">Position</label>
-                    <select class="form-select">
-                        <option></option>
-                        <option>Married</option>
-                        <option>Widow/Widower</option>
-                        <option>Seperated</option>
-                    </select>
-            </div>
-        </div>
-
-        <div class="row">
-            <!-- SELECT -->
-            <div class="col-md-6">
-                <label class="form-label">Work</label>
-                <input type="text" class="form-control">
-            </div>
-
-            <div class="col-md-6">
-                <label class="form-label">Spouse</label>
-                <input type="text" class="form-control">
-            </div>
-        </div>
-
-        <div class="row">
-            <!-- SELECT -->
-            <div class="col-md-6">
-                <label class="form-label">Spouse's Occupation</label>
-                <input type="text" class="form-control">
-            </div>
-
-            <div class="col-md-6">
-                <label class="form-label">Year</label>
-                <input type="text" class="form-control">
-            </div>
-        </div>
-
-        <button class="btn btn-success w-100 mt-3">Save Farmer</button>
     </div>
+
+    <div class="row">
+        <div class="col-md-6">
+            <label class="form-label">Middle Name</label>
+            <input type="text" name="middle_name" class="form-control">
+        </div>
+
+        <div class="col-md-6">
+            <label class="form-label">Birthday</label>
+            <input type="date" name="birthday" class="form-control">
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6">
+            <label class="form-label">Contact Number</label>
+            <input type="text" name="contact_number" class="form-control">
+        </div>
+
+        <div class="col-md-6">
+            <label class="form-label">Civil Status</label>
+            <select name="civil_status" class="form-select">
+                <option value="">Select</option>
+                <option>Single</option>
+                <option>Married</option>
+                <option>Widow/Widower</option>
+                <option>Separated</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6">
+            <label class="form-label">Municipality</label>
+            <input type="text" name="municipality" class="form-control">
+        </div>
+
+        <div class="col-md-6">
+            <label class="form-label">Barangay</label>
+            <input type="text" name="barangay" class="form-control">
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6">
+            <label class="form-label">Region</label>
+            <input type="text" name="region" class="form-control">
+        </div>
+
+        <div class="col-md-6">
+            <label class="form-label">Province</label>
+            <input type="text" name="province" class="form-control">
+        </div>
+    </div>
+
+    <label class="form-label">Address Line</label>
+    <input type="text" name="address_line" class="form-control">
+
+    <div class="row">
+        <div class="col-md-6">
+            <label class="form-label">Cooperative</label>
+            <input type="text" name="cooperative" class="form-control">
+        </div>
+
+        <div class="col-md-6">
+            <label class="form-label">Position</label>
+            <input type="text" name="position" class="form-control">
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6">
+            <label class="form-label">Work</label>
+            <input type="text" name="work" class="form-control">
+        </div>
+
+        <div class="col-md-6">
+            <label class="form-label">Spouse</label>
+            <input type="text" name="spouse" class="form-control">
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6">
+            <label class="form-label">Spouse Occupation</label>
+            <input type="text" name="spouse_occupation" class="form-control">
+        </div>
+
+        <div class="col-md-6">
+            <label class="form-label">Year</label>
+            <input type="text" name="year" class="form-control">
+        </div>
+    </div>
+
+    <button type="submit" class="btn btn-navy w-100 mt-3">
+        Save Farmer
+    </button>
+
+</form>
 </div>
 
 <div class="offcanvas offcanvas-end" tabindex="-1" id="editFarmerOffcanvas">
@@ -561,7 +555,7 @@ body{
             <option>Pending</option>
         </select>
 
-        <button class="btn btn-primary w-100 mt-3">Update Farmer</button>
+        <button class="btn btn-navy w-100 mt-3">Update Farmer</button>
     </div>
 </div>
 

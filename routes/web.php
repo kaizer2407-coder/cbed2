@@ -120,3 +120,6 @@ Route::delete('/cooperative/{id}', [CooperativeController::class, 'destroy'])->n
 Route::put('/cooperative/update/{id}',
     [CooperativeController::class, 'update'])
     ->name('cooperative.update');
+
+    
+Route::post('/farmers', [FarmerController::class, 'store'])->name('farmers.store');
