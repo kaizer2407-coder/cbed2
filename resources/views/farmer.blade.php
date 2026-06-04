@@ -260,27 +260,25 @@ body{
             </button>
 
             <!-- SEARCH -->
-            <form method="GET" action="{{ route('farmer') }}">
-                <div class="input-group input-group-sm" style="width:280px; height:38px;">
-                    <span class="input-group-text d-flex align-items-center justify-content-center"
-                          style="width:38px; height:38px;">
-                        <i class="fa fa-search"></i>
-                    </span>
+            <div class="input-group input-group-sm" style="width:280px; height:38px;">
+                <span class="input-group-text d-flex align-items-center justify-content-center"
+                    style="width:38px; height:38px;">
+                    <i class="fa fa-search"></i>
+                </span>
 
-                    <input type="text"
-                           name="search"
-                           class="form-control h-100"
-                           placeholder="Search..."
-                           value="{{ request('search') }}">
-                </div>
-            </form>
+                <input type="text"
+                    id="searchInput"
+                    class="form-control h-100"
+                    placeholder="Search farmers..."
+                    value="{{ request('search') }}">
+            </div>
 
         </div>
     </div>
 
     <!-- TABLE -->
     <div class="table-responsive">
-        <table class="table table-hover align-middle">
+        <table id="farmerTable" class="table table-hover align-middle">
 
             <thead class="table-light">
                 <tr>
@@ -344,6 +342,7 @@ body{
     <!-- PAGINATION -->
     <div class="d-flex justify-content-end mt-3">
         {{ $farmers->links('pagination::bootstrap-5') }}
+        <ul class="pagination justify-content-end mt-3" id="pagination"></ul>
     </div>
 
 </div>
@@ -531,166 +530,129 @@ body{
 
 <script>
 
-const rowsPerPage = 10;
+document.addEventListener("DOMContentLoaded", function () {
 
-const table = document.getElementById('farmerTable');
-const tbody = table.querySelector('tbody');
+    const rowsPerPage = 10;
 
-const rows = Array.from(tbody.querySelectorAll('tr'));
+    const table = document.getElementById('farmerTable');
+    const tbody = table.querySelector('tbody');
+    const pagination = document.getElementById('pagination');
+    const searchInput = document.getElementById('searchInput');
 
-const pagination = document.getElementById('pagination');
-const searchInput = document.getElementById('searchInput');
+    let allRows = Array.from(tbody.querySelectorAll('tr'));
+    let filteredRows = [...allRows];
+    let currentPage = 1;
 
-let filteredRows = [...rows];
-let currentPage = 1;
-
-
-// DISPLAY ROWS
-function displayRows() {
-
-    tbody.innerHTML = "";
-
-    const start = (currentPage - 1) * rowsPerPage;
-    const end = start + rowsPerPage;
-
-    const paginatedRows = filteredRows.slice(start, end);
-
-    if (paginatedRows.length === 0) {
-
-        tbody.innerHTML = `
-            <tr>
-                <td colspan="10" class="text-center text-muted py-4">
-                    No data found
-                </td>
-            </tr>
-        `;
-
-    } else {
-
-        paginatedRows.forEach(row => {
-            tbody.appendChild(row);
-        });
-
+    // GET CELL TEXT SAFE
+    function getCellText(row, index) {
+        return (row.cells[index]?.textContent || "").toLowerCase();
     }
 
-    renderPagination();
-}
+    function displayRows() {
 
+        tbody.innerHTML = "";
 
-// PAGINATION
-function renderPagination() {
+        const start = (currentPage - 1) * rowsPerPage;
+        const end = start + rowsPerPage;
 
-    pagination.innerHTML = "";
+        const paginatedRows = filteredRows.slice(start, end);
 
-    const totalPages = Math.ceil(filteredRows.length / rowsPerPage);
-
-    if(totalPages <= 1) return;
-
-
-    // PREVIOUS
-    let prev = document.createElement('li');
-
-    prev.className = `page-item ${currentPage === 1 ? 'disabled' : ''}`;
-
-    prev.innerHTML = `
-        <a class="page-link" href="#">
-            &laquo;
-        </a>
-    `;
-
-    prev.addEventListener('click', function(e){
-
-        e.preventDefault();
-
-        if(currentPage > 1){
-
-            currentPage--;
-
-            displayRows();
-
+        if (paginatedRows.length === 0) {
+            tbody.innerHTML = `
+                <tr>
+                    <td colspan="10" class="text-center text-muted py-4">
+                        No data found
+                    </td>
+                </tr>
+            `;
+        } else {
+            paginatedRows.forEach(row => tbody.appendChild(row));
         }
 
-    });
+        renderPagination();
+    }
 
-    pagination.appendChild(prev);
+    function renderPagination() {
 
+        pagination.innerHTML = "";
 
-    // PAGE NUMBERS
-    for(let i = 1; i <= totalPages; i++){
+        const totalPages = Math.ceil(filteredRows.length / rowsPerPage);
 
-        let li = document.createElement('li');
+        if (totalPages <= 1) return;
 
-        li.className = `page-item ${currentPage === i ? 'active' : ''}`;
+        // PREV
+        let prev = document.createElement('li');
+        prev.className = `page-item ${currentPage === 1 ? 'disabled' : ''}`;
+        prev.innerHTML = `<a class="page-link" href="#">&lt;</a>`;
 
-        li.innerHTML = `
-            <a class="page-link" href="#">
-                ${i}
-            </a>
-        `;
-
-        li.addEventListener('click', function(e){
-
+        prev.onclick = (e) => {
             e.preventDefault();
+            if (currentPage > 1) {
+                currentPage--;
+                displayRows();
+            }
+        };
 
-            currentPage = i;
+        pagination.appendChild(prev);
 
-            displayRows();
+        // NUMBERS
+        for (let i = 1; i <= totalPages; i++) {
+
+            let li = document.createElement('li');
+            li.className = `page-item ${currentPage === i ? 'active' : ''}`;
+            li.innerHTML = `<a class="page-link" href="#">${i}</a>`;
+
+            li.onclick = (e) => {
+                e.preventDefault();
+                currentPage = i;
+                displayRows();
+            };
+
+            pagination.appendChild(li);
+        }
+
+        // NEXT
+        let next = document.createElement('li');
+        next.className = `page-item ${currentPage === totalPages ? 'disabled' : ''}`;
+        next.innerHTML = `<a class="page-link" href="#">&gt;</a>`;
+
+        next.onclick = (e) => {
+            e.preventDefault();
+            if (currentPage < totalPages) {
+                currentPage++;
+                displayRows();
+            }
+        };
+
+        pagination.appendChild(next);
+    }
+
+    // 🔥 REAL SEARCH (ALL COLUMNS FIXED)
+    searchInput.addEventListener('input', function () {
+
+        const value = this.value.toLowerCase().trim();
+
+        filteredRows = allRows.filter(row => {
+
+            return (
+                getCellText(row, 1).includes(value) || // name
+                getCellText(row, 2).includes(value) || // coop
+                getCellText(row, 3).includes(value) || // province
+                getCellText(row, 4).includes(value) || // municipality
+                getCellText(row, 5).includes(value) || // barangay
+                getCellText(row, 6).includes(value) || // position
+                getCellText(row, 7).includes(value)    // year
+            );
 
         });
 
-        pagination.appendChild(li);
-
-    }
-
-
-    // NEXT
-    let next = document.createElement('li');
-
-    next.className = `page-item ${currentPage === totalPages ? 'disabled' : ''}`;
-
-    next.innerHTML = `
-        <a class="page-link" href="#">
-            &raquo;
-        </a>
-    `;
-
-    next.addEventListener('click', function(e){
-
-        e.preventDefault();
-
-        if(currentPage < totalPages){
-
-            currentPage++;
-
-            displayRows();
-
-        }
-
+        currentPage = 1;
+        displayRows();
     });
-
-    pagination.appendChild(next);
-
-}
-
-
-// SEARCH
-searchInput.addEventListener('keyup', function(){
-
-    const value = this.value.toLowerCase();
-
-    filteredRows = rows.filter(row =>
-        row.textContent.toLowerCase().includes(value)
-    );
-
-    currentPage = 1;
 
     displayRows();
 
 });
-
-
-// INITIAL LOAD
-displayRows();
 
 </script>
 
