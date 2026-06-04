@@ -56,23 +56,58 @@ class CooperativeController extends Controller
 
     // STORE DATA
     public function store(Request $request)
+        {
+
+            // CONCATENATE ADDRESS
+            $addressLine =
+                $request->barangay . ' ' .
+                $request->city_municipality . ' ' .
+                $request->province;
+
+            Cooperative::create([
+                'cda_registration_no' => $request->cda_registration_no,
+                'herd_code' => $request->herd_code,
+                'cooperative_name' => $request->cooperative_name,
+                'accreditation_status' => $request->accreditation_status,
+                'cooperative_type' => $request->cooperative_type,
+                'category' => $request->category,
+                'date_established' => $request->date_established,
+                'year' => $request->year,
+                'region' => $request->region,
+                'province' => $request->province,
+                'city_municipality' => $request->city_municipality,
+                'barangay' => $request->barangay,
+
+                // SAVE CONCATENATED ADDRESS
+                'address_line' => $addressLine,
+            ]);
+
+            return redirect()->back()->with('success', 'Cooperative saved successfully!');
+        }
+
+        public function update(Request $request, $id)
     {
-        Cooperative::create([
+        $coop = Cooperative::findOrFail($id);
+
+        $addressLine =
+            $request->barangay . ' ' .
+            $request->city_municipality . ' ' .
+            $request->province;
+
+        $coop->update([
+
             'cda_registration_no' => $request->cda_registration_no,
             'herd_code' => $request->herd_code,
             'cooperative_name' => $request->cooperative_name,
-            'accreditation_status' => $request->accreditation_status,
-            'cooperative_type' => $request->cooperative_type,
-            'category' => $request->category,
-            'date_established' => $request->date_established,
-            'year' => $request->year,
-            'region' => $request->region,
             'province' => $request->province,
             'city_municipality' => $request->city_municipality,
             'barangay' => $request->barangay,
-            'address_line' => $request->address_line,
+            'year' => $request->year,
+            'address_line' => $addressLine,
+
         ]);
 
-        return redirect()->back()->with('success', 'Cooperative saved successfully!');
+        return redirect()->back()
+            ->with('success', 'Updated successfully!');
     }
 }

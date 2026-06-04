@@ -117,3 +117,6 @@ Route::get('/coop-balance-sheet', function () {
 Route::get('/cooperative', [CooperativeController::class, 'index'])->name('cooperative');
 Route::post('/cooperative/store', [CooperativeController::class, 'store'])->name('cooperative.store');
 Route::delete('/cooperative/{id}', [CooperativeController::class, 'destroy'])->name('cooperative.delete');
+Route::put('/cooperative/update/{id}',
+    [CooperativeController::class, 'update'])
+    ->name('cooperative.update');

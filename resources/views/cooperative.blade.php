@@ -294,7 +294,9 @@ body{
                     </td>
 
                     <td>
-                        <button class="btn btn-sm btn-primary">
+                        <button class="btn btn-sm btn-primary"
+                                data-bs-toggle="offcanvas"
+                                data-bs-target="#editCoop{{ $coop->id }}">
                             <i class="fa fa-pen-to-square"></i>
                         </button>
 
@@ -320,7 +322,151 @@ body{
         <ul class="pagination pagination-sm mb-0" id="pagination"></ul>
     </div>
 
+</div><!-- END TABLE-BOX -->
+
+<!-- UPDATE -->
+@foreach($cooperatives as $coop)
+
+<div class="offcanvas offcanvas-end"
+     tabindex="-1"
+     id="editCoop{{ $coop->id }}">
+
+    <div class="offcanvas-header">
+
+        <h5 class="offcanvas-title">
+            Update Cooperative
+        </h5>
+
+        <button type="button"
+                class="btn-close"
+                data-bs-dismiss="offcanvas">
+        </button>
+
+    </div>
+
+    <div class="offcanvas-body">
+
+        <form method="POST"
+              action="{{ route('cooperative.update', $coop->id) }}">
+
+            @csrf
+            @method('PUT')
+
+            <div class="row">
+
+                <div class="col-md-6 mb-3">
+                    <label>CDA Registration No.</label>
+
+                    <input type="text"
+                           name="cda_registration_no"
+                           class="form-control"
+                           value="{{ $coop->cda_registration_no }}">
+                </div>
+
+                <div class="col-md-6 mb-3">
+                    <label>Herd Code</label>
+
+                    <input type="text"
+                           name="herd_code"
+                           class="form-control"
+                           value="{{ $coop->herd_code }}">
+                </div>
+
+            </div>
+
+            <div class="mb-3">
+
+                <label>Cooperative Name</label>
+
+                <input type="text"
+                       name="cooperative_name"
+                       class="form-control"
+                       value="{{ $coop->cooperative_name }}">
+
+            </div>
+
+            <div class="row">
+
+                <div class="col-md-6 mb-3">
+
+                    <label>Province</label>
+
+                    <select name="province" class="form-select">
+
+                        <option value="Bataan"
+                            {{ $coop->province == 'Bataan' ? 'selected' : '' }}>
+                            Bataan
+                        </option>
+
+                        <option value="Pampanga"
+                            {{ $coop->province == 'Pampanga' ? 'selected' : '' }}>
+                            Pampanga
+                        </option>
+
+                        <option value="Bulacan"
+                            {{ $coop->province == 'Bulacan' ? 'selected' : '' }}>
+                            Bulacan
+                        </option>
+
+                        <option value="Nueva Ecija"
+                            {{ $coop->province == 'Nueva Ecija' ? 'selected' : '' }}>
+                            Nueva Ecija
+                        </option>
+
+                    </select>
+
+                </div>
+
+                <div class="col-md-6 mb-3">
+
+                    <label>City/Municipality</label>
+
+                    <input type="text"
+                           name="city_municipality"
+                           class="form-control"
+                           value="{{ $coop->city_municipality }}">
+
+                </div>
+
+            </div>
+
+            <div class="mb-3">
+
+                <label>Barangay</label>
+
+                <input type="text"
+                       name="barangay"
+                       class="form-control"
+                       value="{{ $coop->barangay }}">
+
+            </div>
+
+            <div class="mb-3">
+
+                <label>Year</label>
+
+                <input type="text"
+                       name="year"
+                       class="form-control"
+                       value="{{ $coop->year }}">
+
+            </div>
+
+            <button type="submit"
+                    class="btn btn-navy w-100">
+
+                Update Cooperative
+
+            </button>
+
+        </form>
+
+    </div>
+
 </div>
+
+@endforeach
+<!-- END UPDATE -->
 
 <!-- ADD COOPERATIVE OFFCANVAS -->
 <div class="offcanvas offcanvas-end"
@@ -444,10 +590,12 @@ body{
 
 </div>
 
+<!--
 <div class="mb-3">
     <label>Address Line</label>
     <input type="text" name="address_line" class="form-control">
 </div>
+-->
 
 <div class="mb-3">
     <label>Year</label>
@@ -470,7 +618,7 @@ body{
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
 
 <script>
-const rowsPerPage = 5;
+const rowsPerPage = 10;
 
 const table = document.getElementById('coopTable');
 const tbody = table.querySelector('tbody');
