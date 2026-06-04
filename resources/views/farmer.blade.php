@@ -30,14 +30,6 @@ body{
     position:relative;
 }
 
-.logo{
-    font-size:28px;
-    font-weight:700;
-    text-align:center;
-    margin-bottom:40px;
-}
-
-/* TOP ACTIONS (FROM DASHBOARD) */
 .top-actions{
     position:absolute;
     top:20px;
@@ -58,28 +50,16 @@ body{
     transform:rotate(15deg);
 }
 
-/* USER BOX (FROM DASHBOARD) */
 .user-box{
     text-align:center;
     margin-top:50px;
     margin-bottom:40px;
 }
 
-.user-box i{
-    font-size:75px;
-    margin-bottom:10px;
-}
+.user-box i{font-size:75px;margin-bottom:10px;}
+.user-box h5{font-weight:700;margin-bottom:5px;}
+.user-box small{color:#dbeafe;}
 
-.user-box h5{
-    font-weight:700;
-    margin-bottom:5px;
-}
-
-.user-box small{
-    color:#dbeafe;
-}
-
-/* MENU */
 .menu a{
     display:block;
     color:white;
@@ -90,14 +70,13 @@ body{
     transition:.3s;
 }
 
-.menu a i{ margin-right:10px; }
+.menu a i{margin-right:10px;}
 
 .menu a:hover{
     background:rgba(255,255,255,.15);
     transform:translateX(5px);
 }
 
-/* CARDS */
 .card{
     border:none;
     border-radius:20px;
@@ -124,7 +103,6 @@ body{
     color:white;
 }
 
-/* TABLE */
 .table-box{
     background:white;
     border-radius:20px;
@@ -137,7 +115,6 @@ body{
     color:var(--navy);
 }
 
-/* ACTION ICONS */
 .action-icons a{
     font-size:18px;
     transition:0.2s;
@@ -147,7 +124,6 @@ body{
     transform:scale(1.2);
 }
 
-/* OFFCANVAS STYLING */
 .offcanvas-body{
     padding: 25px !important;
 }
@@ -193,212 +169,189 @@ body{
 <div class="container-fluid">
 <div class="row">
 
-    <!-- SIDEBAR (UPDATED ONLY) -->
-    <div class="col-lg-2 sidebar">
+<!-- SIDEBAR -->
+<div class="col-lg-2 sidebar">
 
-        <!-- TOP ACTIONS -->
-        <div class="top-actions">
+<div class="top-actions">
+    <a href="{{ route('login') }}" class="top-icon">
+        <i class="fa-solid fa-right-from-bracket"></i>
+    </a>
+</div>
 
-            <a href="{{ route('login') }}" class="top-icon">
-                <i class="fa-solid fa-right-from-bracket"></i>
-            </a>
+<div class="user-box">
+    <i class="fa-solid fa-circle-user"></i>
+    <h5>John Carlo</h5>
+    <small>Administrator</small>
+</div>
 
+<div class="menu">
+    <a href="{{ route('dashboard') }}"><i class="fa fa-home"></i> Dashboard</a>
+    <a href="{{ route('farmer') }}"><i class="fa fa-users"></i> Farmer</a>
+    <a href="{{ route('cooperative') }}"><i class="fa fa-building"></i> Cooperative</a>
+    <a href="{{ route('carabao') }}"><i class="fa fa-cow"></i> Carabao</a>
+    <a href="{{ route('login.information') }}"><i class="fa fa-user-lock"></i> Login Information</a>
+</div>
+
+</div>
+
+<!-- CONTENT -->
+<div class="col-lg-10 p-4">
+
+<h3 class="page-title mb-4">Farmer Dashboard</h3>
+
+<!-- STATS -->
+<div class="row g-4 mb-4">
+
+    <div class="col-md-4">
+        <div class="card stat-card p-4 text-center">
+            <h3>1,250</h3>
+            <p>Total Farmers</p>
         </div>
-
-        <!-- USER -->
-        <div class="user-box">
-
-            <i class="fa-solid fa-circle-user"></i>
-
-            <h5>John Carlo</h5>
-
-            <small>Administrator</small>
-
-        </div>
-
-        <!-- MENU -->
-        <div class="menu">
-            <a href="{{ route('dashboard') }}"><i class="fa fa-home"></i> Dashboard</a>
-            <a href="{{ route('farmer') }}"><i class="fa fa-users"></i> Farmer</a>
-            <a href="{{ route('cooperative') }}"><i class="fa fa-building"></i> Cooperative</a>
-            <a href="{{ route('carabao') }}"><i class="fa fa-cow"></i> Carabao</a>
-            <a href="{{ route('login.information') }}"><i class="fa fa-user-lock"></i></i> Login Information</a>
-        </div>
-
     </div>
 
-    <!-- CONTENT (UNCHANGED) -->
-    <div class="col-lg-10 p-4">
-
-        <!-- HEADER -->
-        <div class="d-flex justify-content-between align-items-center mb-4">
-            <h3 class="page-title">Farmer Dashboard</h3>
+    <div class="col-md-4">
+        <div class="card stat-card p-4 text-center">
+            <h3>820</h3>
+            <p>Active Farmers</p>
         </div>
+    </div>
 
-        <!-- STATS -->
-        <div class="row g-4 mb-4">
-
-            <div class="col-md-4">
-                <div class="card stat-card p-4 text-center">
-                    <h3>1,250</h3>
-                    <p>Total Farmers</p>
-                </div>
-            </div>
-
-            <div class="col-md-4">
-                <div class="card stat-card p-4 text-center">
-                    <h3>820</h3>
-                    <p>Active Farmers</p>
-                </div>
-            </div>
-
-            <div class="col-md-4">
-                <div class="card stat-card p-4 text-center">
-                    <h3>430</h3>
-                    <p>Pending Farmers</p>
-                </div>
-            </div>
-
+    <div class="col-md-4">
+        <div class="card stat-card p-4 text-center">
+            <h3>430</h3>
+            <p>Pending Farmers</p>
         </div>
+    </div>
 
-        <!-- REGION -->
-        <h5 class="mb-3">Region 3 - Farmers per Province</h5>
+</div>
 
-        <div class="card p-4 mb-4">
-            <div class="row g-4">
+<!-- REGION CARDS -->
+<h5 class="mb-3">Region 3 - Farmers per Province</h5>
 
-                <div class="col-md-3"><div class="province-card p-3 text-center"><h6>Pampanga</h6><h4>220</h4></div></div>
-                <div class="col-md-3"><div class="province-card p-3 text-center"><h6>Bataan</h6><h4>140</h4></div></div>
-                <div class="col-md-3"><div class="province-card p-3 text-center"><h6>Bulacan</h6><h4>310</h4></div></div>
-                <div class="col-md-3"><div class="province-card p-3 text-center"><h6>Nueva Ecija</h6><h4>400</h4></div></div>
-                <div class="col-md-3"><div class="province-card p-3 text-center"><h6>Tarlac</h6><h4>180</h4></div></div>
-                <div class="col-md-3"><div class="province-card p-3 text-center"><h6>Zambales</h6><h4>120</h4></div></div>
-                <div class="col-md-3"><div class="province-card p-3 text-center"><h6>Angeles City</h6><h4>90</h4></div></div>
-                <div class="col-md-3"><div class="province-card p-3 text-center"><h6>Nueva Vizcaya</h6><h4>150</h4></div></div>
+<div class="card p-4 mb-4">
+    <div class="row g-4">
 
-            </div>
-        </div>
+        <div class="col-md-3"><div class="province-card p-3 text-center"><h6>Pampanga</h6><h4>220</h4></div></div>
+        <div class="col-md-3"><div class="province-card p-3 text-center"><h6>Bataan</h6><h4>140</h4></div></div>
+        <div class="col-md-3"><div class="province-card p-3 text-center"><h6>Bulacan</h6><h4>310</h4></div></div>
+        <div class="col-md-3"><div class="province-card p-3 text-center"><h6>Nueva Ecija</h6><h4>400</h4></div></div>
+        <div class="col-md-3"><div class="province-card p-3 text-center"><h6>Tarlac</h6><h4>180</h4></div></div>
+        <div class="col-md-3"><div class="province-card p-3 text-center"><h6>Zambales</h6><h4>120</h4></div></div>
+        <div class="col-md-3"><div class="province-card p-3 text-center"><h6>Angeles City</h6><h4>90</h4></div></div>
+        <div class="col-md-3"><div class="province-card p-3 text-center"><h6>Nueva Vizcaya</h6><h4>150</h4></div></div>
 
-        <!-- TABLE -->
-        <div class="table-box">
+    </div>
+</div>
 
-            <div class="d-flex justify-content-between align-items-center mb-3 flex-wrap gap-2">
-                <h4 class="mb-0">Farmer List</h4>
-                
-                <div class="d-flex align-items-center gap-2">
-                <!-- ADD BUTTON -->
-                <button class="btn btn-navy btn-sm"
+<!-- TABLE BOX -->
+<div class="table-box">
+
+    <!-- HEADER -->
+    <div class="d-flex justify-content-between align-items-center mb-3 flex-wrap gap-2">
+        <h4 class="mb-0">Farmer List</h4>
+
+        <div class="d-flex align-items-center gap-2">
+
+            <!-- ADD BUTTON -->
+            <button class="btn btn-navy btn-sm"
                     data-bs-toggle="offcanvas"
                     data-bs-target="#addFarmerOffcanvas">
-                <i class="fa fa-plus me-1"></i>
-                Add Farmer
-                </button>
+                <i class="fa fa-plus me-1"></i> Add Farmer
+            </button>
 
-                <!-- SEARCH ADDED -->
-                <div class="d-flex align-items-center" style="width:280px;">
-                    <div class="input-group input-group-sm" style="width:280px; height:38px;">
-                        <span class="input-group-text d-flex align-items-center justify-content-center"
-                            style="width:38px; height:38px;">
-                            <i class="fa fa-search"></i>
-                        </span>
+            <!-- SEARCH -->
+            <form method="GET" action="{{ route('farmer') }}">
+                <div class="input-group input-group-sm" style="width:280px; height:38px;">
+                    <span class="input-group-text d-flex align-items-center justify-content-center"
+                          style="width:38px; height:38px;">
+                        <i class="fa fa-search"></i>
+                    </span>
 
-                        <input type="text"
-                            id="searchInput"
-                            class="form-control h-100"
-                            placeholder="Search...">
-                    </div>
+                    <input type="text"
+                           name="search"
+                           class="form-control h-100"
+                           placeholder="Search..."
+                           value="{{ request('search') }}">
                 </div>
-                </div>
-            </div>
-
-            <table class="table table-hover" id="farmerTable">
-                <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>Farmer Name</th>
-                        <th>Herd Code</th>
-                        <th>Province</th>
-                        <th>Municipality</th>
-                        <th>Barangay</th>
-                        <th>Year</th>
-                        <th>Status</th>
-                        <th>Action</th>
-                    </tr>
-                </thead>
-
-                <tbody>
-
-                    <!-- ORIGINAL ROW -->
-                    <tr>
-                        <td>1</td>
-                        <td>
-                            <a href="{{ route('farmer.profile') }}" class="text-primary text-decoration-none fw-semibold">
-                                Juan Dela Cruz
-                            </a>
-                        </td>
-                        <td>FRM-001</td>
-                        <td>Pampanga</td>
-                        <td>San Fernando</td>
-                        <td>Dolores</td>
-                        <td>2026</td>
-                        <td><span class="badge bg-success">Active</span></td>
-                        <td class="action-icons">
-                            <a href="#" class="text-primary me-3"><i class="fa fa-pen-to-square"></i></a>
-                            <a href="#" class="text-danger"><i class="fa fa-trash"></i></a>
-                        </td>
-                    </tr>
-
-                    <!-- EXTRA ROWS (FOR PAGINATION DEMO) -->
-                    @for($i = 2; $i <= 12; $i++)
-                    <tr>
-                        <td>{{ $i }}</td>
-                        <td>Farmer {{ $i }}</td>
-                        <td>FRM-00{{ $i }}</td>
-                        <td>Pampanga</td>
-                        <td>City {{ $i }}</td>
-                        <td>Barangay {{ $i }}</td>
-                        <td>2026</td>
-                        <td><span class="badge bg-success">Active</span></td>
-                        <td class="action-icons">
-                            <a href="#" class="text-primary me-3"><i class="fa fa-pen-to-square"></i></a>
-                            <a href="#" class="text-danger"><i class="fa fa-trash"></i></a>
-                        </td>
-                    </tr>
-                    @endfor
-
-                </tbody>
-            </table>
-
-            <!-- PAGINATION ADDED -->
-            <div class="d-flex justify-content-end mt-3">
-                <nav>
-                    <ul class="pagination pagination-sm mb-0" id="pagination">
-
-                        <li class="page-item disabled">
-                            <a class="page-link" href="#">«</a>
-                        </li>
-
-                        <li class="page-item active"><a class="page-link" href="#">1</a></li>
-                        <li class="page-item"><a class="page-link" href="#">2</a></li>
-                        <li class="page-item"><a class="page-link" href="#">3</a></li>
-                        <li class="page-item"><a class="page-link" href="#">4</a></li>
-                        <li class="page-item"><a class="page-link" href="#">5</a></li>
-
-                        <li class="page-item">
-                            <a class="page-link" href="#">»</a>
-                        </li>
-
-                    </ul>
-                </nav>
-            </div>
+            </form>
 
         </div>
-
     </div>
+
+    <!-- TABLE -->
+    <div class="table-responsive">
+        <table class="table table-hover align-middle">
+
+            <thead class="table-light">
+                <tr>
+                    <th>ID</th>
+                    <th>Farmer Name</th>
+                    <th>Cooperative</th>
+                    <th>Province</th>
+                    <th>Municipality</th>
+                    <th>Barangay</th>
+                    <th>Position</th>
+                    <th>Year</th>
+                    <th>Status</th>
+                    <th class="text-center">Action</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                @forelse($farmers as $farmer)
+                    <tr>
+                        <td>{{ $farmer->id }}</td>
+
+                        <td>
+                            {{ $farmer->first_name }} {{ $farmer->last_name }}
+                        </td>
+
+                        <td>
+                            {{ $farmer->cooperative->cooperative_name ?? 'N/A' }}
+                        </td>
+
+                        <td>{{ $farmer->province }}</td>
+                        <td>{{ $farmer->municipality }}</td>
+                        <td>{{ $farmer->barangay }}</td>
+                        <td>{{ $farmer->position }}</td>
+                        <td>{{ $farmer->year }}</td>
+
+                        <td>
+                            <span class="badge bg-success">Active</span>
+                        </td>
+
+                        <td class="text-center action-icons">
+                            <a href="#" class="text-primary me-3">
+                                <i class="fa fa-pen-to-square"></i>
+                            </a>
+                            <a href="#" class="text-danger">
+                                <i class="fa fa-trash"></i>
+                            </a>
+                        </td>
+                    </tr>
+                @empty
+                    <tr>
+                        <td colspan="10" class="text-center text-muted py-4">
+                            No farmers found
+                        </td>
+                    </tr>
+                @endforelse
+            </tbody>
+
+        </table>
+    </div>
+
+    <!-- PAGINATION -->
+    <div class="d-flex justify-content-end mt-3">
+        {{ $farmers->links('pagination::bootstrap-5') }}
+    </div>
+
+</div>
+
 </div>
 </div>
 
-<!-- OFFCANVAS (UNCHANGED) -->
+<!-- OFFCANVAS -->
 <div class="offcanvas offcanvas-end" tabindex="-1" id="addFarmerOffcanvas">
     <div class="offcanvas-header">
         <h5>Add Farmer</h5>
@@ -406,9 +359,11 @@ body{
     </div>
 
     <div class="offcanvas-body">
-<form method="POST" action="{{ route('farmers.store') }}">
+
+    <form method="POST" action="{{ route('farmers.store') }}">
     @csrf
 
+    <!-- NAME -->
     <div class="row">
         <div class="col-md-6">
             <label class="form-label">Last Name</label>
@@ -421,7 +376,7 @@ body{
         </div>
     </div>
 
-    <div class="row">
+    <div class="row mt-2">
         <div class="col-md-6">
             <label class="form-label">Middle Name</label>
             <input type="text" name="middle_name" class="form-control">
@@ -433,7 +388,8 @@ body{
         </div>
     </div>
 
-    <div class="row">
+    <!-- CONTACT -->
+    <div class="row mt-2">
         <div class="col-md-6">
             <label class="form-label">Contact Number</label>
             <input type="text" name="contact_number" class="form-control">
@@ -442,18 +398,53 @@ body{
         <div class="col-md-6">
             <label class="form-label">Civil Status</label>
             <select name="civil_status" class="form-select">
-                <option value="">Select</option>
-                <option>Single</option>
-                <option>Married</option>
-                <option>Widow/Widower</option>
-                <option>Separated</option>
+                <option value="">Select Status</option>
+                <option value="Single">Single</option>
+                <option value="Married">Married</option>
+                <option value="Widow/Widower">Widow/Widower</option>
+                <option value="Separated">Separated</option>
             </select>
         </div>
     </div>
 
-    <div class="row">
+    <!-- ADDRESS -->
+    <div class="row mt-2">
+
+        <!-- REGION -->
         <div class="col-md-6">
-            <label class="form-label">Municipality</label>
+            <label class="form-label">Region</label>
+
+            <select name="region" class="form-select">
+                <option value="">Select Region</option>
+                <option value="Region 3">Region 3</option>
+            </select>
+        </div>
+
+        <!-- PROVINCE -->
+        <div class="col-md-6">
+            <label class="form-label">Province</label>
+
+            <select name="province" class="form-select">
+                <option value="">Select Province</option>
+
+                <option value="Bataan">Bataan</option>
+                <option value="Zambales">Zambales</option>
+                <option value="Tarlac">Tarlac</option>
+                <option value="Pampanga">Pampanga</option>
+                <option value="Bulacan">Bulacan</option>
+                <option value="Nueva Ecija">Nueva Ecija</option>
+                <option value="Aurora">Aurora</option>
+                <option value="Nueva Vizcaya">Nueva Vizcaya</option>
+            </select>
+        </div>
+
+    </div>
+
+    <!-- CITY / MUNICIPALITY -->
+    <div class="row mt-2">
+
+        <div class="col-md-6">
+            <label class="form-label">City / Municipality</label>
             <input type="text" name="municipality" class="form-control">
         </div>
 
@@ -461,120 +452,247 @@ body{
             <label class="form-label">Barangay</label>
             <input type="text" name="barangay" class="form-control">
         </div>
+
     </div>
 
-    <div class="row">
-        <div class="col-md-6">
-            <label class="form-label">Region</label>
-            <input type="text" name="region" class="form-control">
-        </div>
+    <!-- COOPERATIVE -->
+    <div class="row mt-2">
 
-        <div class="col-md-6">
-            <label class="form-label">Province</label>
-            <input type="text" name="province" class="form-control">
-        </div>
-    </div>
-
-    <label class="form-label">Address Line</label>
-    <input type="text" name="address_line" class="form-control">
-
-    <div class="row">
-        <div class="col-md-6">
+        <div class="col-md-12">
             <label class="form-label">Cooperative</label>
-            <input type="text" name="cooperative" class="form-control">
+
+            <select name="cooperative_id" class="form-select">
+                <option value="">Select Cooperative</option>
+
+                @forelse($cooperatives ?? [] as $coop)
+                    <option value="{{ $coop->id }}">
+                        {{ $coop->cooperative_name }}
+                    </option>
+                @empty
+                    <option disabled>No cooperative found</option>
+                @endforelse
+
+            </select>
         </div>
+
+    </div>
+
+    <!-- POSITION / WORK -->
+    <div class="row mt-2">
 
         <div class="col-md-6">
             <label class="form-label">Position</label>
             <input type="text" name="position" class="form-control">
         </div>
-    </div>
 
-    <div class="row">
         <div class="col-md-6">
             <label class="form-label">Work</label>
             <input type="text" name="work" class="form-control">
         </div>
 
+    </div>
+
+    <!-- SPOUSE -->
+    <div class="row mt-2">
+
         <div class="col-md-6">
             <label class="form-label">Spouse</label>
             <input type="text" name="spouse" class="form-control">
         </div>
-    </div>
 
-    <div class="row">
         <div class="col-md-6">
             <label class="form-label">Spouse Occupation</label>
             <input type="text" name="spouse_occupation" class="form-control">
         </div>
 
-        <div class="col-md-6">
+    </div>
+
+    <!-- YEAR -->
+    <div class="row mt-2">
+
+        <div class="col-md-12">
             <label class="form-label">Year</label>
             <input type="text" name="year" class="form-control">
         </div>
+
     </div>
 
+    <!-- BUTTON -->
     <button type="submit" class="btn btn-navy w-100 mt-3">
         Save Farmer
     </button>
 
-</form>
+    </form>
+
 </div>
-
-<div class="offcanvas offcanvas-end" tabindex="-1" id="editFarmerOffcanvas">
-    <div class="offcanvas-header">
-        <h5>Update Farmer</h5>
-        <button class="btn-close" data-bs-dismiss="offcanvas"></button>
-    </div>
-
-    <div class="offcanvas-body">
-        <div class="section-title">Edit Farmer Info</div>
-
-        <label class="form-label">Name</label>
-        <input class="form-control" value="Juan Dela Cruz">
-
-        <label class="form-label">Herd Code</label>
-        <input class="form-control" value="FRM-001">
-
-        <div class="section-title">Location</div>
-
-        <label class="form-label">Municipality</label>
-        <input class="form-control" value="San Fernando">
-
-        <label class="form-label">Barangay</label>
-        <input class="form-control" value="Dolores">
-
-        <div class="section-title">Other</div>
-
-        <label class="form-label">Year</label>
-        <input class="form-control" value="2026">
-
-        <label class="form-label">Status</label>
-        <select class="form-select">
-            <option selected>Active</option>
-            <option>Pending</option>
-        </select>
-
-        <button class="btn btn-navy w-100 mt-3">Update Farmer</button>
-    </div>
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
 
 <script>
-const searchInput = document.getElementById("searchInput");
-const table = document.getElementById("farmerTable");
 
-searchInput.addEventListener("keyup", function () {
-    let value = this.value.toLowerCase();
-    let rows = table.querySelectorAll("tbody tr");
+const rowsPerPage = 10;
 
-    rows.forEach(row => {
-        row.style.display = row.textContent.toLowerCase().includes(value)
-            ? ""
-            : "none";
+const table = document.getElementById('farmerTable');
+const tbody = table.querySelector('tbody');
+
+const rows = Array.from(tbody.querySelectorAll('tr'));
+
+const pagination = document.getElementById('pagination');
+const searchInput = document.getElementById('searchInput');
+
+let filteredRows = [...rows];
+let currentPage = 1;
+
+
+// DISPLAY ROWS
+function displayRows() {
+
+    tbody.innerHTML = "";
+
+    const start = (currentPage - 1) * rowsPerPage;
+    const end = start + rowsPerPage;
+
+    const paginatedRows = filteredRows.slice(start, end);
+
+    if (paginatedRows.length === 0) {
+
+        tbody.innerHTML = `
+            <tr>
+                <td colspan="10" class="text-center text-muted py-4">
+                    No data found
+                </td>
+            </tr>
+        `;
+
+    } else {
+
+        paginatedRows.forEach(row => {
+            tbody.appendChild(row);
+        });
+
+    }
+
+    renderPagination();
+}
+
+
+// PAGINATION
+function renderPagination() {
+
+    pagination.innerHTML = "";
+
+    const totalPages = Math.ceil(filteredRows.length / rowsPerPage);
+
+    if(totalPages <= 1) return;
+
+
+    // PREVIOUS
+    let prev = document.createElement('li');
+
+    prev.className = `page-item ${currentPage === 1 ? 'disabled' : ''}`;
+
+    prev.innerHTML = `
+        <a class="page-link" href="#">
+            &laquo;
+        </a>
+    `;
+
+    prev.addEventListener('click', function(e){
+
+        e.preventDefault();
+
+        if(currentPage > 1){
+
+            currentPage--;
+
+            displayRows();
+
+        }
+
     });
+
+    pagination.appendChild(prev);
+
+
+    // PAGE NUMBERS
+    for(let i = 1; i <= totalPages; i++){
+
+        let li = document.createElement('li');
+
+        li.className = `page-item ${currentPage === i ? 'active' : ''}`;
+
+        li.innerHTML = `
+            <a class="page-link" href="#">
+                ${i}
+            </a>
+        `;
+
+        li.addEventListener('click', function(e){
+
+            e.preventDefault();
+
+            currentPage = i;
+
+            displayRows();
+
+        });
+
+        pagination.appendChild(li);
+
+    }
+
+
+    // NEXT
+    let next = document.createElement('li');
+
+    next.className = `page-item ${currentPage === totalPages ? 'disabled' : ''}`;
+
+    next.innerHTML = `
+        <a class="page-link" href="#">
+            &raquo;
+        </a>
+    `;
+
+    next.addEventListener('click', function(e){
+
+        e.preventDefault();
+
+        if(currentPage < totalPages){
+
+            currentPage++;
+
+            displayRows();
+
+        }
+
+    });
+
+    pagination.appendChild(next);
+
+}
+
+
+// SEARCH
+searchInput.addEventListener('keyup', function(){
+
+    const value = this.value.toLowerCase();
+
+    filteredRows = rows.filter(row =>
+        row.textContent.toLowerCase().includes(value)
+    );
+
+    currentPage = 1;
+
+    displayRows();
+
 });
+
+
+// INITIAL LOAD
+displayRows();
+
 </script>
+
 </body>
 </html>

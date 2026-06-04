@@ -9,12 +9,30 @@ use App\Models\Cooperative;
 class FarmerController extends Controller
 {
     // DISPLAY FARMERS + COOPERATIVES
-    public function index()
+    public function index(Request $request)
     {
-        $farmers = Farmer::with('cooperative')->paginate(10);
+        $search = $request->search;
+
+        $farmers = Farmer::with('cooperative')
+
+            ->when($search, function ($query) use ($search) {
+
+                $query->where('first_name', 'like', "%{$search}%")
+                    ->orWhere('last_name', 'like', "%{$search}%")
+                    ->orWhere('province', 'like', "%{$search}%")
+                    ->orWhere('municipality', 'like', "%{$search}%")
+                    ->orWhere('barangay', 'like', "%{$search}%")
+                    ->orWhere('position', 'like', "%{$search}%");
+
+            })
+
+            ->latest()
+            ->paginate(10)
+            ->withQueryString();
+
         $cooperatives = Cooperative::all();
 
-        return view('farmers.index', compact('farmers', 'cooperatives'));
+        return view('farmer', compact('farmers', 'cooperatives'));
     }
 
     // STORE FARMER

@@ -122,7 +122,7 @@ Route::put('/cooperative/update/{id}',
     [CooperativeController::class, 'update'])
     ->name('cooperative.update');
 
-
+Route::get('/farmer', [FarmerController::class, 'index'])->name('farmer');
 Route::get('/farmers', [FarmerController::class, 'index'])->name('farmers.index');
 Route::post('/farmers', [FarmerController::class, 'store'])->name('farmers.store');
 Route::delete('/farmers/{id}', [FarmerController::class, 'destroy'])->name('farmers.destroy');
