@@ -53,6 +53,11 @@ class CooperativeController extends Controller
         return redirect()->back()->with('success', 'Deleted successfully!');
     }
 
+    public function farmers()
+    {
+        return $this->hasMany(Farmer::class);
+    }
+
 
     // STORE DATA
     public function store(Request $request)

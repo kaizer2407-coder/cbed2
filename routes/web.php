@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CooperativeController;
+use App\Http\Controllers\FarmerController;
 
 Route::get('/welcome', function () {
     return view('welcome');
@@ -121,5 +122,7 @@ Route::put('/cooperative/update/{id}',
     [CooperativeController::class, 'update'])
     ->name('cooperative.update');
 
-    
+
+Route::get('/farmers', [FarmerController::class, 'index'])->name('farmers.index');
 Route::post('/farmers', [FarmerController::class, 'store'])->name('farmers.store');
+Route::delete('/farmers/{id}', [FarmerController::class, 'destroy'])->name('farmers.destroy');
